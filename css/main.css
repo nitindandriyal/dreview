@@ -32,13 +32,14 @@ body
 	padding: 20px 20px 20px 0;
 }
 
-#footer
-{
-	padding: 10px;
-	margin: 10px 20px;
-	font-size: 0.8em;
-	text-align: center;
-	border-top: 1px solid #C9E0ED;
+#footer {
+	height: 80px;
+	width: 100%;
+	background: #c4c2bc;
+	left: 0;
+	bottom: 0;
+	position: relative;	
+	clear: both;
 }
 
 #logo
@@ -226,4 +227,16 @@ div.search-form
 .operations li a:hover
 {
 	background: #80CFFF;
+}
+
+.input-container {
+    background: url(../images/test.jpg) no-repeat;
+}
+
+.input-container input{
+    height:28px;
+    line-height:28px;
+    border:none;
+    padding:0 10px;
+    width:148px;
 }

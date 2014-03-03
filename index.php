@@ -2,13 +2,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="language" content="en"/>
-<!-- left for JS -->
-<script src="http://www.realself.com/js/jquery.js,q2969183885.pagespeed.ce.ft5FopkFDs.js"></script>
-<!-- left for JS -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
 <link rel="stylesheet" type="text/css" href="css/googleapi_style.css"/>
 <link rel="stylesheet" type="text/css" href="css/dr_style.css"/>
-<title>DReiew</title>
+<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+<title>DReview</title>
 <script type="text/javascript">
     (function () {
         var win = $(window), timeout, onload, trigger;
@@ -41,7 +40,7 @@
        
  <nav id="nav">
             <a href="/" id="logo">
-                <img src="" class="img-responsive"/>
+                <img src="images/test.jpg" class="img-responsive"/>
             </a>
             
                    <div id="nav-top-items">
@@ -77,7 +76,7 @@
                       <div class="content"></div>
                     </div>
             
-      <div id="home-tagline" class="hidden-xs">
+      <div id="home-tagline" class="input-container">
                        
       <form action="/search/results" class="form-base form-large" id="rs-home-hero-search">
       <table align="center">
@@ -396,14 +395,13 @@
         </div>
       </div>
     </div>
-    
-       <footer data-enhance="false">
+    <div id="footer">
         <div id="footer-text">
-            <div class="col-sm-3">
-                <p>&copy; 2014 DReview, Inc. All rights are reserved. <a href="/terms-of-service">Terms of Service</a> | <a href="/real_self_privacy_policy.html">Privacy Policy</a>
+            <div align="center" >
+                <center><p>&copy; 2014 DReview, Inc. All rights are reserved.</center>
             </div>
             </div>
-    </footer>
+    </div>
     
  </body>
 </html>
