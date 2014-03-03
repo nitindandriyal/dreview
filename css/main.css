@@ -232,11 +232,10 @@ div.search-form
 .input-container {
     background: url(../images/test.jpg) no-repeat;
 }
-
 .input-container input{
     height:28px;
-    line-height:28px;
+    line-height:28px;/*results in nice text vertical alignment*/
     border:none;
-    padding:0 10px;
-    width:148px;
+    padding:0 10px;/*don't start input text directly from the edge*/
+    width:148px;/*full width - grey on the side - 2*10px padding*/
 }
