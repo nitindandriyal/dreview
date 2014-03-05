@@ -1,4 +1,4 @@
-/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary
 	{
 	display: block
@@ -209,7 +209,7 @@ a {
 }
 
 a:hover,a:focus {
-	color: #2a6496;
+	color: red;
 	text-decoration: underline
 }
 
@@ -271,7 +271,7 @@ hr {
 .container {
 	margin-right: auto;
 	margin-left: auto;
-	padding-left: 15px;
+	padding-left: 30px;
 	padding-right: 15px
 }
 
@@ -374,7 +374,7 @@ hr {
 	{
 	position: relative;
 	min-height: 1px;
-	padding-left: 15px;
+	padding-left: 17px;
 	padding-right: 15px
 }
 
@@ -446,7 +446,7 @@ hr {
 		width: 16.666666666666664%
 	}
 	.col-sm-3 {
-		width: 25%
+		width: 20%
 	}
 	.col-sm-4 {
 		width: 33.33333333333333%
@@ -1621,14 +1621,14 @@ th.visible-print,td.visible-print {
 }
 
 .nav>li.disabled>a:hover,.nav>li.disabled>a:focus {
-	color: #999;
+	color: red;
 	text-decoration: none;
 	background-color: transparent;
 	cursor: not-allowed
 }
 
 .nav .open>a,.nav .open>a:hover,.nav .open>a:focus {
-	background-color: #eee;
+	color: red;
 	border-color: #428bca
 }
 
@@ -1665,7 +1665,7 @@ th.visible-print,td.visible-print {
 
 .nav-tabs>li.active>a,.nav-tabs>li.active>a:hover,.nav-tabs>li.active>a:focus
 	{
-	color: #555;
+	color: red;
 	background-color: #fff;
 	border: 1px solid #ddd;
 	border-bottom-color: transparent;
@@ -1715,7 +1715,7 @@ th.visible-print,td.visible-print {
 
 .nav-pills>li.active>a,.nav-pills>li.active>a:hover,.nav-pills>li.active>a:focus
 	{
-	color: #fff;
+	color: red;
 	background-color: #428bca
 }
 
@@ -2753,7 +2753,7 @@ a.list-group-item.active>.badge,.nav-pills>.active>a>.badge {
 }
 
 .btn-search-cta:hover {
-	color: #fff;
+	color: red;
 	background-color: #125766
 }
 
@@ -3405,7 +3405,7 @@ a .light,.link .light {
 }
 
 a:hover,.link:hover,a:focus,.link:focus {
-	color: #38a3c8;
+	color: red;
 	text-decoration: underline
 }
 
@@ -4626,15 +4626,15 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 }
 
 #nav-signin-button {
-	color: #98918b;
+	color: blue;
 	text-decoration: none;
-	font-size: 12px;
+	font-size: 15px;
 	margin-right: 25px;
 	vertical-align: -4px
 }
-
 #nav-signin-button:hover {
-	text-decoration: underline
+	text-decoration: underline;
+	color:red
 }
 
 #user-nav {
@@ -4719,7 +4719,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 
 .nav-dropdown .dropdown-menu a:hover,.nav-dropdown .dropdown-menu a:focus
 	{
-	color: #38a3c8;
+	color: red;
 	text-decoration: underline
 }
 
@@ -4736,7 +4736,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 
 .nav-dropdown .dropdown-menu a:hover,.nav-dropdown .dropdown-menu a:focus
 	{
-	color: #fff;
+	color: red;
 	text-decoration: none
 }
 
@@ -4835,7 +4835,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 
 .dropdown-menu .dropdown-menu-item:hover,.dropdown-menu a:hover,.dropdown-menu .link:hover
 	{
-	background-color: #666260
+	color:red
 }
 
 .dropdown-menu-light,.nav-tabs li.active .dropdown-menu-light {
@@ -4850,7 +4850,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 
 .dropdown-menu-light .dropdown-menu-item:hover,.nav-tabs li.active .dropdown-menu-light .dropdown-menu-item:hover,.dropdown-menu-light a:hover,.nav-tabs li.active .dropdown-menu-light a:hover
 	{
-	color: #fff;
+	color: red;
 	background-color: #98918b;
 	text-decoration: none
 }
@@ -4908,7 +4908,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 	}
 	.dropdown-menu-mobile .dropdown-menu-item:hover,#nav .dropdown-menu-mobile .dropdown-menu-item:hover,.dropdown-menu-mobile a:hover,#nav .dropdown-menu-mobile a:hover,.dropdown-menu-mobile .link:hover,#nav .dropdown-menu-mobile .link:hover
 		{
-		background-color: #666260
+		color: red
 	}
 }
 
@@ -5034,7 +5034,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 }
 
 .nav-strip .open>a,.nav-strip .open>a:hover,.nav-strip .open>a:focus {
-	background-color: #666260;
+	color: red;
 	position: relative;
 	z-index: 1010;
 	outline: 0
@@ -5266,7 +5266,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 
 .nav-brand a {
 	display: block;
-	color: #fff;
+	color: red;
 	line-height: 60px;
 	padding: 0 15px;
 	font-size: 13px
@@ -5274,7 +5274,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 
 .nav-brand a:hover {
 	background-color: #383838;
-	color: #fff;
+	color: red;
 	text-decoration: none
 }
 
@@ -5854,7 +5854,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 
 .nav-tabs .open>a,.nav-tabs .open>a:hover,.nav-tabs .open>a:focus,.nav-tabs>li.open.active>a
 	{
-	background-color: #f3f3ef;
+	color: red;
 	border-color: #e4ddd7;
 	position: relative;
 	z-index: 1010;
@@ -5929,7 +5929,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 
 .pagination>.active>a,.pagination>.active>span,.pagination>.active>a:hover,.pagination>.active>span:hover,.pagination>.active>a:focus,.pagination>.active>span:focus
 	{
-	background-color: #98918b;
+	color: red;
 	border-color: #98918b
 }
 
@@ -7679,7 +7679,7 @@ body {
 
 @media ( min-width :481px) and (max-width:767px) {
 	.container {
-		padding-left: 20px;
+		padding-left: 15px;
 		padding-right: 20px
 	}
 }
@@ -7864,13 +7864,14 @@ input.gsc-search-button:hover,input.gsc-search-button:hover:hover,input.gsc-sear
 #main-nav li {
 	margin: 0 20px;
 	display: inline-block;
-	font-size: 13px
+	font-size: 17px
 }
 
 #main-nav li a,#main-nav li .link {
-	color: #666260;
-	line-height: 50px
+	color: blue;
+	line-height: 70px
 }
+#main-nav li a:hover{color:red;}
 
 @media ( max-width :1199px) {
 	#main-nav li {

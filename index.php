@@ -44,7 +44,8 @@
 
 		<div id="nav-top-items">
 			<a href="/user/signup" rel="auth-require" data-tab="signup"
-				class="btn btn-cta" id="nav-login-button">Join</a> <a
+				class="btn btn-cta" id="nav-login-button">Join</a>
+				<a
 				href="/user/login" rel="auth-require" data-tab="login"
 				id="nav-signin-button">Sign in</a> <span id="nav-mobile-menu"
 				class="dropdown-toggle nav-item-dropdown" data-toggle="dropdown"
@@ -54,21 +55,23 @@
 
 		<div class="dropdown-menu-mobile" id="main-nav-phone">
 			<ul id="main-nav">
+			<li><a href="/find"
+					data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'>Home </a>
+				</li>
 				<li><a href="/find"
 					data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'>Find
 						a Doctor</a>
 				</li>
-				<li><a href="/review/create" class="link-icon"
+				<li><a href="/review/create" 
 					data-gtm='{"event":"navlink:write-a-review","state":"navlink","action":"click","widget":"nav"}'>
 						<span class="icon icon-edit hidden-xs-inline"></span> <span
-						class="icon icon-edit-white visible-xs-inline"></span> <span
-						class="link">Write a Review</span>
+						class="icon icon-edit-white visible-xs-inline"></span> 
+						<span>Write a Review</span>
 				</a></li>
 			</ul>
 
-			<a href="/user/signup" rel="auth-require" data-tab="signup"
-				class="dropdown-menu-item visible-xs">Sign In / Join</a>
-		</div>
+			
+		   </div>
 
 	</nav>
 
@@ -104,8 +107,10 @@
 	</div>
 
 
-	<div class="container page-section">
+	<div class="container">
+	<br>
 		<h3>Doctor By Speciality</h3>
+		<br>
 		<div id="all-local-landing-pages" class="widget-item-list row">
 
 			<div class="col-sm-3">
@@ -204,9 +209,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="container page-section">
+	<div class="container">
+<br>
 		<h3>Doctor By City</h3>
-		<div id="all-local-landing-pages" class="widget-item-list row">
+<br>		<div id="all-local-landing-pages" class="widget-item-list row">
 
 			<div class="col-sm-3">
 
@@ -325,8 +331,10 @@
 		</div>
 	</div>
 
-	<div class="container page-section">
+	<div class="container">
+<br>
 		<h3>Doctor By State</h3>
+		<br>
 		<div id="all-local-landing-pages" class="widget-item-list row">
 
 			<div class="col-sm-3">
@@ -430,7 +438,8 @@
 		</div>
 	</div>
 
-	<div class="container page-section">
+	<div class="container">
+            <br><br>
 		<h3>Popular Treatment Locations</h3>
 		<br>
 		<div id="all-local-landing-pages" class="widget-item-list row">
@@ -521,6 +530,9 @@
 			</div>
 		</div>
 	</div>
+<br>
+<br>
+<br>
 	<div id="footer">
 		<div id="footer-text">
 			<div align="center">
