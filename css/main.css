@@ -240,3 +240,21 @@ div.search-form
     padding:0 10px;
     width:250px;
 }
+.input-container_spec
+{
+background-color:blue;
+height:12px;
+width:250px;
+border:none;
+padding:0 10px;
+}
+
+#header1 {
+	height: 30px;
+	width: 100%;
+	background: #c4c2bc;
+	left: 0;
+	bottom: 0;
+	position: relative;	
+	clear: both;
+}
