@@ -1,0 +1,194 @@
+2014/03/15 04:10:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\dreview\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gii')
+#1 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\dreview\htdocs\dr\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/dr/index.php?r=gii
+---
+2014/03/15 04:44:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\dreview\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gii')
+#1 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dr/index.php?r=gii
+---
+2014/03/15 04:48:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "page/delete".' in C:\dreview\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('page/delete')
+#1 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dr/index.php?r=page/delete&id%20=25
+---
+2014/03/15 06:40:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "log".' in C:\dreview\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('log')
+#1 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dr/index.php?r=log
+---
+2014/03/15 07:01:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "contacts".' in C:\dreview\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CController.php(270): CController->missingAction('contacts')
+#1 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('contacts')
+#2 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/contacts')
+#3 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dr/site/contacts
+---
+2014/03/15 07:09:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "contacts".' in C:\dreview\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CController.php(270): CController->missingAction('contacts')
+#1 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('contacts')
+#2 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/contacts')
+#3 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dr/site/contacts
+---
+2014/03/15 07:10:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "contacts".' in C:\dreview\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CController.php(270): CController->missingAction('contacts')
+#1 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('contacts')
+#2 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/contacts')
+#3 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dr/site/contacts
+---
+2014/03/15 08:49:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dreview.test' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `test`.
+in C:\dreview\htdocs\dr\index.php (11)
+2014/03/15 08:50:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dreview.test' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `dreview`.`test`.
+in C:\dreview\htdocs\dr\index.php (11)
+2014/03/15 08:51:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "myphphadmin".' in C:\dreview\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('myphphadmin')
+#1 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dr/myphphadmin
+---
+2014/03/15 09:47:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "AP".' in C:\dreview\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CController.php(270): CController->missingAction('AP')
+#1 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('AP')
+#2 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('tblState/AP')
+#3 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dr/index.php/tblState/AP
+HTTP_REFERER=http://localhost/dr/index.php/tblState
+---
+2014/03/15 13:45:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "dr_by_spec_next.php".' in C:\dreview\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CController.php(270): CController->missingAction('dr_by_spec_next...')
+#1 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('dr_by_spec_next...')
+#2 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/dr_by_spec...')
+#3 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dr/index.php/site/dr_by_spec_next.php?speciality=neurosurgery
+HTTP_REFERER=http://localhost/dr/index.php/site/index
+---
+2014/03/15 13:49:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in C:\dreview\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CController.php(270): CController->missingAction('css')
+#1 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('css')
+#2 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/css/main.c...')
+#3 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dr/index.php/site/css/main.css
+HTTP_REFERER=http://localhost/dr/index.php/site/index
+---
+2014/03/15 13:49:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in C:\dreview\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CController.php(270): CController->missingAction('css')
+#1 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('css')
+#2 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/css/google...')
+#3 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dr/index.php/site/css/googleapi_style.css
+HTTP_REFERER=http://localhost/dr/index.php/site/index
+---
+2014/03/15 13:49:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in C:\dreview\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CController.php(270): CController->missingAction('css')
+#1 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('css')
+#2 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/css/dr_sty...')
+#3 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dr/index.php/site/css/dr_style.css
+HTTP_REFERER=http://localhost/dr/index.php/site/index
+---
+2014/03/15 13:49:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in C:\dreview\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CController.php(270): CController->missingAction('css')
+#1 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('css')
+#2 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/css/normal...')
+#3 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dr/index.php/site/css/normalize.css
+HTTP_REFERER=http://localhost/dr/index.php/site/index
+---
+2014/03/15 14:04:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "dr_by_spec_next.php".' in C:\dreview\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CController.php(270): CController->missingAction('dr_by_spec_next...')
+#1 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('dr_by_spec_next...')
+#2 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/dr_by_spec...')
+#3 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dr/index.php/site/dr_by_spec_next.php?speciality=neurosurgery
+HTTP_REFERER=http://localhost/dr/index.php/site/index
+---
+2014/03/15 14:44:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "dr_by_spec_next.php".' in C:\dreview\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dr_by_spec_next...')
+#1 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dr/dr_by_spec_next.php?speciality=allergyImmunology
+HTTP_REFERER=http://localhost/dr/index.php
+---
+2014/03/15 14:48:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "dr_by_spec_next.php".' in C:\dreview\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dr_by_spec_next...')
+#1 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dr/dr_by_spec_next.php?speciality=cardiology
+HTTP_REFERER=http://localhost/dr/index.php
+---
+2014/03/15 14:53:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "dr_by_spec_next.php".' in C:\dreview\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dr_by_spec_next...')
+#1 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dr/dr_by_spec_next.php?speciality=cardiology
+---
+2014/03/15 14:53:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "dr_by_spec_next.php".' in C:\dreview\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dr_by_spec_next...')
+#1 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dr/dr_by_spec_next.php?speciality=cardiology
+---
+2014/03/15 14:55:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "dr_by_spec_next.php".' in C:\dreview\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\dreview\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dr_by_spec_next...')
+#1 C:\dreview\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\dreview\htdocs\dr\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dr/index.php/dr_by_spec_next.php?speciality=cardiology
+HTTP_REFERER=http://localhost/dr/index.php/
+---
