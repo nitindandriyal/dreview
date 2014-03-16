@@ -44,7 +44,7 @@
 <div class="container" id="page">
 
 	<nav id="nav">
-		<a href="/" id="logo"> <img src="" class="img-responsive" />
+		<a href="/" id="logo"> <img src="images/logo.jpg" class="img-responsive" />
 		</a>
 
 		<div id="nav-top-items">
