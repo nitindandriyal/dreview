@@ -75,7 +75,7 @@ $this->pageTitle=Yii::app()->name;
 					</li>
 					<li><a href="dr_by_spec_next.php?speciality=hematology">Hematology</a>
 					</li>
-					<li><a href="dr_by_spec_next.php?speciality=internalMedicine"Internal Medicine</a>
+					<li><a href="dr_by_spec_next.php?speciality=internalMedicine">Internal Medicine</a>
 					</li>
 					<li><a href="dr_by_spec_next.php?speciality=nephrology">Nephrology</a>
 					</li>
