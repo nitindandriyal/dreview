@@ -2734,14 +2734,14 @@ a.list-group-item.active>.badge,.nav-pills>.active>a>.badge {
 }
 
 .btn-cta {
-	background-color: #98b958;
-	border-color: #83a248;
+	background-color: #989898;
+	border-color: #507786;
 	color: #fff
 }
 
 .btn-cta:hover {
 	color: #fff;
-	background-color: #83a445
+	background-color: #607B8B
 }
 
 .btn-dark {
