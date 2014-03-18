@@ -272,7 +272,7 @@ hr {
 	margin-right: auto;
 	margin-left: auto;
 	padding-left: 30px;
-	padding-right: 15px
+	padding-right: 15px;
 }
 h9 {
 	margin-right: auto;
@@ -7912,7 +7912,13 @@ tr[data-video-ab-test] {
 	display: inline-block !important
 }
 
-.tablefront{
+table.tablefront{
 	margin-left: auto;
     margin-right: auto;	
+}
+table.tablefront th{
+	padding: 3px;
+}
+table.tablefront td{
+	padding: 3px;
 }
