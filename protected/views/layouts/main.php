@@ -45,13 +45,14 @@
 		</a>
 
 		<div id="nav-top-items">
-			<a href="/user/signup" rel="auth-require" data-tab="signup"
-				class="btn btn-cta" id="nav-login-button">Join</a>
+			<a href="/user/ligin" rel="auth-require" data-tab="signup"
+				class="btn btn-cta" id="nav-login-button">Login</a>
 				<a
 				href="/user/login" rel="auth-require" data-tab="login"
-				id="nav-signin-button">Sign in</a> <span id="nav-mobile-menu"
-				class="dropdown-toggle nav-item-dropdown" data-toggle="dropdown"
-				data-target="#main-nav-phone"> <span class="icon icon-mobile-menu"></span>
+				id="nav-signin-button">Sign Up</a> 
+				<span id="nav-mobile-menu" class="dropdown-toggle nav-item-dropdown" data-toggle="dropdown"
+				data-target="#main-nav-phone"> 
+				<span class="icon icon-mobile-menu"></span>
 			</span>
 		</div>
 

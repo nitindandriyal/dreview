@@ -7820,9 +7820,9 @@ input.gsc-search-button:hover,input.gsc-search-button:hover:hover,input.gsc-sear
 	position: absolute;
 	display: block;
 	z-index: 1;
-	top: 11px;
-	left: 20px;
-	width: 120px
+	top: 12px;
+	left: 40px;
+	width: 150px
 }
 
 @media ( max-width :767px) {
@@ -7881,7 +7881,7 @@ input.gsc-search-button:hover,input.gsc-search-button:hover:hover,input.gsc-sear
 	color: gray;
 	line-height: 70px;
 	font-family: 'Open Sans',"Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 }
 #main-nav li a:hover{color:gray;}
 
