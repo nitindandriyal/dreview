@@ -41,8 +41,6 @@
 </head>
 </head>
 <body>
-<div class="container" id="page">
-
 	<nav id="nav">
 		<a href="/" id="logo"> <img src="images/logo.jpg" class="img-responsive" />
 		</a>
@@ -87,13 +85,10 @@
 			<div align="center">
 				<center>
 					<p>&copy; 2014 DReview, Inc. All rights are reserved.
-				
 				</center>
 			</div>
 		</div>
 	</div>
-
-</div>
 
 </body>
 </html>
