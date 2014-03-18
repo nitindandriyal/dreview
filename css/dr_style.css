@@ -7911,3 +7911,8 @@ tr[data-video-ab-test] {
 #main-nav [data-video-ab-test] {
 	display: inline-block !important
 }
+
+.tablefront{
+	margin-left: auto;
+    margin-right: auto;	
+}
