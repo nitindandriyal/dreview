@@ -7878,10 +7878,12 @@ input.gsc-search-button:hover,input.gsc-search-button:hover:hover,input.gsc-sear
 }
 
 #main-nav li a,#main-nav li .link {
-	color: blue;
-	line-height: 70px
+	color: gray;
+	line-height: 70px;
+	font-family: 'Open Sans',"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
 }
-#main-nav li a:hover{color:red;}
+#main-nav li a:hover{color:gray;}
 
 @media ( max-width :1199px) {
 	#main-nav li {

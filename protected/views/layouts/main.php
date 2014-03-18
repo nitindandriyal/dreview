@@ -39,7 +39,6 @@
 <meta name="rs:page-format" content="landing" />
 <script>window.dataLayer = window.dataLayer || [];</script>
 </head>
-</head>
 <body>
 	<nav id="nav">
 		<a href="/" id="logo"> <img src="images/logo.jpg" class="img-responsive" />
@@ -58,19 +57,17 @@
 
 		<div class="dropdown-menu-mobile" id="main-nav-phone">
 			<ul id="main-nav">
-			<li><a href="/find"
-					data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'>Home </a>
+				<li>
+					<a href="/find"	data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'><img src="images/home.png"/>Home </a>
 				</li>
-				<li><a href="/find"
-					data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'>Find
-						a Doctor</a>
+				<li><a href="/find"	data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'>
+				<img src="images/search-icon.png"/>Find a Doctor</a>
 				</li>
 				<li><a href="/review/create" 
 					data-gtm='{"event":"navlink:write-a-review","state":"navlink","action":"click","widget":"nav"}'>
-						<span class="icon icon-edit hidden-xs-inline"></span> <span
-						class="icon icon-edit-white visible-xs-inline"></span> 
-						<span>Write a Review</span>
-				</a></li>
+						<img src="images/writereview.png"/>Write a Review
+				</a>
+				</li>
 			</ul>
 
 			
