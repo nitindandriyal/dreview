@@ -12,23 +12,26 @@ $this->pageTitle=Yii::app()->name;
 				<div id="home-tagline">
 					<form action="/search/results" class="form-base form-large"
 						id="rs-home-hero-search">
-						<table align="center">
+						<table class="tablefront">
 							<tr align="left">
-								<th>Select By Speciality</th>&nbsp;
-								<th>Select By Address</th>
+								<th>Search By Speciality</th>
+								<th>Search By Address</th>
+								<th></th>
 							</tr>
 							<tr>
 								<td><input type="text"
-									placeholder="type or select by speciality" autocomplete="off"
+									placeholder="Search by speciality" autocomplete="off"
 									maxlength="30" size="40">
-								</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<td><input type="text" placeholder="type or select by Address"
+								</td>
+								<td>
+									<input type="text" placeholder="Search by Address"
 									autocomplete="off" maxlength="30" size="40">
 								</td>
 								<td><button class="btn btn-search-cta btn-sm" type="submit">Search</button>
 								</td>
 							</tr>
-						</table>				
+						</table>	
+						</form>			
 				</div>
 			</div>
 		</div>
