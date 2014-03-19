@@ -4,8 +4,7 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 <div id="content">
-		<div class="input-container">
-			<div id="header">
+		<div class="input-container">			
 				<div id="home-hero-image" class="aspect-ratio">
 					<div class="content"></div>
 				</div>
@@ -32,7 +31,7 @@ $this->pageTitle=Yii::app()->name;
 							</tr>
 						</table>	
 						</form>			
-				</div>
+			
 			</div>
 		</div>
 	</div>

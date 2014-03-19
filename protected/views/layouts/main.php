@@ -40,34 +40,27 @@
 <script>window.dataLayer = window.dataLayer || [];</script>
 </head>
 <body>
-	<nav id="nav">
-		<a href="/" id="logo"> <img src="images/logo.jpg" class="img-responsive" />
-		</a>
-
-		<div id="nav-top-items">
-			<a href="/user/login" rel="auth-require" data-tab="signup" class="btn btn-cta">Login</a>
-			<a href="/user/login" rel="auth-require" data-tab="signup" class="btn btn-cta">Sign Up</a>
-		</div>
-
-		<div class="dropdown-menu-mobile" id="main-nav-phone">
-			<ul id="main-nav">
-				<li>
-					<a href="/find"	data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'><img src="images/home.png"/>Home </a>
-				</li>
-				<li><a href="/find"	data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'>
-				<img src="images/search-icon.png"/>Find a Doctor</a>
-				</li>
-				<li><a href="/review/create" 
-					data-gtm='{"event":"navlink:write-a-review","state":"navlink","action":"click","widget":"nav"}'>
-						<img src="images/writereview.png"/>Write a Review
-				</a>
-				</li>
+<div id="PageTop">
+	<nav>
+		<ul>
+			<li>
+				<img src="images/logo.jpg" class="logo"/>
+			</li>
+			<li>
+				<a href="/find"	data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'>Home </a>
+			</li>
+			<li><a href="/find"	data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'>Find a Doctor</a>
+			</li>
+			<li><a href="/review/create" 
+						data-gtm='{"event":"navlink:write-a-review","state":"navlink","action":"click","widget":"nav"}'>Write a Review
+					</a>
+			</li>
 			</ul>
-
-			
-		   </div>
-
+			<div class="actions">
+				<a href="/user/login" rel="auth-require" data-tab="signup">Sign In</a>
+			</div>		
 	</nav>
+</div>
  <?php echo $content; ?>
  <div class="clear"></div>
 

@@ -1,4 +1,3 @@
-
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary
 	{
 	display: block
@@ -4515,7 +4514,7 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 }
 
 #nav {
-	position: relative
+	position: absolute
 }
 
 #nav:before,#nav:after {
@@ -4586,6 +4585,12 @@ header .nav-responsive .nav-responsive-more-item.open .dropdown-toggle {
 		display: block
 	}
 }
+
+.home-top-items {
+	background-color: #99E6E6;
+	
+}
+
 
 #nav-top-items {
 	position: relative;
@@ -7923,4 +7928,85 @@ table.tablefront th{
 }
 table.tablefront td{
 	padding: 3px;
+}
+
+#PageTop {
+	position: relative;
+	z-index: 20;
+	width: 100%;
+	height: 56px;
+	background-color: #d0f9fb
+}
+
+#PageTop.translucent {
+	background-color: rgba(124, 178, 40, 0.9)
+}
+
+#PageTop nav {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	max-width: 1150px;
+	min-width: 1100px
+}
+
+#PageTop nav ul {
+	display: inline;
+	padding: 0;
+	list-style: none;
+	font-size: 0
+}
+
+#PageTop nav li {
+	display: inline;
+	font-size: 0;
+	text-shadow: 1px 1px 0px rgba(64, 64, 64, 0.3)
+}
+
+#PageTop nav li a,#PageTop nav li.logo>span {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 3px 13px 1px;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 700;
+	color: #565656;
+	line-height: 41px;
+	outline: none
+}
+
+#PageTop div.actions {
+	position: absolute;
+	top: 15px;
+	right: 0;
+	line-height: 16px;
+	text-shadow: 1px 1px 0px rgba(64, 64, 64, 0.4)
+}
+
+#PageTop div.actions>a {
+	color: #565656;
+	margin: 0 0 0 15px
+}
+
+#PageTop div.actions>a.u {
+	text-decoration: underline
+}
+
+#PageTop div.actions>span {
+	color: #565656;
+	margin: 0 0 0 15px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none
+}
+
+#PageTop div.actions>span>a {
+	color: #565656;
+	text-decoration: none
+}
+
+#PageTop div.actions>span>a:hover {
+	text-decoration: underline
 }
