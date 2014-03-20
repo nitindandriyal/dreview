@@ -17,12 +17,13 @@ audio:not ([controls] ){
 }
 
 html {
-	font-family: sans-serif;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%
 }
 
 body {
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	margin: 0
 }
 
@@ -2631,7 +2632,7 @@ a.list-group-item.active>.badge,.nav-pills>.active>a>.badge {
 .btn {
 	display: inline-block;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 2px;
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
@@ -7932,7 +7933,7 @@ table.tablefront td{
 
 #PageTop {
 	position: relative;
-	z-index: 20;
+	z-index: 1;
 	width: 100%;
 	height: 56px;
 	background-color: #d0f9fb
@@ -7968,7 +7969,7 @@ table.tablefront td{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	display: inline-block;
-	padding: 3px 13px 1px;
+	padding: 3px 20px 1px;
 	font-size: 14px;
 	line-height: 16px;
 	font-weight: 700;
@@ -8009,4 +8010,76 @@ table.tablefront td{
 
 #PageTop div.actions>span>a:hover {
 	text-decoration: underline
+}
+
+#SignIn
+{
+	border:1px solid grey;
+	width:800px;
+	height:500px;
+	margin:auto;
+	margin-top:35px;
+	font-family:Tahoma;
+	font-size:12px;
+	border-radius:5px
+}
+
+#loginDiv
+{
+	margin:0 auto;
+	width:390px;
+	height:300px;
+	float:left;
+	display:inline-block;
+}
+
+.login_tbl
+{
+	width:70%;
+	margin:auto;
+}
+
+.login_tbl tr td
+{
+	padding:5px;
+}
+
+.login_tbl input{
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+    height:32px;
+    line-height:32px;
+    padding:0 10px;
+    width:250px;
+}
+
+#tc_checkbox
+{
+	height:15px;
+	width:15px;
+}
+
+.loginTblSpan{
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	text-align: center;
+	margin-top:20px;
+	margin-bottom:20px;
+	color: #737373;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 32px;
+	padding: 0 11px;
+	display: block;
+	text-shadow: 1px 1px 0px rgba(64, 64, 64, 0.2)
+}
+
+.loginImageSpan{
+	text-align: center;
+	padding: 0 11px;
+	display: block;
+}
+
+#CreateAccount
+{
+	font-size: 14px;
 }
