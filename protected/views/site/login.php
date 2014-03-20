@@ -9,45 +9,93 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Login</h1>
+<div id="SignIn">
+	<div id="loginDiv">
+		<span class="loginTblSpan">Login to DReview</span>
+		<br><br>
+		<table class="login_tbl">
+			<tr>
+				<td>
+				<input type="text"
+					placeholder="Enter Email or Phone" autocomplete="off"
+					maxlength="30" size="30" style="border-radius:5px">
+				</td>				
+			</tr>
+			<tr>
+				<td>
+				<input type="text"
+					placeholder="Enter Password" autocomplete="off"
+					maxlength="30" size="30" style="border-radius:5px">
+				</td>				
+			</tr>
+			<tr>
+				<td align="center">
+					<button class="btn">LogIn</button>
+				</td>
+			</tr>
+		</table>
 
-<p>Please fill out the following form with your login credentials:</p>
-
-<div class="form">
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'login-form',
-	'enableClientValidation'=>true,
-	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-	),
-)); ?>
-
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-		<?php echo $form->error($model,'username'); ?>
+		<span class="loginTblSpan">OR</span>
+		<span class="loginImageSpan"><img src="images/facebook.png"/><span>
+		<span class="loginImageSpan"><img src="images/google.png"/><span>
+		<span class="loginImageSpan"><img src="images/twitter.png"/><span>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
-		<?php echo $form->error($model,'password'); ?>
-		<p class="hint">
-			Hint: You may login with <kbd>demo</kbd>/<kbd>demo</kbd> or <kbd>admin</kbd>/<kbd>admin</kbd>.
-		</p>
-	</div>
-
-	<div class="row rememberMe">
-		<?php echo $form->checkBox($model,'rememberMe'); ?>
-		<?php echo $form->label($model,'rememberMe'); ?>
-		<?php echo $form->error($model,'rememberMe'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
-</div><!-- form -->
+	
+	<div style="width:2px; height:400px; background: red; display:inline-block; margin-top:50px"></div> 
+	<div style="float:right; display:inline-block; height:300px; width:390px">		
+		<table class="login_tbl">
+			<tr>
+				<td><span class="loginTblSpan">SignUp</span></td>
+			</tr>	
+			<tr>
+				<td><span class="loginTblSpan" id="CreateAccount">Create an account with DReview</span></td>
+			</tr>			
+			<tr>
+				<td>
+				<input type="text"
+					placeholder="First Name" autocomplete="off"
+					maxlength="30" size="30" style="border-radius:5px">				
+				</td>	
+			</tr>
+			<tr>
+				<td>
+				<input type="text"
+					placeholder="Last Name" autocomplete="off"
+					maxlength="30" size="30" style="border-radius:5px">				
+				</td>					
+			</tr>
+			<tr>
+				<td>
+				<input type="text"
+					placeholder="Email" autocomplete="off"
+					maxlength="30" size="30" style="border-radius:5px">				
+				</td>						
+			</tr>
+			<tr>
+				<td>
+				<input type="text"
+					placeholder="Password" autocomplete="off"
+					maxlength="30" size="30" style="border-radius:5px">				
+				</td>						
+			</tr>
+			<tr>
+				<td>
+				<input type="text"
+					placeholder="Confirm Password" autocomplete="off"
+					maxlength="30" size="30" style="border-radius:5px">				
+				</td>						
+			</tr>
+			<tr>
+				<td align="center">
+					<input id="tc_checkbox" type="checkbox" value="1" checked="1">
+					<label>I agree to the terms and conditions*</label>				
+				</td>							
+			</tr>	
+			<tr>
+				<td align="center">
+					<button class="btn" type="Submit">Create Account</button>
+				</td>
+			</tr>	
+		</table>
+	</div>		
+</div>
