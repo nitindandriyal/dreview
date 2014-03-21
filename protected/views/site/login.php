@@ -11,9 +11,13 @@ $this->breadcrumbs=array(
 
 <div id="SignIn">
 	<div id="loginDiv">
-		<span class="loginTblSpan">Login to DReview</span>
-		<br><br>
 		<table class="login_tbl">
+			<tr>
+				<td><span class="loginTblSpan">Login</span></td>
+			</tr>
+			<tr>
+				<td><span class="loginTblSpan" id="CreateAccount">Already a member?</span></td>
+			</tr>
 			<tr>
 				<td>
 				<input type="text"
@@ -23,7 +27,7 @@ $this->breadcrumbs=array(
 			</tr>
 			<tr>
 				<td>
-				<input type="text"
+				<input type="password"
 					placeholder="Enter Password" autocomplete="off"
 					maxlength="30" size="30" style="border-radius:5px">
 				</td>				
@@ -42,13 +46,13 @@ $this->breadcrumbs=array(
 	</div>
 	
 	<div style="width:2px; height:400px; background: red; display:inline-block; margin-top:50px"></div> 
-	<div style="float:right; display:inline-block; height:300px; width:390px">		
+	<div id="SignInDiv">		
 		<table class="login_tbl">
 			<tr>
 				<td><span class="loginTblSpan">SignUp</span></td>
 			</tr>	
 			<tr>
-				<td><span class="loginTblSpan" id="CreateAccount">Create an account with DReview</span></td>
+				<td><span class="loginTblSpan" id="CreateAccount">Create a new account</span></td>
 			</tr>			
 			<tr>
 				<td>
@@ -73,14 +77,14 @@ $this->breadcrumbs=array(
 			</tr>
 			<tr>
 				<td>
-				<input type="text"
+				<input type="password"
 					placeholder="Password" autocomplete="off"
 					maxlength="30" size="30" style="border-radius:5px">				
 				</td>						
 			</tr>
 			<tr>
 				<td>
-				<input type="text"
+				<input type="password"
 					placeholder="Confirm Password" autocomplete="off"
 					maxlength="30" size="30" style="border-radius:5px">				
 				</td>						
