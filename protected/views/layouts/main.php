@@ -57,7 +57,7 @@
 			</li>
 			</ul>
 			<div class="actions">
-				<a href="/user/login" rel="auth-require" data-tab="signup">Sign In</a>
+				<a href="login" rel="auth-require" data-tab="signup">Sign In</a>
 			</div>		
 	</nav>
 </div>
