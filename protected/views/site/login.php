@@ -36,9 +36,9 @@ $this->breadcrumbs=array(
 		</table>
 
 		<span class="loginTblSpan">OR</span>
-		<span class="loginImageSpan"><img src="images/facebook.png"/><span>
-		<span class="loginImageSpan"><img src="images/google.png"/><span>
-		<span class="loginImageSpan"><img src="images/twitter.png"/><span>
+		<span class="loginImageSpan"><img src="../images/facebook.png"/><span>
+		<span class="loginImageSpan"><img src="../images/google.png"/><span>
+		<span class="loginImageSpan"><img src="../images/twitter.png"/><span>
 	</div>
 	
 	<div style="width:2px; height:400px; background: red; display:inline-block; margin-top:50px"></div> 
