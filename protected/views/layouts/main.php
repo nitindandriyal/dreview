@@ -44,7 +44,7 @@
 	<nav>
 		<ul>
 			<li>
-				<img src="images/logo.jpg" class="logo"/>
+				<img src="../images/logo.jpg" class="logo"/>
 			</li>
 			<li>
 				<a href="/find"	data-gtm='{"event":"navlink:find-a-doctor","state":"navlink","action":"click","widget":"nav"}'>Home </a>
