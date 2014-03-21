@@ -39,7 +39,7 @@ $this->pageTitle=Yii::app()->name;
 <br>
 		<h3>Doctor By Speciality</h3>
 		<br>
-		<div id="all-local-landing-pages" class="widget-item-list row">
+		<div class="widget-item-list row">
 
 			<div class="col-sm-3">
 				<ul class='list-unstyled list-spaceless'>
@@ -59,13 +59,10 @@ $this->pageTitle=Yii::app()->name;
 					</li>
 					<li><a href="dr_by_spec_next.php?speciality=endocrinologyDiabetesMetabolism">Endocrinology, Diabetes & Metabolism</a>
 					</li>
-
 				</ul>
 			</div>
 
 			<div class="col-sm-3">
-
-
 				<ul class='list-unstyled list-spaceless'>
 					<li><a href="dr_by_spec_next.php?speciality=familyMedicine">Family Medicine</a>
 					</li>
@@ -87,61 +84,50 @@ $this->pageTitle=Yii::app()->name;
 			</div>
 
 			<div class="col-sm-3">
-
-
 				<ul class='list-unstyled list-spaceless'>
 					<li><a href="dr_by_spec_next.php?speciality=neurosurgery">Neurosurgery</a>
 					</li>
-
 					<li><a href="dr_by_spec_next.php?speciality=obstetricsGynecology">Obstetrics & Gynecology</a>
 					</li>
 					<li><a href="dr_by_spec_next.php?speciality=ophthalmology">Ophthalmology</a>
 					</li>
-
 					<li><a href="dr_by_spec_next.php?speciality=orthopedicSurgery">Orthopedic Surgery</a>
 					</li>
 					<li><a href="dr_by_spec_next.php?speciality=painmedicine">Pain Medicine</a>
 					</li>
-
 					<li><a href="dr_by_spec_next.php?speciality=pediatrics">Pediatrics</a>
 					</li>
 					<li><a href="dr_by_spec_next.php?speciality=plasticSurgery">Plastic Surgery</a>
 					</li>
-
 				</ul>
-
 			</div>
-
+			
 			<div class="col-sm-3">
-
-
 				<ul class='list-unstyled list-spaceless'>
 					<li><a href="dr_by_spec_next.php?speciality=psychiatry">Psychiatry</a>
 					</li>
-
 					<li><a href="dr_by_spec_next.php?speciality=psychology">Psychology</a>
 					</li>
 					<li><a href="dr_by_spec_next.php?speciality=pulmonology">Pulmonology</a>
 					</li>
-
 					<li><a href="dr_by_spec_next.php?speciality=rheumatology">Rheumatology</a>
 					</li>
 					<li><a href="dr_by_spec_next.php?speciality=socialWork">Social Work</a>
 					</li>
-
 					<li><a href="dr_by_spec_next.php?speciality=sportsMedicine">Sports Medicine</a>
 					</li>
 					<li><a href="dr_by_spec_next.php?speciality=urology">Urology</a>
 					</li>
 				</ul>
 			</div>
+			
 		</div>
 	</div>
 
 	<div class="container">
 <br>
 		<h3>Doctor By City</h3>
-<br>		<div id="all-local-landing-pages" class="widget-item-list row">
+<br>		<div class="widget-item-list row">
 
 			<div class="col-sm-3">
 
@@ -201,17 +187,13 @@ $this->pageTitle=Yii::app()->name;
 			</div>
 
 			<div class="col-sm-3">
-
-
 				<ul class='list-unstyled list-spaceless'>
-
 					<li><a href="/">Kanpur</a>
 					</li>
 					<li><a href="/">Kolkata</a>
 					</li>
 					<li><a href="/">Lucknow</a>
 					</li>
-
 					<li><a href="/">Mumbai</a>
 					</li>
 					<li><a href="/">Nagpur</a>
@@ -220,36 +202,25 @@ $this->pageTitle=Yii::app()->name;
 					</li>
 					<li><a href="/">New Delhi</a>
 					</li>
-
 					<li><a href="/">Noida</a>
 					</li>
-
-
-
-
 				</ul>
-
 			</div>
 
 			<div class="col-sm-3">
-
-
 				<ul class='list-unstyled list-spaceless'>
 					<li><a href="/">Puducherry</a>
 					</li>
 					<li><a href="/">Pune</a>
 					</li>
-
 					<li><a href="/">Tiruchirappalli</a>
 					</li>
 					<li><a href="/">Trivandrum</a>
 					</li>
-
 					<li><a href="/">Tripura (TR)</a>
 					</li>
 					<li><a href="/">Varanasi</a>
 					</li>
-
 					<li><a href="/">Vijayawada</a>
 					</li>
 					<li><a href="/">Visakhapatnam</a>
@@ -264,7 +235,7 @@ $this->pageTitle=Yii::app()->name;
 <br>
 		<h3>Doctor By State</h3>
 		<br>
-		<div id="all-local-landing-pages" class="widget-item-list row">
+		<div class="widget-item-list row">
 
 			<div class="col-sm-3">
 
@@ -371,12 +342,10 @@ $this->pageTitle=Yii::app()->name;
             <br><br>
 		<h3>Popular Treatment Locations</h3>
 		<br>
-		<div id="all-local-landing-pages" class="widget-item-list row">
-
+		<div class="widget-item-list row">
 			<div class="col-sm-3">
-				<h3>Banglore</h3>
-
 				<ul class='list-unstyled list-spaceless'>
+					<li><h5>Bangalore</h5></li>
 					<li><a href="/">Cardiology</a>
 					</li>
 					<li><a href="/">Ear, Nose and Throat</a>
@@ -395,9 +364,8 @@ $this->pageTitle=Yii::app()->name;
 			</div>
 
 			<div class="col-sm-3">
-				<h3>Delhi</h3>
-
 				<ul class='list-unstyled list-spaceless'>
+					<li><h5>Delhi</h5></li>
 					<li><a href="/">Cardiology</a>
 					</li>
 					<li><a href="/">Ear, Nose and Throat</a>
@@ -416,9 +384,8 @@ $this->pageTitle=Yii::app()->name;
 			</div>
 
 			<div class="col-sm-3">
-				<h3>Mumbai</h3>
-
 				<ul class='list-unstyled list-spaceless'>
+					<li><h5>Mumbai</h5></li>
 					<li><a href="/">Cardiology</a>
 					</li>
 					<li><a href="/">Ear, Nose and Throat</a>
@@ -438,9 +405,8 @@ $this->pageTitle=Yii::app()->name;
 			</div>
 
 			<div class="col-sm-3">
-				<h3>Kolkata</h3>
-
 				<ul class='list-unstyled list-spaceless'>
+					<li><h5>Kolkata</h5></li>
 					<li><a href="/">Cardiology</a>
 					</li>
 					<li><a href="/">Ear, Nose and Throat</a>
