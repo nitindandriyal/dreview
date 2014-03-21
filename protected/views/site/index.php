@@ -6,7 +6,6 @@ $this->pageTitle=Yii::app()->name;
 <div id="content">
 		<div class="input-container">			
 				<div id="home-hero-image" class="aspect-ratio">
-					<div class="content"></div>
 				</div>
 				<div id="home-tagline">
 					<form action="/search/results" class="form-base form-large"
