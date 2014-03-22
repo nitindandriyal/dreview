@@ -405,7 +405,7 @@ table.tablefront td{
 	margin: 0 0 0 0px
 }
 
-#PageTop div.actions ul li:hover {
+#PageTop div.actions ul li a:hover {
 	text-decoration: none;
 	text-shadow:none;
 }
