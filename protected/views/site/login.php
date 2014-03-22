@@ -1,4 +1,20 @@
 <?php
+//Always place this code at the top of the Page
+session_start();
+if (isset($_SESSION['id'])) {
+    // Redirection to login page twitter or facebook
+    header("location: home.php");
+}
+
+if (array_key_exists("login", $_GET)) {
+    $oauth_provider = $_GET['oauth_provider'];
+    if ($oauth_provider == 'twitter') {
+        header("Location: loginTwitter.php");
+    } else if ($oauth_provider == 'facebook') {
+        header("Location: loginFacebook.php");
+    }
+}
+
 /* @var $this SiteController */
 /* @var $model LoginForm */
 /* @var $form CActiveForm  */
@@ -40,7 +56,7 @@ $this->breadcrumbs=array(
 		</table>
 
 		<span class="loginTblSpan">OR</span>
-		<span class="loginImageSpan"><img src="../images/facebook.png"/><span>
+		<span class="loginImageSpan"><a href="loginFacebook"><img src="../images/facebook.png"/></a><span>
 		<span class="loginImageSpan"><img src="../images/google.png"/><span>
 		<span class="loginImageSpan"><img src="../images/twitter.png"/><span>
 	</div>
