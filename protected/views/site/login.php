@@ -34,7 +34,7 @@ $this->breadcrumbs=array(
 			</tr>
 			<tr>
 				<td align="center">
-					<button class="btn-login-cta btn-sm">LogIn</button>
+					<button class="btn btn-login-cta">LogIn</button>
 				</td>
 			</tr>
 		</table>
@@ -97,7 +97,7 @@ $this->breadcrumbs=array(
 			</tr>	
 			<tr>
 				<td align="center">
-					<button class="btn-login-cta btn-sm" type="Submit">Create Account</button>
+					<button class="btn btn-login-cta" type="Submit">Confirm</button>
 				</td>
 			</tr>	
 		</table>

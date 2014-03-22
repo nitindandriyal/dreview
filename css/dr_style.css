@@ -235,6 +235,7 @@ table.tablefront td{
 	border-radius: 3px;
 	padding: 10px 17px;
 	font-size: 14px;
+	font-weight:bold;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -249,7 +250,7 @@ table.tablefront td{
 }
 
 .btn:hover,.btn:focus {
-	text-decoration: none
+	text-decoration:none;
 }
 
 .btn:active {
@@ -259,29 +260,29 @@ table.tablefront td{
 }
 
 .btn-search-cta {
-	background-color: #187489;
-	border-color: #176977;
+	background-color: #669F51;
+	border-color: #5A8C45;
 	color: #fff;
 	height: 45px;
 	width: 100px;
 }
 
 .btn-search-cta:hover {
-	color: red;
-	background-color: #125766
+	background-color: #5A8C45
 }
 
 .btn-login-cta {
-	background-color: #187489;
-	border-color: #176977;
+	background-color: #669F51;
+	border-color: #5A8C45;
 	color: #fff;
 	height: 45px;
 	width: 100px;
+	padding: 8px 12px;
+	font-size: 1.3em;	
 }
 
 .btn-login-cta:hover {
-	color: red;
-	background-color: #125766
+	background-color: #5A8C45;
 }
 
 .btn-sm {
@@ -404,8 +405,9 @@ table.tablefront td{
 	margin: 0 0 0 0px
 }
 
-#PageTop div.actions>a.u {
-	text-decoration: underline
+#PageTop div.actions ul li:hover {
+	text-decoration: none;
+	text-shadow:none;
 }
 
 #PageTop div.actions>span {
@@ -422,7 +424,7 @@ table.tablefront td{
 }
 
 #PageTop div.actions>span>a:hover {
-	text-decoration: underline
+	text-decoration: none;
 }
 
 #SignIn

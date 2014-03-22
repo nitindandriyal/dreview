@@ -10,11 +10,6 @@ $this->pageTitle=Yii::app()->name;
 			<form action="/search/results" class="form-base form-large"
 				id="rs-home-hero-search">
 				<table class="tablefront">
-					<tr align="left">
-						<th>Search By Speciality</th>
-						<th>Search By Address</th>
-						<th></th>
-					</tr>
 					<tr>
 						<td><input type="text" placeholder="Search by speciality"
 							autocomplete="off" maxlength="30" size="40">
