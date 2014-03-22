@@ -34,7 +34,7 @@ $this->breadcrumbs=array(
 			</tr>
 			<tr>
 				<td align="center">
-					<button class="btn">LogIn</button>
+					<button class="btn-login-cta btn-sm">LogIn</button>
 				</td>
 			</tr>
 		</table>
@@ -45,7 +45,7 @@ $this->breadcrumbs=array(
 		<span class="loginImageSpan"><img src="../images/twitter.png"/><span>
 	</div>
 	
-	<div style="width:2px; height:400px; background: red; display:inline-block; margin-top:50px"></div> 
+	<div style="width:2px; height:400px; background: grey; display:inline-block; margin-top:50px"></div> 
 	<div id="SignInDiv">		
 		<table class="login_tbl">
 			<tr>
@@ -97,7 +97,7 @@ $this->breadcrumbs=array(
 			</tr>	
 			<tr>
 				<td align="center">
-					<button class="btn" type="Submit">Create Account</button>
+					<button class="btn-login-cta btn-sm" type="Submit">Create Account</button>
 				</td>
 			</tr>	
 		</table>

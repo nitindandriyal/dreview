@@ -13,9 +13,8 @@ body {
 
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 	font-weight: normal;
-	margin: 0 0 .4em 1.7em;
+	margin: 0 0 .4em .3em;
 	line-height: 1.2em;
-	color: #666260
 	
 }
 
@@ -33,7 +32,7 @@ h2,.h2 {
 h3,.h3 {
 	font-size: 21px;
 	font-weight: 400;
-	margin-bottom: .2em
+	margin-bottom: .2em;
 }
 
 h4,.h4 {
@@ -272,6 +271,19 @@ table.tablefront td{
 	background-color: #125766
 }
 
+.btn-login-cta {
+	background-color: #187489;
+	border-color: #176977;
+	color: #fff;
+	height: 45px;
+	width: 100px;
+}
+
+.btn-login-cta:hover {
+	color: red;
+	background-color: #125766
+}
+
 .btn-sm {
 	padding: 8px 12px;
 	font-size: 1.3em;
@@ -298,34 +310,20 @@ table.tablefront td{
 	margin-bottom: 30px
 }
 
-.row {
-	margin-left: -15px;
-	margin-right: -15px
-}
-
-.row:before,.row:after {
-	content: " ";
-	display: table
-}
-
-.row:after {
-	clear: both
-}
-
 .col-sm-3{
 	box-sizing:border-box;
 	-moz-box-sizing:border-box; /* Firefox */
 	position: relative;
-	left-padding:5px;
+	left-padding:20px;
 	min-height: 1px;
-	float: right;
+	float: left;
 	width: 24%;
 }
 
 
 .list-unstyled,ul.unstyled {
 	margin: 0;
-	padding: 0;
+	padding: 5px;
 	list-style-type: none
 }
 
