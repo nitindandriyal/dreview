@@ -42,7 +42,7 @@
 	</div>
 	<?php echo $content; ?>
 	<footer class="site-footer">
-		<div class="row" style="margin-left: 50px">
+		<div class="row">
 			<ul class="footer-links">
 				<li class="foot-link_item">
 					<h3>About</h3>
@@ -90,12 +90,11 @@
 						class="icon-google-plus icon-blocks icon-blocks--google-plus"></i>
 				</a>
 				</li>
+			
 			</ul>
-			<p class="site-footer_copyright" style="margin-right: 10px">
-          &copy; 2000 &ndash; 2014 DReview, Inc. All rights are reserved.
-        	</p>
 		</div>
-	
+		<p></p>
+		<div align="center" style="width:100%; margin-left:auto; margin-right: auto; color: #38B7E0; font-size:small; ">&copy; 2014 DReview, Inc. All rights are reserved.</div>
 	</footer>
 
 </body>
