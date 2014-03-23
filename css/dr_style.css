@@ -397,17 +397,19 @@ table.tablefront td{
 	position: absolute;
 	top: 20px;
 	right: 0;
+	font-weight: bold;
 	text-shadow: 1px 1px 0px rgba(64, 64, 64, 0.4)
 }
 
 #PageTop div.actions>a {
 	color: #565656;
-	margin: 0 0 0 0px
+	margin: 0 0 0 0px;
 }
 
 #PageTop div.actions ul li a:hover {
 	text-decoration: none;
-	text-shadow:none;
+	font-weight: bold;
+	text-shadow:1px 1px 0px rgba(64, 64, 64, 0.8);
 }
 
 #PageTop div.actions>span {
