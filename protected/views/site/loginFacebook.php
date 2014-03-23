@@ -36,7 +36,7 @@ if ($user) {
 			$_SESSION['username'] = $userdata['username'];
 			$_SESSION['email'] = $email;
 			$_SESSION['oauth_provider'] = $userdata['oauth_provider'];
-			header("Location: home.php");
+			header("Location: index");
 		}
 	} else {
 		# For testing purposes, if there was an error, let's kill the script
