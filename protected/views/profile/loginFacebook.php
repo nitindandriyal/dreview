@@ -11,8 +11,10 @@ $facebook = new Facebook(array(
 
 $user = $facebook->getUser();
 
-if ($user) {
-	try {
+if ($user) 
+{
+	try 
+	{
 		// Proceed knowing you have a logged in user who's authenticated.
 		$user_profile = $facebook->api('/me');
 	} catch (FacebookApiException $e) {
@@ -20,7 +22,8 @@ if ($user) {
 		$user = null;
 	}
 
-	if (!empty($user_profile )) {
+	if (!empty($user_profile )) 
+	{
 		# User info ok? Let's print it (Here we will be adding the login and registering routines)
 
 		$username = $user_profile['name'];
@@ -28,7 +31,8 @@ if ($user) {
 		$email = $user_profile['email'];
 		$user = new User();
 		$userdata = $user->checkUser($uid, 'facebook', $username,$email,$twitter_otoken,$twitter_otoken_secret);
-		if(!empty($userdata)){
+		if(!empty($userdata))
+		{
 			session_start();
 			$_SESSION['id'] = $userdata['id'];
 			$_SESSION['oauth_id'] = $uid;
@@ -38,13 +42,17 @@ if ($user) {
 			$_SESSION['oauth_provider'] = $userdata['oauth_provider'];
 			header("Location: index");
 		}
-	} else {
+	} 
+	else 
+		{
 		# For testing purposes, if there was an error, let's kill the script
 		die("There was an error.");
-	}
-} else {
+		}
+} 
+else 
+	{
 	# There's no active session, let's generate one
 	$login_url = $facebook->getLoginUrl(array( 'scope' => 'email'));
 	header("Location: " . $login_url);
-}
+	}
 ?>
