@@ -7,16 +7,11 @@
 <meta name="language" content="en" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet"
-		href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
-	<link rel="stylesheet" type="text/css"
-		href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css"
-		href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-	<link rel="stylesheet" type="text/css"
-		href="<?php echo Yii::app()->request->baseUrl; ?>/css/dr_style.css" />
-	<link rel="stylesheet" type="text/css"
-		href="<?php echo Yii::app()->request->baseUrl; ?>/css/normalize.css" />
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/dr_style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/normalize.css" />
 	<title>DReview</title>
 
 </head>
@@ -34,7 +29,7 @@
 				</li>
 				<li><a href="writereview">Write a Review</a>
 				</li>
-				<li><a href="login" rel="auth-require" data-tab="signup">Sign In</a>
+				<li><a href="/dreview/login/index" rel="auth-require" data-tab="signup">Sign In</a>
 				</li>
 			</ul>
 		</div>
@@ -78,17 +73,22 @@
 				<li class="foot-link_item">
 					<h3>Connect</h3>
 				</li>
-				<li class="foot-link_item foot-link_item--icons"><a href="/feed"><i
-						class="icon-rss icon-blocks icon-blocks--rss"></i> </a> <a
-					href="/newsletter"><i
-						class="icon-envelope-alt icon-blocks icon-blocks--newsletter"></i>
-				</a> <a href="https://www.facebook.com/dreview" target="_blank"><i
-						class="icon-facebook icon-blocks icon-blocks--facebook"></i> </a>
-					<a href="http://twitter.com/sitepointdotcom" target="_blank"><i
-						class="icon-twitter icon-blocks icon-blocks--twitter"></i> </a> <a
-					href="https://plus.google.com/+dreview" target="_blank"><i
-						class="icon-google-plus icon-blocks icon-blocks--google-plus"></i>
-				</a>
+				<li class="foot-link_item foot-link_item--icons">
+					<a href="/feed">
+						<i class="icon-rss icon-blocks icon-blocks--rss"></i> 
+					</a> 
+					<a href="/newsletter">
+						<i class="icon-envelope-alt icon-blocks icon-blocks--newsletter"></i>
+					</a> 
+					<a href="https://www.facebook.com/dreview" target="_blank">
+						<i class="icon-facebook icon-blocks icon-blocks--facebook"></i> 
+					</a>
+					<a href="http://twitter.com/sitepointdotcom" target="_blank">
+						<i class="icon-twitter icon-blocks icon-blocks--twitter"></i> 
+					</a> 
+					<a href="https://plus.google.com/+dreview" target="_blank">
+						<i class="icon-google-plus icon-blocks icon-blocks--google-plus"></i>
+					</a>
 				</li>
 			
 			</ul>
