@@ -81,7 +81,7 @@ p.condensed,.paragraph.condensed {
 
 .large {
 	font-size: 18px;
-	line-height: 1.3em
+	line-height: 1.5em
 }
 
 .bold {
@@ -190,7 +190,7 @@ table.tablefront td{
 }
 
 .form-base input[type=text],.form-base input[type=password],.form-base input[type=date],.form-base textarea,.form-base select{
-	font-size: 1.3em;
+	font-size: 1.5em;
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	border: 1px solid #e4ddd7;
 	margin: 0
@@ -234,7 +234,7 @@ table.tablefront td{
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	border-radius: 3px;
 	padding: 10px 17px;
-	font-size: 14px;
+	font-size: 1.5em;
 	font-weight:bold;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -278,7 +278,7 @@ table.tablefront td{
 	height: 45px;
 	width: 100px;
 	padding: 8px 12px;
-	font-size: 1.3em;
+	font-size: 1.5em;
 }
 
 .btn-login-cta:hover {
@@ -287,7 +287,7 @@ table.tablefront td{
 
 .btn-sm {
 	padding: 8px 12px;
-	font-size: 1.3em;
+	font-size: 1.5em;
 }
 
 .container {
@@ -429,7 +429,7 @@ table.tablefront td{
 	text-decoration: none;
 }
 
-#SignIn
+.SignIn
 {
 	border:1px solid grey;
 	width:800px;
@@ -445,7 +445,44 @@ table.tablefront td{
 	box-shadow: 2px 2px 4px #888;
 }
 
-#loginDiv
+.SignIn-Login
+{
+	margin-top:-45px;
+	height:220px;
+}
+
+.SignIn input{
+	position:relative; 
+	top:10px;
+	height:45px;
+    font-size: 1.5em;
+    line-height:32px;
+    padding:0 5px;
+    border: 1px solid #e4ddd7;
+    border-radius: 6px;
+}
+
+.SignIn input[type='checkbox']{
+	width: 16px;
+	height: 16px;
+	background: #555;
+	position: relative;
+	border-radius: 2px;
+	border: 1px;	
+	top: 7px;
+}
+
+.SignIn label{
+	vertical-align:middle;
+	position:relative;
+	display:inline-block;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+	border: 1px;
+	font-size: 1.1em;
+	height:16px;
+}
+
+.SignUp
 {
 	margin:0 auto;
 	width:390px;
@@ -454,29 +491,19 @@ table.tablefront td{
 	display:inline-block;
 }
 
-#SignInDiv
+#SignUpLeft
 {
-	margin:0 auto;
-	width:390px;
-	height:100%;
+	float:left;
+}
+
+#SignUpRight
+{
 	float:right;
-	display:inline-block;
-}
-
-.login_tbl
-{
-	width:70%;
-	margin:auto;
-}
-
-.login_tbl tr td
-{
-	padding:5px;
 }
 
 input{
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 1.5em;
     height:32px;
     line-height:32px;
     padding:0 10px;
