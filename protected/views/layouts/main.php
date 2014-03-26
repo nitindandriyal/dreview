@@ -13,7 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/dr_style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/normalize.css" />
 	<title>DReview</title>
-
+	<script language="javaScript" type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js"></script>
+	
 </head>
 <body>
 	<div id="PageTop">
@@ -23,18 +24,17 @@
 		<nav>
 		<div class="actions">
 			<ul>
-				<li><a href="index">Home </a>
+				<li><a href="/dreview/home/index">Home </a>
 				</li>
-				<li><a href="find">Find a Doctor</a>
+				<li><a href="/dreview/profile/login">Login</a>
 				</li>
-				<li><a href="writereview">Write a Review</a>
-				</li>
-				<li><a href="/dreview/login/index" rel="auth-require" data-tab="signup">Sign In</a>
-				</li>
+				<li><a href="/dreview/profile/SignUp">New User?</a>
+				</li>				
 			</ul>
 		</div>
 		</nav>
 	</div>
+		
 	<?php echo $content; ?>
 	<footer class="site-footer">
 		<div class="row">
@@ -96,6 +96,5 @@
 		<p></p>
 		<div align="center" style="width:100%; margin-left:auto; margin-right: auto; color: #38B7E0; font-size:small; ">&copy; 2014 DReview, Inc. All rights are reserved.</div>
 	</footer>
-
 </body>
 </html>
