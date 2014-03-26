@@ -474,3 +474,57 @@ padding:0 10px;
 	font-size: 1.3125em;
 	padding-top: 10px
 }
+
+#signupdisplaybox {
+	z-index: 10000;
+	filter: alpha(opacity=50); /*older IE*/
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50); /* IE */
+	-moz-opacity: .50; /*older Mozilla*/
+	-khtml-opacity: 0.5;   /*older Safari*/
+	opacity: 0.5;   /*supported by current Mozilla, Safari, and Opera*/
+	background-color:#000000;
+	position:fixed; top:0px; left:0px; width:100%; height:100%; color:#FFFFFF; text-align:center; vertical-align:middle;
+}
+
+#blanket {
+   background-color:#111;
+   opacity: 0.65;
+   *background:none;
+   position:absolute;
+   z-index: 9001;
+   top:0px;
+   left:0px;
+   width:100%;
+}
+
+#SignInPopUpdiv {
+	position:absolute;
+	background:#fff;
+	border:5px solid #000;
+	z-index: 9002;
+	border:1px solid grey;
+	width:500px;
+	height:500px;
+	margin:auto;
+	margin-top:35px;
+	font-size:12px;
+	-webkit-border-radius: 58px;
+	-moz-border-radius: 58px;
+	border-radius: 48px;
+	-webkit-box-shadow: 2px 2px 4px #888;
+	-moz-box-shadow: 2px 2px 4px #888;
+	box-shadow: 2px 2px 4px #888;
+}
+
+#SignInPopUpdiv a {position:relative; top:20px; left:20px}
+#SignInPopUpdiv label {position:relative; top:20px; left:120px}
+#SignInPopUpdiv input {
+	position:relative; 
+	top:20px; 
+	left:120px;
+    font-size: 1.3em;
+    line-height:32px;
+    padding:0 5px;
+    border: 1px solid #e4ddd7;
+    border-radius: 6px
+}
