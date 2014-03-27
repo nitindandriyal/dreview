@@ -24,16 +24,17 @@ class SignUpForm extends CFormModel
 	{
 		return array(
 				array('firstname, lastname, password, confirmPassword, email', 'required'),
-				array('password, confirmPassword', 'verify'),
-				array('email', 'verifyMailAddress'),
+				array('password, confirmPassword', 'verifyPassword'),
+				array('email', 'email'),
+				array('email', 'checkEmailExisting')
 		);
 	}
 
 	/**
 	 * Compares the password.
-	 * This is the 'verify' validator as declared in rules().
+	 * This is the 'verifyPassword' validator as declared in rules().
 	 */
-	public function verify($attribute,$params)
+	public function verifyPassword($attribute,$params)
 	{
 		if(!$this->hasErrors())
 		{
@@ -46,12 +47,13 @@ class SignUpForm extends CFormModel
 	 * verifies emailid of user.
 	 * This is the 'verifyMailAddress' validator as declared in rules().
 	 */
-	function verifyMailAddress($attribute,$params)
+	function checkEmailExisting($attribute,$params)
 	{
 		if(!$this->hasErrors())
 		{
-			if (!filter_var($this->email, FILTER_VALIDATE_EMAIL))
-				$this->addError('email','Invalid email address. Please enter again');
+			$this->_identity=new UserIdentity($this->email,$this->password);
+			if($this->_identity->checkEmailExisting($this->email))
+				$this->addError('email','Email is already registered.');				
 		}
 	}
 
