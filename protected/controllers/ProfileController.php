@@ -1,5 +1,5 @@
 <?php
-
+require_once (dirname(__FILE__).'/../lib/mail/email.php');
 class ProfileController extends Controller
 {
 	/**
@@ -76,19 +76,21 @@ class ProfileController extends Controller
 		$model=new LoginForm;
 
 		// if it is ajax validation request
+		/*
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-
+		*/
+		
 		// collect user input data
 		if(isset($_POST['LoginForm']))
 		{
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
+				Yii::app()->request->redirect('/dreview/home/index');
 		}
 		// display the login form
 		$this->render('Login',array('model'=>$model));
@@ -97,19 +99,111 @@ class ProfileController extends Controller
 	public function actionSignUp()
 	{
 		$model=new SignUpForm;
-	
-		// collect user input data
+
+		//Yii::app()->request->redirect('/dreview/home/index');
+			
 		if(isset($_POST['SignUpForm']))
 		{
 			$model->attributes=$_POST['SignUpForm'];
-			// validate user input and redirect to the previous page if valid
 			if($model->validate())
-				$this->redirect(Yii::app()->user->returnUrl);
+			{					
+				$activation = md5(uniqid(rand(), true));
+					
+				// Send the email:
+				$message_part1 = "Please click on this link to Activate your Account :nn";
+				$message_part2 = "http://localhost/myapp/index.php?r=site/activate" . '?email=' . urlencode($model->email) . '&activation='. $activation;
+				sendVerificationMail();
+				/* $yiimail = new YiiMailMessage;
+				$yiimail->setBody($message_part1 . $message_part2,'text/html');
+				$yiimail->subject = 'Service';
+				$yiimail->addTo('nitin.dandriyal@gmail.com');
+				$yiimail->from = 'myservice@email.com';
+				Yii::app()->mail->send($yiimail);
+				 	
+				$model->activation = $activation;
+					
+				$model->save();
+				*/	
+				$this->renderText('Click on the Activation Link in your email to Activate your account '.$activation,true);
+					
+			}
 		}
+		//reset modell
+		//$model = new SignUpForm('activation');
 		// display the login form
 		$this->render('SignUp',array('model'=>$model));
 	}
+	
+	public function actionRegister()
+	{
+		$model=new SignUpForm('register');
+	
+		// uncomment the following code to enable ajax-based validation
+		/*
+		 if(isset($_POST['ajax']) && $_POST['ajax']==='login-form-register-form')
+		 {
+		echo CActiveForm::validate($model);
+		Yii::app()->end();
+		}
+		*/
+	
+		if(isset($_POST['SignUpForm']))
+		{
+			$model->attributes=$_POST['SignUpForm'];
+			if($model->validate())
+			{
+								
+                $activation = md5(uniqid(rand(), true));
+                
+                // Send the email:
+                $message_part1 = "Please click on this link to Activate your Account :nn";
+                $message_part2 = "http://localhost/myapp/index.php?r=site/activate" . '?email=' . urlencode($model->email) . '&activation='. $activation;
 
+                $yiimail = new YiiMailMessage;
+                $yiimail->setBody($message_part1 . $message_part2,'text/html');
+                $yiimail->subject = 'Service';
+                $yiimail->addTo('nitin.dandriyal@gmail.com');
+                $yiimail->from = 'myservice@email.com';
+                Yii::app()->mail->send($yiimail);
+
+                $model->activation = $activation;
+
+                $model->save();
+
+                $this->renderText('Click on the Activation Link in your email to Activate your account',true);
+  
+            }
+        }
+                //reset modell    
+        $model = new SignUpForm('activation');
+		$this->render('register',array('model'=>$model));
+	}	
+
+	//function to activate user account
+	public function actionActivate()
+	{
+		$model = new SignUpForm('activation');
+	
+		if(isset($_POST['SignUpForm']))
+		{
+			$model->attributes=$_POST['SignUpForm'];
+	
+			$model = $model->findByAttributes( array('email'=>$model->email,'activation'=>$model->activation) );
+	
+			if( $model ){
+	
+				$model->activation = null;
+				$model->save();
+	
+			}
+	
+		}
+	
+		//reset modell
+		$model = new SignUpForm('activation');
+		$this->render('activate',array('model'=>$model));
+	
+	}	
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
