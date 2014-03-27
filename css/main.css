@@ -404,7 +404,8 @@ padding:0 10px;
 .site-footer {
 	background: #3a3a3a;
 	color: #949494;
-	padding-bottom: 2.5em
+	padding-bottom: 2.5em;
+	clear: both;
 }
 
 @media only screen and (min-width: 768px) {

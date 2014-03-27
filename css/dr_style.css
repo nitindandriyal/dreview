@@ -433,7 +433,8 @@ table.tablefront td{
 {
 	border:1px solid grey;
 	width:800px;
-	height:500px;
+	height: 100%;
+	display:block;
 	margin:auto;
 	margin-top:35px;
 	font-size:12px;
@@ -443,12 +444,13 @@ table.tablefront td{
 	-webkit-box-shadow: 2px 2px 4px #888;
 	-moz-box-shadow: 2px 2px 4px #888;
 	box-shadow: 2px 2px 4px #888;
+
 }
 
 .SignIn-Login
 {
 	margin-top:-45px;
-	height:220px;
+	height: 100%;
 }
 
 .SignIn input{
@@ -486,19 +488,31 @@ table.tablefront td{
 {
 	margin:0 auto;
 	width:390px;
-	height:100%;
-	float:left;
+	height: auto;
 	display:inline-block;
+}
+
+.SignUpMainDiv
+{
+	height:500px;
 }
 
 #SignUpLeft
 {
 	float:left;
+	border-radius:58px;
 }
 
 #SignUpRight
 {
 	float:right;
+}
+
+.ErrorDiv
+{
+width:60%; 
+border:1px solid red; 
+background-color:#FFEBE8;	
 }
 
 input{
