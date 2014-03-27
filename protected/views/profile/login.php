@@ -39,7 +39,34 @@ $this->breadcrumbs=array(
 	
 		<span class="loginTblSpan">Login</span> 
 		
-		<?php echo CHtml::errorSummary($model); ?>
+		<?php 
+			if(!empty($model->getErrors('username')))
+			{					
+				$err = $model->getErrors('username');
+				if ($err[0] == 'USERNAME_INVALID') 
+				{?>
+				<div class="ErrorDiv">	
+					<h4 style="color:red">Invalid Email</h4>
+					<p>Email you have entered is not registered with Dreview</p>
+					<p>Make sure you type the email correctly</p>
+				</div>
+		<?php 
+				}
+			}	
+			if(!empty($model->getErrors('password')))
+			{
+				$err = $model->getErrors('password');
+				if ($err[0] == 'PASSWORD_INVALID') 
+				{?>
+				<div class="ErrorDiv">	
+					<h4 style="color:red">Invalid Password</h4>
+					<p>Password you have entered is not correct</p>
+					<p>Make sure your CAPS LOCK is OFF and try entering the password again</p>
+					<p>Your account will  be locked after 5 unsucessful attempts</p>
+				</div>
+		<?php 	} 
+			}
+		?>
 	
 		<div class="row">
 			<?php echo CHtml::activeTextField($model,'username', array('placeholder' => 'Enter User Name')) ?>
