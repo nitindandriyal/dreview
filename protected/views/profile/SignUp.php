@@ -1,6 +1,6 @@
-<div class="SignIn">
-	<div class="SignUp" id="SignUpLeft" style="max-height:100%">	
-		<img src="../images/signup.jpg" style="max-width:100%; height:100%;border-radius: 58px;"/>
+<div class="SignIn SignUpMainDiv">
+	<div class="SignUp" id="SignUpLeft">	
+		<img src="../images/signup.jpg"/>
 	</div> 
 	<div class="SignUp" id="SignUpRight">		
 		<?php echo CHtml::beginForm() ?>
