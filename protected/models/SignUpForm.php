@@ -1,5 +1,7 @@
 <?php
 
+require_once (dirname(__FILE__).'/../config/dbconfig.php');
+
 /**
  * SignUpForm class.
  * SignUpForm is the data structure for keeping
@@ -53,7 +55,9 @@ class SignUpForm extends CFormModel
 		{
 			$this->_identity=new UserIdentity($this->email,$this->password);
 			if($this->_identity->checkEmailExisting($this->email))
-				$this->addError('email','Email is already registered.');				
+				$this->addError('email','Email is already registered.');
+
+			return false;
 		}
 	}
 
@@ -76,5 +80,38 @@ class SignUpForm extends CFormModel
 		}
 		else
 			return false;
+	}
+	
+	public function userSave($activationCode)
+	{
+		$this->_identity=new UserIdentity($this->email,$this->password);
+		if($this->_identity->userSave($this->firstname, $this->lastname, $this->email, $this->password, $activationCode))
+			return true;		
+	}
+	
+	public function userCheckAndActivate($email, $activationCode)
+	{
+		
+		$query=mysql_query("SELECT status FROM tbl_users WHERE email='$email' AND activation_code='$activationCode'") or die(mysql_error());
+		$users = mysql_fetch_array($query);
+		
+		if (isset($users["status"]))
+		{
+			if ($users["status"] == 'ACTIVE')
+			{	
+				$this->addError('email','Your account is already active, no need to activate again');
+			}	
+			else
+			{
+				$query = mysql_query("UPDATE tbl_users SET status='ACTIVE', activation_code=NULL where activation_code='$activationCode'") or die(mysql_error());
+				$this->addError('email','Your account is activated');
+				return true;
+			} 
+		}	
+		else
+		{
+			$this->addError('email','This Activation URL has expired.');
+			return false;
+		}		
 	}
 }
