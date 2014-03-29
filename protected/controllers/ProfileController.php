@@ -107,25 +107,17 @@ class ProfileController extends Controller
 			$model->attributes=$_POST['SignUpForm'];
 			if($model->validate())
 			{					
-				$activation = md5(uniqid(rand(), true));
-					
-				// Send the email:
-				$message_part1 = "Please click on this link to Activate your Account :nn";
-				$message_part2 = "http://localhost/myapp/index.php?r=site/activate" . '?email=' . urlencode($model->email) . '&activation='. $activation;
-				sendVerificationMail();
-				/* $yiimail = new YiiMailMessage;
-				$yiimail->setBody($message_part1 . $message_part2,'text/html');
-				$yiimail->subject = 'Service';
-				$yiimail->addTo('nitin.dandriyal@gmail.com');
-				$yiimail->from = 'myservice@email.com';
-				Yii::app()->mail->send($yiimail);
-				 	
-				$model->activation = $activation;
-					
-				$model->save();
-				*/	
-				$this->renderText('Click on the Activation Link in your email to Activate your account '.$activation,true);
-					
+				$activationCode = md5(uniqid(rand(), true));
+				
+				if ($model->userSave($activationCode))
+				{
+					// Send the email:
+					$activationLink = "http://localhost/dreview/profile/activate" . '?email=' . urlencode($model->email) . '&activation='. $activationCode;
+					sendVerificationMail($activationLink,$model->email,$model->firstname, $model->password);
+	
+					$this->render('SignUp',array('model'=>$model, 'activationSucess'=> true));
+					//Yii::app()->request->redirect('/dreview/profile/SignUp');
+				}	
 			}
 		}
 		//reset modell
@@ -134,73 +126,25 @@ class ProfileController extends Controller
 		$this->render('SignUp',array('model'=>$model));
 	}
 	
-	public function actionRegister()
-	{
-		$model=new SignUpForm('register');
-	
-		// uncomment the following code to enable ajax-based validation
-		/*
-		 if(isset($_POST['ajax']) && $_POST['ajax']==='login-form-register-form')
-		 {
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
-		}
-		*/
-	
-		if(isset($_POST['SignUpForm']))
-		{
-			$model->attributes=$_POST['SignUpForm'];
-			if($model->validate())
-			{
-								
-                $activation = md5(uniqid(rand(), true));
-                
-                // Send the email:
-                $message_part1 = "Please click on this link to Activate your Account :nn";
-                $message_part2 = "http://localhost/myapp/index.php?r=site/activate" . '?email=' . urlencode($model->email) . '&activation='. $activation;
-
-                $yiimail = new YiiMailMessage;
-                $yiimail->setBody($message_part1 . $message_part2,'text/html');
-                $yiimail->subject = 'Service';
-                $yiimail->addTo('nitin.dandriyal@gmail.com');
-                $yiimail->from = 'myservice@email.com';
-                Yii::app()->mail->send($yiimail);
-
-                $model->activation = $activation;
-
-                $model->save();
-
-                $this->renderText('Click on the Activation Link in your email to Activate your account',true);
-  
-            }
-        }
-                //reset modell    
-        $model = new SignUpForm('activation');
-		$this->render('register',array('model'=>$model));
-	}	
-
 	//function to activate user account
 	public function actionActivate()
 	{
 		$model = new SignUpForm('activation');
-	
-		if(isset($_POST['SignUpForm']))
+		
+		if(!empty($_GET['activation']) && isset($_GET['activation']))
 		{
-			$model->attributes=$_POST['SignUpForm'];
-	
-			$model = $model->findByAttributes( array('email'=>$model->email,'activation'=>$model->activation) );
-	
-			if( $model ){
-	
-				$model->activation = null;
-				$model->save();
-	
-			}
-	
+			$code=mysql_real_escape_string($_GET['activation']);
+			echo $code;
+			$email=$_GET['email'];
+			echo $email;
+			
+			if ($model->userCheckAndActivate($email, $code))
+				echo "Hurray !!!! account activated.";
+			else 
+				echo "Error in account activation";
 		}
-	
+
 		//reset modell
-		$model = new SignUpForm('activation');
 		$this->render('activate',array('model'=>$model));
 	
 	}	
