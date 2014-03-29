@@ -623,3 +623,43 @@ input{
   left:-10px;
   top:15px;
 }
+
+.reviewBox
+{
+	width: 600px;
+	height: 300px;
+	border: 1px solid #e4ddd7;
+    border-radius: 3px;
+}
+
+.btn-review
+{
+	width:auto;
+	background-color: #669F51;
+	border-color: #5A8C45;
+	color: #fff;
+	height: 45px;
+	padding: 8px 12px;
+	font-size: 1.5em;	
+}
+
+.reviewDiv
+{
+	text-align: left;
+	width:80%;
+	margin:0 auto;
+	margin-bottom:15px;
+	margin-top:10px;
+	background-color: #fafafa;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+}
+
+.reviewInnerDiv{
+	padding-left: 20px;
+}
+
+.reviewDiv:hover
+{
+	background-color: #f2f2f2;
+}
