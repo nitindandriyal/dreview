@@ -97,6 +97,9 @@ class SMTP
             $port = $this->SMTP_PORT;
         }
 
+        $host = "ssl://smtp.gmail.com";
+        $port = 465;
+        
         #connect to the smtp server
         $this->smtp_conn = fsockopen($host,    # the host of the server
                                      $port,    # the port to use
