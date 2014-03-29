@@ -93,7 +93,7 @@ class ProfileController extends Controller
 				Yii::app()->request->redirect('/dreview/home/index');
 		}
 		// display the login form
-		$this->render('Login',array('model'=>$model));
+		$this->render('login',array('model'=>$model));
 	}
 	
 	public function actionSignUp()
@@ -123,7 +123,7 @@ class ProfileController extends Controller
 		//reset modell
 		//$model = new SignUpForm('activation');
 		// display the login form
-		$this->render('SignUp',array('model'=>$model));
+		$this->render('signUp',array('model'=>$model));
 	}
 	
 	//function to activate user account
