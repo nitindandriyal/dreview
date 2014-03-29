@@ -1,7 +1,5 @@
 <?php
 
-require (dirname(__FILE__).'/../config/dbconfig.php');
-
 /**
  * UserIdentity represents the data needed to identity a user.
  * It contains the authentication method that checks if the provided
@@ -56,6 +54,19 @@ class UserIdentity extends CUserIdentity
 
 	}	
 
+	public function userSave($firstname, $lastname, $email, $password, $activationCode)
+	{
+		$username = $firstname . ' ' . $lastname;
+		$query = mysql_query("INSERT INTO `tbl_users` (email, username, password,activation_code) VALUES ('$email', '$username', '$password','$activationCode')") or die(mysql_error());
+		$query = mysql_query("SELECT 1 FROM tbl_users WHERE email='$email'") or die(mysql_error());
+		$userCount = mysql_fetch_row($query);
+		
+		if ($userCount >= 1)
+			return true;
+		else
+			return false;
+	}
+	
 	public function getId()
 	{
 		return $this->_id;
