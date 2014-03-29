@@ -487,7 +487,8 @@ table.tablefront td{
 .SignUp
 {
 	margin:0 auto;
-	width:390px;
+	width:100%;
+	/*width:390;*/
 	height: auto;
 	display:inline-block;
 }
@@ -495,17 +496,21 @@ table.tablefront td{
 .SignUpMainDiv
 {
 	height:500px;
+	background: url(../images/d1.jpg) no-repeat; 
+	background-size:100% 100%;
 }
 
 #SignUpLeft
 {
 	float:left;
 	border-radius:58px;
+	height:100%;
+	width:50%;
 }
 
 #SignUpRight
 {
-	float:right;
+	margin-left:400px;
 }
 
 .ErrorDiv
@@ -513,6 +518,28 @@ table.tablefront td{
 width:60%; 
 border:1px solid red; 
 background-color:#FFEBE8;	
+}
+
+.SuccessDiv
+{
+width:60%; 
+border:1px solid green; 
+background-color:#DFF2BF;	
+text-color:#4F8A10;
+margin:auto;
+top: 200px;
+position: relative;
+}
+
+.SuccessDiv h4
+{
+ text-align: center;
+ font-weight: bold;
+}
+
+.SuccessDiv p
+{
+ padding-left:10px;
 }
 
 input{
@@ -575,8 +602,13 @@ input{
   -webkit-border-radius:10px;
   -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
   -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+  -ms-transform: translate(2px,20px); /* IE 9 */
+  -webkit-transform: translate(2px,20px); /* Chrome, Safari, Opera */
+  transform: translate(2px,20px);
   box-shadow: 0px 0 3px rgba(0,0,0,0.25); 
   border-radius:10px;
+  clear: both;
+  float:left;
 }
 .bubble:after {
   position: absolute;
@@ -589,5 +621,5 @@ input{
   width:0;
   position:absolute;
   left:-10px;
-  top:0px;
+  top:15px;
 }
