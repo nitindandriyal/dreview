@@ -97,7 +97,8 @@ class SMTP
             $port = $this->SMTP_PORT;
         }
 
-        $host = "ssl://smtp.gmail.com";
+        //$host = "ssl://smtp.gmail.com";
+        $host = "ssl://mail.dreview.in";
         $port = 465;
         
         #connect to the smtp server

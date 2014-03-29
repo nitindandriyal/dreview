@@ -10,15 +10,19 @@ require("class.phpmailer.php");
 #####################################
 function sendEmail ($fromName, $fromEmail, $toEmail, $subject, $emailBody) {
 	$mail = new PHPMailer();
+	
+	$mail->IsSMTP();	// telling the class to use SMTP
+	$mail->SMTPDebug  = 1;	// enables SMTP debug information (for testing)
+	$mail->SMTPAuth   = true;	// enable SMTP authentication
+	$mail->Username   = "dreviewi";
+	$mail->Password   = "sK852iy8Al";	// GMAIL password
 	$mail->FromName = $fromName;
 	$mail->From = $fromEmail;
-	$mail->AddAddress("$toEmail");
+	$mail->AddAddress($toEmail);
 		
 	$mail->Subject = $subject;
 	$mail->Body = $emailBody;
-	$mail->isHTML(true);
-	$mail->WordWrap = 150;
-		
+			
 	if(!$mail->Send()) {
 		return false;
 	} else {
@@ -27,45 +31,28 @@ function sendEmail ($fromName, $fromEmail, $toEmail, $subject, $emailBody) {
 }
 
 #####################################
-# Function to Read a file 
-# and store all data into a variable
-#####################################
-function readTemplateFile($FileName) {
-		//$fp = fopen("dirname(__FILE__).'/../lib/mail/$FileName","r") or exit("Unable to open File ".$FileName);
-		$str = "Test Email sent #name# #username# #password#";
-		//while(!feof($fp)) {
-			//$str .= fread($fp,1024);
-		//}	
-		return $str;
-}
-
-#####################################
 # Finally send email
 #####################################
-function sendVerificationMail(){
+function sendVerificationMail($activationLink,$UserEmail,$name,$password){
 	//Data to be sent (Ideally fetched from Database)
-	$NameOfUser = "XYZ";
-	$Username = "abcdef";
-	$password = "123456";
-	$UserEmail = "nitin.dandriyal@gmail.com";
-	
-	//Send email to user containing username and password
-	//Read Template File 
-	$emailBody = readTemplateFile("template.html");
+
+	$Subject = "Thank you for registering with DReview";
+	$emailBody = "Hi $name, \r\n";
+	$emailBody .= "\r\nThanks for registering with DReview. \r\n";
+	$emailBody .= "Please click on the below link to activate your Account : \r\n";
+	$emailBody .=" \r\n#link# \r\n";
+	$emailBody .= "\r\nPlease ignore this email if you are not the intended recipient. \r\n";
+	$emailBody .= "\r\nCheers, \r\n";
+	$emailBody .= "DReview Team";
 			
 	//Replace all the variables in template file
-	$emailBody = str_replace("#name#",$NameOfUser,$emailBody);
-	$emailBody = str_replace("#username#",$Username,$emailBody);
-	$emailBody = str_replace("#password#",$password,$emailBody);
-			
+	$emailBody = str_replace("#link#",$activationLink,$emailBody);
 	//Send email
-	$emailStatus = sendEmail ("Sender Name", "nitin.dandriyal@dreview.in", $UserEmail, "Email Subject", $emailBody);
+	$emailStatus = sendEmail ("DReview", "nitin.dandriyal@gmail.com", $UserEmail, $Subject, $emailBody);
 	
 	//If email function return false
 	if ($emailStatus != 1) {
-		echo "An error occured while sending email. Please try again later.";
-	} else {
-		echo "Email with account details were sent successfully.";
-	}
+		echo "An error occured while sending email. Please try again later.[".$emailStatus."]";
+	} 
 }
 ?>
