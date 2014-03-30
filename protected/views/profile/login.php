@@ -1,5 +1,6 @@
 <?php
 //Always place this code at the top of the Page
+ob_start();
 session_start();
 
 if (isset($_SESSION['id'])) {
@@ -40,7 +41,7 @@ $this->breadcrumbs=array(
 	<span class="loginTblSpan">Login</span>
 
 	<?php 
-	if(!empty($model->getErrors()))
+	if(array_filter($model->getErrors()))
 	{
 		$err = $model->getErrors();
 	?>
@@ -78,7 +79,7 @@ $this->breadcrumbs=array(
 	?>	
 
 	<div class="row">
-		<?php echo CHtml::activeTextField($model,'username', array('placeholder' => 'Enter User Name')) ?>
+		<?php echo CHtml::activeTextField($model,'email', array('placeholder' => 'Enter Registered Email')) ?>
 		<?php echo CHtml::activePasswordField($model,'password', array('placeholder' => 'Enter Your Password')) ?>
 		<?php echo CHtml::submitButton('Login', array('class' => 'btn-login-cta')); ?>
 	</div>

@@ -1,4 +1,9 @@
-<?php /* @var $this Controller */ ?>
+<?php 
+$user = Yii::app()->user->id;
+//echo $user["username"];
+//echo $user["email"];
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -17,6 +22,18 @@
 	
 </head>
 <body>
+	<div id="blanket" style="display:none;"></div>
+		<div id="SignInPopUpdiv" class="SignInPopUpdiv" style="display:none;">    
+			<div class="innerRow">
+				<form action="/dreview/profile/logout">
+					<button class="btn btn-userprofile-cta" type="submit">Log Out</button>
+				</form>				
+			</div>
+			<div class="innerRow">
+	    		<button class="btn btn-userprofile-cta" onclick="popup('SignInPopUpdiv')">Close</button>
+	    	</div>
+		</div>
+	
 	<div id="PageTop">
 		<div class="logo">
 			<img src="../images/logo.jpg" />
@@ -26,10 +43,23 @@
 			<ul>
 				<li><a href="/dreview/home/index">Home </a>
 				</li>
+			<?php 
+				if(null != $user && array_filter($user))
+				{
+			?>
+				<li><a href="#" onclick="popup('SignInPopUpdiv')">Welcome <?php echo $user["username"]?></a></li>
+			<?php				
+				}
+				else
+				{
+			?>
 				<li><a href="/dreview/profile/login">Login</a>
 				</li>
 				<li><a href="/dreview/profile/SignUp">New User?</a>
-				</li>				
+				</li>
+			<?php
+				}
+			?>				
 			</ul>
 		</div>
 		</nav>

@@ -1,6 +1,6 @@
 <div class="SignIn SignUpMainDiv">
 	<?php   
-	if( $model->email != null && empty($model->getErrors())) {?>
+	if( $model->email != null && !array_filter($model->getErrors())) {?>
 	<div class="SuccessDiv">	
 		<h4>Registration Successful</h4>
 		<p>Thank you for registering with Dreview. A confirmation email has been sent to your registered email Id</p>

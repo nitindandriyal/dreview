@@ -35,9 +35,23 @@ $userName='Vasudha Yadav';
 
 	<div class="reviewInnerDiv">
 		<br>
-		<?php echo $form->labelEx($model,'RATING'); ?><br>
-		<?php echo $form->textField($model,'RATING'); ?>
-		<?php echo $form->error($model,'RATING'); ?>
+		<?php echo $form->labelEx($model,'RATING'); ?>
+		<?php echo $form->hiddenField($model,'RATING'); ?>
+		<br>
+		<p class="stars">
+			<span>
+				<a class="star-05" href="#" onclick="storeRating(0.5);return false;">0.5</a>
+				<a class="star-10" href="#" onclick="storeRating(1);return false;">1</a>
+				<a class="star-15" href="#" onclick="storeRating(1.5);return false;">1.5</a>
+				<a class="star-20" href="#" onclick="storeRating(2);return false;">2</a>
+				<a class="star-25" href="#" onclick="storeRating(2.5);return false;">2.5</a>
+				<a class="star-30" href="#" onclick="storeRating(3);return false;">3</a>
+				<a class="star-35" href="#" onclick="storeRating(3.5);return false;">3.5</a>
+				<a class="star-40" href="#" onclick="storeRating4);return false;">4</a>
+				<a class="star-45" href="#" onclick="storeRating(4.5);return false;">4.5</a>
+				<a class="star-50" href="#" onclick="storeRating(5);return false;">5</a>
+			</span>
+		</p>
 	</div>
 
 	<div class="reviewInnerDiv">
@@ -55,3 +69,9 @@ $userName='Vasudha Yadav';
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+<script type="text/javascript">
+	function storeRating(rating){
+		document.getElementById("DoctorReviews_RATING").value = rating;
+	}
+</script>
