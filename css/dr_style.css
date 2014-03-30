@@ -362,12 +362,13 @@ table.tablefront td{
 	position: relative;
 	z-index: 1;
 	width: 100%;
-	height: 53px;
+	height: 57px;
 	background-color: #A8E9FB;
 }
 
 #PageTop.translucent {
-	background-color: rgba(124, 178, 40, 0.9)
+	background-color: rgba(124, 178, 40, 0.9);
+	opacity: 0.70;
 }
 
 #PageTop nav {
@@ -382,21 +383,34 @@ table.tablefront td{
 	display: inline;
 	padding: 0;
 	list-style: none;
-	font-size: 0
+	font-size: 0;	
 }
 
 #PageTop nav li {
 	display: inline;
 	font-size: 0;
-	text-shadow: 1px 1px 0px rgba(64, 64, 64, 0.3);
+	text-shadow: 1px 1px 4px rgba(64, 64, 64, 0.3);
+	height: 100%;
 }
 
 #PageTop nav li a {
-
 	padding: 5px 10px 20px 50px;
-	font-size: 14px;
+	font-size: 12px;
 	color: #565656;
-	outline: none
+	outline: none;
+	border: 1px silver;
+  	border-left: 0;
+  	border-top: 0;
+  	border-bottom: 0;
+  	border-right-style:double;
+}
+
+#PageTop div.actions ul li a:hover {
+	text-decoration: none;
+	font-weight: bolder;
+	height:70%;
+	background-color: #B4EDFF;
+	z-index: 5;
 }
 
 #PageTop div.logo {
@@ -409,36 +423,8 @@ table.tablefront td{
 	position: absolute;
 	top: 20px;
 	right: 0;
-	font-weight: bold;
-	text-shadow: 1px 1px 0px rgba(64, 64, 64, 0.4)
-}
-
-#PageTop div.actions>a {
-	color: #565656;
-	margin: 0 0 0 0px;
-}
-
-#PageTop div.actions ul li a:hover {
-	text-decoration: none;
-	font-weight: bold;
-	text-shadow:1px 1px 0px rgba(64, 64, 64, 0.8);
-}
-
-#PageTop div.actions>span {
-	color: #565656;
-	margin: 0 0 0 15px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none
-}
-
-#PageTop div.actions>span>a {
-	color: #565656;
-	text-decoration: none
-}
-
-#PageTop div.actions>span>a:hover {
-	text-decoration: none;
+	font-weight: bolder;
+	text-shadow: 1px 1px 0px rgba(64, 64, 64, 0.4);
 }
 
 .SignIn
