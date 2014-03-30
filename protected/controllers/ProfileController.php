@@ -129,25 +129,22 @@ class ProfileController extends Controller
 	//function to activate user account
 	public function actionActivate()
 	{
-		$model = new SignUpForm('activation');
+		$model = new SignUpForm;
 		
 		if(!empty($_GET['activation']) && isset($_GET['activation']))
 		{
-			$code=mysql_real_escape_string($_GET['activation']);
-			echo $code;
+			$code=$_GET['activation'];
+			
 			$email=$_GET['email'];
-			echo $email;
 			
 			if ($model->userCheckAndActivate($email, $code))
-				echo "Hurray !!!! account activated.";
+				$this->render('login');
 			else 
-				echo "Error in account activation";
+				$this->render('error', $error);
 		}
-
-		//reset modell
-		$this->render('activate',array('model'=>$model));
 	
-	}	
+	}
+		
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
