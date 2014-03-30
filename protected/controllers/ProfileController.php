@@ -112,7 +112,7 @@ class ProfileController extends Controller
 				if ($model->userSave($activationCode))
 				{
 					// Send the email:
-					$activationLink = "http://localhost/dreview/profile/activate" . '?email=' . urlencode($model->email) . '&activation='. $activationCode;
+					$activationLink = "http://".$_SERVER['HTTP_HOST']."/profile/activate" . '?email=' . urlencode($model->email) . '&activation='. $activationCode;
 					sendVerificationMail($activationLink,$model->email,$model->firstname, $model->password);
 	
 					$this->render('SignUp',array('model'=>$model, 'activationSucess'=> true));
@@ -154,7 +154,7 @@ class ProfileController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
+		$this->redirect("/dreview/home/index");
 	}
 	
 	public function actionCheckLogin()
