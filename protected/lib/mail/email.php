@@ -48,7 +48,7 @@ function sendVerificationMail($activationLink,$UserEmail,$name,$password){
 	//Replace all the variables in template file
 	$emailBody = str_replace("#link#",$activationLink,$emailBody);
 	//Send email
-	$emailStatus = sendEmail ("DReview", "nitin.dandriyal@gmail.com", $UserEmail, $Subject, $emailBody);
+	$emailStatus = sendEmail ("DReview", "WebAdmin@dreview.in", $UserEmail, $Subject, $emailBody);
 	
 	//If email function return false
 	if ($emailStatus != 1) {
