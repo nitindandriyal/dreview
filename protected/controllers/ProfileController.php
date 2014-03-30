@@ -1,5 +1,6 @@
 <?php
 require_once (dirname(__FILE__).'/../lib/mail/email.php');
+
 class ProfileController extends Controller
 {
 	/**
@@ -112,11 +113,14 @@ class ProfileController extends Controller
 				if ($model->userSave($activationCode))
 				{
 					// Send the email:
-					$activationLink = "http://".$_SERVER['HTTP_HOST']."/profile/activate" . '?email=' . urlencode($model->email) . '&activation='. $activationCode;
+					// for public domain
+					// $activationLink = "http://".$_SERVER['HTTP_HOST']."/profile/activate" . '?email=' . urlencode($model->email) . '&activation='. $activationCode;
+					// for localhost
+					 $activationLink = "http://".$_SERVER['HTTP_HOST']."/dreview/profile/activate" . '?email=' . urlencode($model->email) . '&activation='. $activationCode;					
 					sendVerificationMail($activationLink,$model->email,$model->firstname, $model->password);
 	
-					$this->render('SignUp',array('model'=>$model, 'activationSucess'=> true));
-					//Yii::app()->request->redirect('/dreview/profile/SignUp');
+					$this->render('signUp',array('model'=>$model, 'activationSucess'=> true));
+					//Yii::app()->request->redirect('/profile/signUp');
 				}	
 			}
 		}
@@ -129,22 +133,19 @@ class ProfileController extends Controller
 	//function to activate user account
 	public function actionActivate()
 	{
-		$model = new SignUpForm;
+		$model = new LoginForm('login');
 		
 		if(!empty($_GET['activation']) && isset($_GET['activation']))
 		{
-			$code=$_GET['activation'];
-			
+			$code=$_GET['activation'];			
 			$email=$_GET['email'];
 			
-			if ($model->userCheckAndActivate($email, $code))
-				$this->render('login');
-			else 
-				$this->render('error', $error);
-		}
+			$result = $model->userCheckAndActivate($email, $code);
+			 
+			$this->render('activate', array('model'=>$model));			
+		}	
+	}	
 	
-	}
-		
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
