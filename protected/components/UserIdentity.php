@@ -9,7 +9,8 @@ require_once (dirname(__FILE__).'/../config/dbconfig.php');
  */
 class UserIdentity extends CUserIdentity
 {
-
+	const ERROR_STATUS_INACTIVE=1001;
+	
 	// Need to store the user's ID
 	private $_id;
 	private $user;
@@ -28,17 +29,21 @@ class UserIdentity extends CUserIdentity
 		//$record=User::model()->findByAttributes(array('username'=>$this->username));		
 		$email=$this->username;
 		
-		$query=mysql_query("SELECT email, username, password FROM tbl_users WHERE email='$email'") or die(mysql_error());
-		$users = mysql_fetch_array($query);
+		$query=mysql_query("SELECT email, username, password, status FROM tbl_users WHERE email='$email'") or die(mysql_error());
+		$users = mysql_fetch_array($query);		
 		
 		if($users["email"] != $this->username)
 		{
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		}
+		elseif($users["status"] != "ACTIVE")
+		{
+			$this->errorCode=self::ERROR_STATUS_INACTIVE;
+		}		
 		elseif($users["password"] != $this->password)
 		{
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		}
+		}		
 		else
 		{
 			$this->errorCode=self::ERROR_NONE;	
