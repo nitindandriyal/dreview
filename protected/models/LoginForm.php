@@ -1,5 +1,5 @@
 <?php
-
+require_once (dirname(__FILE__).'/../config/dbconfig.php');
 /**
  * LoginForm class.
  * LoginForm is the data structure for keeping
@@ -44,7 +44,7 @@ class LoginForm extends CFormModel
 			
 			switch($returnCode->errorCode)
 			{
-				case UserIdentity::ERROR_NONE:
+				case UserIdentity::ERROR_NONE:					
 					Yii::app()->user->login($this->_identity);
 					break;
 				case UserIdentity::ERROR_USERNAME_INVALID:
@@ -53,6 +53,9 @@ class LoginForm extends CFormModel
 				case UserIdentity::ERROR_PASSWORD_INVALID:
 					$this->addError('password','PASSWORD_INVALID');
 					break;	
+				case UserIdentity::ERROR_STATUS_INACTIVE:
+					$this->addError('email','STATUS_INACTIVE');
+					break;					
 				default:
 					$this->addError('error','Unknown error, please contact dreview.in');
 					break;
@@ -79,5 +82,35 @@ class LoginForm extends CFormModel
 		}
 		else
 			return false;
+	}
+	
+	public function userCheckAndActivate($email, $activationCode)
+	{		
+		$query=mysql_query("SELECT status, activation_code FROM tbl_users WHERE email='$email'") or die(mysql_error());
+		$users = mysql_fetch_array($query);
+		
+		if (isset($users["status"]))
+		{
+			if ($users["status"] == 'ACTIVE')
+			{	
+				$this->addError('activationStatus','ALREADY_ACTIVE');
+			}	
+			else
+			{
+				if ($users["activation_code"] == $activationCode)
+				{
+					$query = mysql_query("UPDATE tbl_users SET status='ACTIVE', activation_code=NULL where activation_code='$activationCode'") or die(mysql_error());
+					$this->addError('activationStatus','ACCOUNT_ACTIVATED');
+				}
+				else
+				{
+					$this->addError('activationStatus','INVALID_URL');
+				}				
+			} 
+		}	
+		else
+		{
+			$this->addError('activationStatus','INVALID_REQUEST');
+		}		
 	}
 }

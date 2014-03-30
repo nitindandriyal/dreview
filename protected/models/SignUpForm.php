@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * SignUpForm class.
  * SignUpForm is the data structure for keeping
@@ -88,31 +87,5 @@ class SignUpForm extends CFormModel
 			return true;
 		else 
 			return false;		
-	}
-	
-	public function userCheckAndActivate($email, $activationCode)
-	{
-		
-		$query=mysql_query("SELECT status FROM tbl_users WHERE email='$email' AND activation_code='$activationCode'") or die(mysql_error());
-		$users = mysql_fetch_array($query);
-		
-		if (isset($users["status"]))
-		{
-			if ($users["status"] == 'ACTIVE')
-			{	
-				$this->addError('email','Your account is already active, no need to activate again');
-			}	
-			else
-			{
-				$query = mysql_query("UPDATE tbl_users SET status='ACTIVE', activation_code=NULL where activation_code='$activationCode'") or die(mysql_error());
-				$this->addError('email','Your account is activated');
-				return true;
-			} 
-		}	
-		else
-		{
-			$this->addError('email','This Activation URL has expired.');
-			return false;
-		}		
 	}
 }
