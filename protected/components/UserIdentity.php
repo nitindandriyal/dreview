@@ -1,5 +1,7 @@
 <?php
 
+require_once (dirname(__FILE__).'/../config/dbconfig.php');
+
 /**
  * UserIdentity represents the data needed to identity a user.
  * It contains the authentication method that checks if the provided
@@ -9,7 +11,8 @@ class UserIdentity extends CUserIdentity
 {
 
 	// Need to store the user's ID
-	private $_id;	
+	private $_id;
+	private $user;
 	
 	/**
 	 * Authenticates a user.
@@ -23,21 +26,26 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 		//$record=User::model()->findByAttributes(array('username'=>$this->username));		
-		$username=$this->username;
+		$email=$this->username;
 		
-		$query=mysql_query("SELECT username, password FROM tbl_users WHERE username='$username'") or die(mysql_error());
+		$query=mysql_query("SELECT email, username, password FROM tbl_users WHERE email='$email'") or die(mysql_error());
 		$users = mysql_fetch_array($query);
-				
-		if($users["username"] != $this->username)
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users["password"] != $this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
-			//$this->_id=$usernam->id;
-			//$this->setState('title', $username->title);			
-			$this->errorCode=self::ERROR_NONE;	
 		
-		return !$this->errorCode;
+		if($users["email"] != $this->username)
+		{
+			$this->errorCode=self::ERROR_USERNAME_INVALID;
+		}
+		elseif($users["password"] != $this->password)
+		{
+			$this->errorCode=self::ERROR_PASSWORD_INVALID;
+		}
+		else
+		{
+			$this->errorCode=self::ERROR_NONE;	
+			$this->_id = $users;
+		}
+		
+		return $this;
 	}
 	
 	//check if email id already exists in the database
@@ -70,5 +78,5 @@ class UserIdentity extends CUserIdentity
 	public function getId()
 	{
 		return $this->_id;
-	}	
+	}
 }
