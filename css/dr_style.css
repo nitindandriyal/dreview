@@ -240,7 +240,7 @@ table.tablefront td{
 	-moz-user-select: none;
 	-ms-user-select: none;
 	-o-user-select: none;
-	user-select: none
+	user-select: none;
 }
 
 .btn:focus {
@@ -282,6 +282,18 @@ table.tablefront td{
 }
 
 .btn-login-cta:hover {
+	background-color: #5A8C45;
+}
+
+.btn-userprofile-cta {
+	background-color: #669F51;
+	border-color: #5A8C45;
+	color: #fff;
+	height: 50px;
+	width: 150px;
+}
+
+.btn-userprofile-cta:hover {
 	background-color: #5A8C45;
 }
 
@@ -640,7 +652,7 @@ input{
 	color: #fff;
 	height: 45px;
 	padding: 8px 12px;
-	font-size: 1.5em;	
+	font-size: 1.2em;	
 }
 
 .reviewDiv
@@ -663,3 +675,68 @@ input{
 {
 	background-color: #f2f2f2;
 }
+
+
+/*==========================*/
+/*css for half star feature*/
+p.stars {
+  overflow: hidden;
+  zoom: 1;
+}
+p.stars span {
+  width: 100px;
+  height: 20px;
+  position: relative;
+  float: left;
+  
+}
+p.stars span a {
+  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 0;
+  padding-top: 20px;
+  overflow: hidden;
+}
+p.stars span{background: url(../images/star-inactive.png);}
+
+p.stars span a.star-05,
+p.stars span a.star-15,
+p.stars span a.star-25,
+p.stars span a.star-35,
+p.stars span a.star-45
+{
+	width:50px;
+}
+
+p.stars span a.star-05{z-index:30; width:10px;}
+p.stars span a.star-10{z-index:29; width:20px;}
+p.stars span a.star-15{z-index:28; width:30px;}
+p.stars span a.star-20{z-index:27; width:40px;}
+p.stars span a.star-25{z-index:26; width:50px;}
+p.stars span a.star-30{z-index:25; width:60px;}
+p.stars span a.star-35{z-index:24; width:70px;}
+p.stars span a.star-40{z-index:23; width:80px;}
+p.stars span a.star-45{z-index:22; width:90px;}
+p.stars span a.star-50{z-index:21; width:100px;}
+
+p.stars span a.star-05:hover, p.stars span a.star-05.active, p.stars span a.star-05:focus,
+p.stars span a.star-15:hover, p.stars span a.star-15.active, p.stars span a.star-15:focus,
+p.stars span a.star-25:hover, p.stars span a.star-25.active, p.stars span a.star-25:focus,
+p.stars span a.star-35:hover, p.stars span a.star-35.active, p.stars span a.star-35:focus,
+p.stars span a.star-45:hover, p.stars span a.star-45.active, p.stars span a.star-45:focus
+{
+	background:url(../images/half-star.png) repeat-x center right;
+}
+
+p.stars span a.star-10:hover, p.stars span a.star-10.active, p.stars span a.star-10:focus,
+p.stars span a.star-20:hover, p.stars span a.star-20.active, p.stars span a.star-20:focus,
+p.stars span a.star-30:hover, p.stars span a.star-30.active, p.stars span a.star-30:focus,
+p.stars span a.star-40:hover, p.stars span a.star-40.active, p.stars span a.star-40:focus,
+p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star-50:focus
+{
+	background:url(../images/star-active.png) repeat-x center right;
+}
+
