@@ -7,7 +7,7 @@
  */
 class LoginForm extends CFormModel
 {
-	public $username;
+	public $email;
 	public $password;
 	public $keepLoggedIn;
 
@@ -22,7 +22,7 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			// username and password are required
-			array('username, password', 'required'),
+			array('email, password', 'required'),
 			// rememberMe needs to be a boolean
 			// password needs to be authenticated
 			array('password', 'authenticate'),
@@ -39,18 +39,25 @@ class LoginForm extends CFormModel
 	{
 		if(!$this->hasErrors())
 		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
-			if(!$this->_identity->authenticate())
+			$this->_identity=new UserIdentity($this->email,$this->password);		
+			$returnCode = $this->_identity->authenticate();
+			
+			switch($returnCode->errorCode)
 			{
-				if($this->_identity->errorCode === UserIdentity::ERROR_USERNAME_INVALID)
-					$this->addError('username','USERNAME_INVALID');
-				elseif($this->_identity->errorCode === UserIdentity::ERROR_PASSWORD_INVALID)
+				case UserIdentity::ERROR_NONE:
+					Yii::app()->user->login($this->_identity);
+					break;
+				case UserIdentity::ERROR_USERNAME_INVALID:
+					$this->addError('email','USERNAME_INVALID');
+					break;
+				case UserIdentity::ERROR_PASSWORD_INVALID:
 					$this->addError('password','PASSWORD_INVALID');
-				else
-					$this->addError('login','ERROR_NONE');					
-			}
-		}
-				
+					break;	
+				default:
+					$this->addError('error','Unknown error, please contact dreview.in');
+					break;
+			}						
+		}				
 	}	
 
 	/**
@@ -61,7 +68,7 @@ class LoginForm extends CFormModel
 	{
 		if($this->_identity===null)
 		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
+			$this->_identity=new UserIdentity($this->email,$this->password);
 			$this->_identity->authenticate();
 		}
 		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)

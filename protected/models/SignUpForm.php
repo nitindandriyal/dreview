@@ -1,6 +1,5 @@
 <?php
 
-require_once (dirname(__FILE__).'/../config/dbconfig.php');
 
 /**
  * SignUpForm class.
@@ -86,7 +85,9 @@ class SignUpForm extends CFormModel
 	{
 		$this->_identity=new UserIdentity($this->email,$this->password);
 		if($this->_identity->userSave($this->firstname, $this->lastname, $this->email, $this->password, $activationCode))
-			return true;		
+			return true;
+		else 
+			return false;		
 	}
 	
 	public function userCheckAndActivate($email, $activationCode)
