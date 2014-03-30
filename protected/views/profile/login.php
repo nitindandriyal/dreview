@@ -17,10 +17,6 @@ if (array_key_exists("login", $_GET)) {
 	}
 }
 
-/* @var $this SiteController */
-/* @var $model LoginForm */
-/* @var $form CActiveForm  */
-
 $this->pageTitle=Yii::app()->name . ' - Login';
 $this->breadcrumbs=array(
 		'Login',
@@ -41,7 +37,7 @@ $this->breadcrumbs=array(
 	<span class="loginTblSpan">Login</span>
 
 	<?php 
-	if(array_filter($model->getErrors()))
+	if(null!= $model && array_filter($model->getErrors()))
 	{
 		$err = $model->getErrors();
 	?>
@@ -67,6 +63,14 @@ $this->breadcrumbs=array(
 							<p>Your account will be locked after 5 unsucessful attempts</p>						
 			<?php 
 					}
+					else if($errValue[0] == 'STATUS_INACTIVE')
+					{
+			?>
+							<h4 style="color: red">Inactive account</h4>
+							<p>Your account is not active</p>
+							<p>Please activate your account by clicking on the activation link sent on your registered email</p>							
+			<?php 	
+					}	
 					else
 					{
 						echo $errValue[0]."<p>";
