@@ -14,8 +14,8 @@ function sendEmail ($fromName, $fromEmail, $toEmail, $subject, $emailBody) {
 	$mail->IsSMTP();	// telling the class to use SMTP
 	$mail->SMTPDebug  = 1;	// enables SMTP debug information (for testing)
 	$mail->SMTPAuth   = true;	// enable SMTP authentication
-	$mail->Username   = "dreviewi";
-	$mail->Password   = "sK852iy8Al";	// GMAIL password
+	$mail->Username   = "WebAdmin@dreview.in";
+	$mail->Password   = "PappuPassHoGaya";
 	$mail->FromName = $fromName;
 	$mail->From = $fromEmail;
 	$mail->AddAddress($toEmail);
