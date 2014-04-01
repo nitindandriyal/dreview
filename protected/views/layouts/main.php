@@ -38,16 +38,16 @@ if(null == $user  || array_filter($user))
 		<div id="SignInPopUpdiv" class="SignInPopUpdiv" style="display:none;">    
 			<div class="innerRow">
 				<form action="/dreview/profile/logout">
-					<button class="btn btn-userprofile-cta" type="submit">Log Out</button>
+					<button class="btn" type="submit">Log Out</button>
 				</form>				
 			</div>
 			<div class="innerRow">
 				<form action="/dreview/profile/userProfile">
-					<button class="btn btn-userprofile-cta" type="submit">My Profile</button>
+					<button class="btn" type="submit">My Profile</button>
 				</form>				
 			</div>			
 			<div class="innerRow">
-	    		<button class="btn btn-userprofile-cta" onclick="popup('SignInPopUpdiv')">Close</button>
+	    		<button class="btn" onclick="popup('SignInPopUpdiv')">Close</button>
 	    	</div>
 	    	
 		</div>
@@ -59,7 +59,7 @@ if(null == $user  || array_filter($user))
 		<nav>
 		<div class="actions">
 			<ul>
-				<li><a href="/home/index">Home </a>
+				<li><a href="/dreview/home/index">Home </a>
 				</li>
 			<?php 
 				if(null != $user && array_filter($user))

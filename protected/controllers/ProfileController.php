@@ -98,7 +98,6 @@ class ProfileController extends Controller
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
 			{
-				$_SESSION['emailid'] = $model->email;
 				Yii::app()->request->redirect('/dreview/home/index');
 			}
 				
@@ -155,7 +154,20 @@ class ProfileController extends Controller
 			$this->render('activate', array('model'=>$model));			
 		}	
 	}	
-	
+
+	//function to send reset password link yo user
+	public function actionforgotPassword()
+	{
+		$model = new LoginForm();
+		$this->render('login', array('model'=>$model));
+	}
+		
+	//function to reset user password
+	public function actionResetPassword()
+	{
+		$model = new LoginForm();		
+		$this->render('resetPassword', array('model'=>$model));
+	}	
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
@@ -169,7 +181,16 @@ class ProfileController extends Controller
 	{
 		
 		$model = new UserProfile;
-		$email = $_SESSION['emailid'];		
+		$user = Yii::app()->user->id;
+		
+		if(null == $user  || array_filter($user))
+		{
+			$email = $_SESSION['email'];
+		}
+		else
+		{
+			$email = $user['email'];
+		}		
 		$result = $model->getProfile($email);
 				
 		$this->render('userProfile', array('result'=>$result));
@@ -187,20 +208,22 @@ class ProfileController extends Controller
 			//$fileUpload = move_uploaded_file( $_FILES['userFile']['tmp_name'], dirname(__FILE__)."/".$_FILES['userFile']['name']);
 			$fileUpload = move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path);
 			
-			if ($fileUpload)
-				echo "file uploaded:".$target_Path;
-			else
-				echo "file upload failed:";
-			
 		}
 	
 		$model = new UserProfile;	
-		$email = $_SESSION['emailid'];		
+		$user = Yii::app()->user->id;
+		
+		if(null == $user  || array_filter($user))
+		{
+			$email = $_SESSION['email'];
+		}
+		else
+		{
+			$email = $user['email'];
+		}		
 		$result = $model->addImage($email, $file);
-		$result = $model->getProfile($email);
 				
-		$this->render('userProfile', array('result'=>$result));
-	}
-	
+		$this->forward('userProfile');
+	}	
 	
 }

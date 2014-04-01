@@ -40,10 +40,10 @@ return array(
 		),
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=dreview',
+			'connectionString' => 'mysql:host=localhost;dbname=db_dreview',
 			'emulatePrepare' => true,
-			'username' => 'dreview_user',
-			'password' => 'dreview_user',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		

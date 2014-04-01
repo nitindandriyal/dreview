@@ -10,7 +10,8 @@ class LoginForm extends CFormModel
 	public $email;
 	public $password;
 	public $keepLoggedIn;
-
+	public $confirmPassword;
+	
 	private $_identity;
 
 	/**

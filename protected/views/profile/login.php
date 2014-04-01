@@ -23,9 +23,20 @@ $this->breadcrumbs=array(
 );
 
 ?>
-<html>
-<head>
 <title>Login</title>
+
+	<div id="blanket" style="display:none;"></div>
+		<div id="forgotPwdPopUpDiv" class="SignInPopUpdiv" style="display:none;"> 
+			<form action="forgotPasword">   		
+				<div style="margin-left: 85%;">
+		    		<img src="../images/Close.jpg" onclick="popup('forgotPwdPopUpDiv')"/>
+		    	</div>
+		    	<div align="center">
+		    		<?php echo CHtml::activeTextField($model,'email', array('placeholder' => 'Enter your registered Email', 'class' => 'input')); ?><br><br><br>
+		    		<?php echo CHtml::submitButton('Reset Password', array('class' => 'btn btn-login-cta btn-reset-pwd')); ?>
+		    	</div>
+	    	</form>
+		</div>
 
 <div align="center">
 	<img src="../images/login.png" style="width: 20%; height: 20%;" />
@@ -82,10 +93,10 @@ $this->breadcrumbs=array(
 	}
 	?>	
 
-	<div class="row">
+	<div>
 		<?php echo CHtml::activeTextField($model,'email', array('placeholder' => 'Enter Registered Email')) ?>
 		<?php echo CHtml::activePasswordField($model,'password', array('placeholder' => 'Enter Your Password')) ?>
-		<?php echo CHtml::submitButton('Login', array('class' => 'btn-login-cta')); ?>
+		<?php echo CHtml::submitButton('Login', array('class' => 'btn')); ?>
 	</div>
 	<br>
 	<div style="display: block; width: 80%">
@@ -96,7 +107,7 @@ $this->breadcrumbs=array(
 		</div>
 		<div style="margin-left: 0px; display: inline-block; width: 57%"
 			align="left">
-			<?php echo CHtml::label('Forgot your password?',''); ?>
+			<a href="#" onclick="popup('forgotPwdPopUpDiv')"><?php echo CHtml::label('Forgot your password?',''); ?></a>
 		</div>
 	</div>
 	<br>
