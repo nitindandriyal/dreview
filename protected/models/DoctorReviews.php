@@ -41,15 +41,11 @@ class DoctorReviews extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ID_REVIEW, ID_DOCTOR, ID_USER, USER_TYPE, PURPOSE, RATING, REVIEW, REVIEW_DATE, STATUS', 'required'),
-			array('ID_REVIEW, ID_DOCTOR, ID_USER, RATING, VIEWS, AGREE, DISAGREE, REPORT_ABUSE', 'numerical', 'integerOnly'=>true),
-			array('USER_TYPE, STATUS', 'length', 'max'=>10),
-			array('PURPOSE', 'length', 'max'=>50),
-			array('RECOMMENDED, SPAM', 'length', 'max'=>3),
-			array('REVIEW', 'length', 'max'=>1000),
+			array('PURPOSE, RATING', 'required'),			
+			array('REVIEW', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('ID_REVIEW, ID_DOCTOR, ID_USER, USER_TYPE, PURPOSE, RATING, RECOMMENDED, REVIEW, REVIEW_DATE, VIEWS, AGREE, DISAGREE, STATUS, REPORT_ABUSE, SPAM', 'safe', 'on'=>'search'),
+			//array('ID_REVIEW, ID_DOCTOR, ID_USER, USER_TYPE, PURPOSE, RATING, RECOMMENDED, REVIEW, REVIEW_DATE, VIEWS, AGREE, DISAGREE, STATUS, REPORT_ABUSE, SPAM', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -138,4 +134,16 @@ class DoctorReviews extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function saveReview($purpose, $rating, $review, $idDoc, $idUser)
+	{
+		$instance = new DoctorReviews();
+		$instance->PURPOSE = $purpose;
+		$instance->RATING = $rating;
+		$instance->REVIEW = $review;
+		$instance->ID_DOCTOR = $idDoc;
+		$instance->ID_USER = $idUser;
+		$instance->save();				
+	}
+		
 }

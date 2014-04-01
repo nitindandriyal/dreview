@@ -10,8 +10,10 @@ $idUser='1';
 $userEmail='vasudha.yadav@gmail.com';
 $userName='Vasudha Yadav';
 
-?>
+Yii::app()->session['idDoc']=$idDoc;
 
+?>
+	
 <div class="reviewDiv">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -21,12 +23,28 @@ $userName='Vasudha Yadav';
 	// See class documentation of CActiveForm for details on this,
 	// you need to use the performAjaxValidation()-method described there.
 	'enableAjaxValidation'=>false,
-)); ?>
+)); ?>	
+
 	<br>
 	<p class="reviewInnerDiv">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
-
+		<?php 
+	if(null!= $model && array_filter($model->getErrors()))
+	{
+		$err = $model->getErrors();
+	?>
+		<div class="ErrorDiv" align="center">
+			<?php
+				foreach ($err as $errValue)
+				{					
+					echo $errValue[0]."<p>";
+				}
+			?>
+		</div><br>
+	<?php 
+	}
+	?>
+	
 	<div class="reviewInnerDiv">
 		<?php echo $form->labelEx($model,'PURPOSE'); ?><br>
 		<?php echo $form->textField($model,'PURPOSE'); ?>
