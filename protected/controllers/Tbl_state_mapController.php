@@ -1,60 +1,39 @@
 <?php
 class Tbl_state_mapController extends Controller
 {
+	public $state = array();
+	public $city = array();
 	
-public $state = array();
-public $city = array();
-	public function actionIndex()
-		{
+	//Action function for Tbl_state_mapController controller
+	public function actionIndex($param1)
+	{
 	    $criteria = new CDbCriteria();
 	    $criteria->select = 'STATE';
 	    $criteria->distinct = true;
 	    $model = TblStateMap::model()->findAll($criteria);
-	    for($i=0;$i<count($model);$i++)// no of state
-		    {
-		    $this->state[$i] = $model[$i]->STATE;
+	    for($stateCount=0;$stateCount<count($model);$stateCount++)
+		{
+		    $this->state[$stateCount] = $model[$stateCount]->STATE;
 		    $criteria = new CDbCriteria();
 		    $criteria->select = 'CITY';
-		    $str = $this->state[$i];
-		    $criteria->condition = "STATE=:xyz";
-		    $criteria->params=array(':xyz'=>$str);
-		    $model_new = TblStateMap::model()->findAll($criteria);
-		    for($j=0;$j<count($model_new);$j++)//no of cities of state
-			    {
-			     $this->city[$i][$j] = $model_new[$j]->CITY;
-			     
-			    }
+		    $str = $this->state[$stateCount];
+		    $criteria->condition = "STATE=:stateName";
+		    $criteria->params=array(':stateName'=>$str);
+		   	$model_new = TblStateMap::model()->findAll($criteria);
+		   	for($cityCount=0;$cityCount<count($model_new);$cityCount++)
+			{
+			     $this->city[$stateCount][$cityCount] = $model_new[$cityCount]->CITY;     
+			}//end of for($cityCount=0 ..... 
 		   
-		    }
-	   
-	  	 $this->render('index',array("city"=> $this->city,"state"=> $this->state));
-	 }		
+		}//end of for($stateCount=0.......
+		 
+	 	 //send the results to view file	
+	  	 $this->render('index',array("city"=> $this->city,"state"=> $this->state,"firstParam" =>$param1));
+	 }//end of function actionIndex()		
 
-
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
+public function actionState($param1)
+{
+	$this->render('state',array("stateParam" =>$param1));
 }
+}
+ 

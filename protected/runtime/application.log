@@ -192,3 +192,297 @@ Stack trace:
 REQUEST_URI=/dr/index.php/dr_by_spec_next.php?speciality=cardiology
 HTTP_REFERER=http://localhost/dr/index.php/
 ---
+2014/04/01 03:57:37 [error] [php] include(TblStateMap.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\dreview\protected\controllers\Tbl_state_mapController.php(12): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): Tbl_state_mapController->actionIndex()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): Tbl_state_mapController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): Tbl_state_mapController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): Tbl_state_mapController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\dreview\index.php(11): CWebApplication->run()
+REQUEST_URI=/dreview/index.php/tbl_state_map/index?param1=Allergy+%26+Immunology
+in C:\xampp\htdocs\dreview\protected\controllers\Tbl_state_mapController.php (12)
+in C:\xampp\htdocs\dreview\index.php (11)
+2014/04/01 03:58:41 [error] [php] include(TblStateMap.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\dreview\protected\controllers\Tbl_state_mapController.php(12): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): Tbl_state_mapController->actionIndex()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): Tbl_state_mapController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): Tbl_state_mapController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): Tbl_state_mapController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\dreview\index.php(11): CWebApplication->run()
+REQUEST_URI=/dreview/index.php/tbl_state_map/index?param1=Cardiology
+in C:\xampp\htdocs\dreview\protected\controllers\Tbl_state_mapController.php (12)
+in C:\xampp\htdocs\dreview\index.php (11)
+2014/04/01 03:59:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\xampp\htdocs\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\yii\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\yii\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1469): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\dreview\protected\controllers\Tbl_state_mapController.php(12): CActiveRecord->findAll(Object(CDbCriteria))
+#8 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): Tbl_state_mapController->actionIndex()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('tbl_state_map/i...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/dreview/index.php/tbl_state_map/index?param1=Cardiology
+HTTP_REFERER=http://localhost/dreview/home/index
+---
+2014/04/01 04:00:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/01 04:00:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "controller/action".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('controller/acti...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/controller/action?param1=Gurgaon
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/01 04:00:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/controller/action?param1=Gurgaon
+---
+2014/04/01 04:00:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/01 04:00:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Pediatrics
+---
+2014/04/01 04:01:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Neurology
+---
+2014/04/01 04:01:24 [error] [php] mysql_connect(): Access denied for user 'dreview_user'@'localhost' (using password: YES) (C:\xampp\htdocs\dreview\protected\config\dbconfig.php:7)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(427): include()
+#1 unknown(0): autoload()
+#2 C:\xampp\htdocs\dreview\protected\controllers\ProfileController.php(77): spl_autoload_call()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ProfileController->actionLogin()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(286): ProfileController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): ProfileController->runActionWithFilters()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ProfileController->run()
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\dreview\index.php(11): CWebApplication->run()
+REQUEST_URI=/dreview/profile/login
+in C:\xampp\htdocs\dreview\protected\config\dbconfig.php (7)
+in C:\xampp\htdocs\dreview\protected\models\LoginForm.php (2)
+in C:\xampp\htdocs\dreview\protected\controllers\ProfileController.php (77)
+2014/04/01 04:02:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Allergy+%26+Immunology
+---
+2014/04/01 04:03:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Allergy+%26+Immunology
+---
+2014/04/01 04:03:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Allergy+%26+Immunology
+---
+2014/04/01 04:03:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "DocSearchByCity".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('DocSearchByCity')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('DocSearchByCity')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctor/DocSearc...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/dreview/index.php/doctor/DocSearchByCity?param1=Lucknow&param2=Allergy+%26+Immunology
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Allergy+%26+Immunology
+---
+2014/04/01 04:03:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Lucknow&param2=Allergy+%26+Immunology
+---
+2014/04/01 04:09:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Lucknow&param2=Allergy+%26+Immunology
+---
+2014/04/01 04:09:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Lucknow&param2=Allergy+%26+Immunology
+---
+2014/04/01 04:09:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Allergy+%26+Immunology
+---
+2014/04/01 04:09:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/01 04:09:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Gurgaon&param2=Cardiology
+---
+2014/04/01 04:09:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "doctorReview/DetailedReview".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorReview/De...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/doctorReview/DetailedReview?param1=1
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Gurgaon&param2=Cardiology
+---
+2014/04/01 04:09:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctorReview/DetailedReview?param1=1
+---
+2014/04/01 04:10:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Gurgaon&param2=Cardiology
+---
+2014/04/01 04:10:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Gurgaon&param2=Cardiology
+---
+2014/04/01 04:10:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Gurgaon&param2=Cardiology
+---
+2014/04/01 04:10:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctorReview/DetailedReview?param1=1
+---
+2014/04/01 04:10:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Gastroenterology
+---
+2014/04/01 04:10:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Gurgaon&param2=Gastroenterology
+---
+2014/04/01 04:10:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.jpg".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/logo.jpg')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/logo.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Gastroenterology
+---
