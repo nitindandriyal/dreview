@@ -56,14 +56,19 @@ class DoctorController extends Controller
 		Yii::app()->end();
 		}
 		*/
-
+		$idDoc = Yii::app()->session['idDoc'];
+		$userEmail = Yii::app()->session['user'];		
+		
 		if(isset($_POST['DoctorReviews']))
 		{
 			$model->attributes=$_POST['DoctorReviews'];
 			if($model->validate())
 			{
+				if($model->saveReview($model->PURPOSE, $model->RATING, $model->REVIEW, $idDoc, $userEmail))
+				{
+					echo "review saved";
+				}
 				// form inputs are valid, do something here
-				return;
 			}
 		}
 		$this->render('writeReview',array('model'=>$model));
