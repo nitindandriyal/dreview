@@ -1,5 +1,15 @@
 <?php 
 $user = Yii::app()->user->id;
+
+if(null == $user  || array_filter($user))
+{
+	if(isset($_SESSION['email']))
+	{
+		$user = array('email' => $_SESSION['email'], 
+				'username' => $_SESSION['username']);
+	}
+}
+
 //echo $user["username"];
 //echo $user["email"];
 
@@ -12,6 +22,8 @@ $user = Yii::app()->user->id;
 <meta name="language" content="en" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<link href="/favicon.ico" rel="shortcut icon"/>
+<link href="/favicon.png" rel="icon" type="image/png"/>
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
@@ -25,7 +37,7 @@ $user = Yii::app()->user->id;
 	<div id="blanket" style="display:none;"></div>
 		<div id="SignInPopUpdiv" class="SignInPopUpdiv" style="display:none;">    
 			<div class="innerRow">
-				<form action="/dreview/profile/logout">
+				<form action="/profile/logout">
 					<button class="btn btn-userprofile-cta" type="submit">Log Out</button>
 				</form>				
 			</div>
@@ -41,21 +53,21 @@ $user = Yii::app()->user->id;
 		<nav>
 		<div class="actions">
 			<ul>
-				<li><a href="/dreview/home/index">Home </a>
+				<li><a href="/home/index">Home </a>
 				</li>
 			<?php 
 				if(null != $user && array_filter($user))
 				{
 			?>
-				<li><a href="#" onclick="popup('SignInPopUpdiv')">Welcome <?php echo $user["username"]?></a></li>
+				<li><a href="#" onclick="popup('SignInPopUpdiv')"><?php echo $user["username"]?></a></li>
 			<?php				
 				}
 				else
 				{
 			?>
-				<li><a href="/dreview/profile/login">Login</a>
+				<li><a href="/profile/login">Login</a>
 				</li>
-				<li><a href="/dreview/profile/SignUp">New User?</a>
+				<li><a href="/profile/signUp">New User?</a>
 				</li>
 			<?php
 				}
