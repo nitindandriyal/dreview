@@ -42,8 +42,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=dreview',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'root',
+			'username' => 'dreview_user',
+			'password' => 'dreview_user',
 			'charset' => 'utf8',
 		),
 		
