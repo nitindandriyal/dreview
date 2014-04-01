@@ -1,6 +1,11 @@
 <?php
 require_once (dirname(__FILE__).'/../lib/mail/email.php');
 
+require 'protected/lib/facebook/facebook.php';
+require 'protected/config/functions.php';
+
+session_start();
+
 class ProfileController extends Controller
 {
 	/**
@@ -26,9 +31,10 @@ class ProfileController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('loginFacebook');
+		$this->render('loginFacebook');	
 	}
-
+	
+	
 	/**
 	 * This is the action to handle external exceptions.
 	 */
@@ -91,9 +97,13 @@ class ProfileController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
+			{
+				$_SESSION['emailid'] = $model->email;
 				Yii::app()->request->redirect('/dreview/home/index');
+			}
+				
 		}
-		// display the login form
+		// display the login form	
 		$this->render('login',array('model'=>$model));
 	}
 	
@@ -153,18 +163,44 @@ class ProfileController extends Controller
 	{
 		Yii::app()->user->logout();
 		$this->redirect("/dreview/home/index");
+	}	
+
+	public function actionUserProfile()
+	{
+		
+		$model = new UserProfile;
+		$email = $_SESSION['emailid'];		
+		$result = $model->getProfile($email);
+				
+		$this->render('userProfile', array('result'=>$result));
 	}
 	
-	public function actionCheckLogin()
+	public function actionAddImage()
 	{
-	// check login details
-		$user = new TblUsers('search');
-		$user->unsetAttributes();
-		
-		if (isset($_GET['email']))
-			$customerToHotel->attributes = $_GET['customerToHotel'];
+	
+		$target_Path = "C:/tools/XAMPP/htdocs/dreview/images/profiles/";
+		$target_Path = $target_Path.basename( $_FILES['userFile']['name'] );
+
+		if (isset($_FILES['userFile']) && $_FILES['userFile']['size'] > 0)
+		{		
+			$file = $_FILES['userFile']['name'];
+			//$fileUpload = move_uploaded_file( $_FILES['userFile']['tmp_name'], dirname(__FILE__)."/".$_FILES['userFile']['name']);
+			$fileUpload = move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path);
 			
-		$this->render('checkLogin', array('customerToHotel' => $customerToHotel));
-	}	
+			if ($fileUpload)
+				echo "file uploaded:".$target_Path;
+			else
+				echo "file upload failed:";
+			
+		}
+	
+		$model = new UserProfile;	
+		$email = $_SESSION['emailid'];		
+		$result = $model->addImage($email, $file);
+		$result = $model->getProfile($email);
+				
+		$this->render('userProfile', array('result'=>$result));
+	}
+	
 	
 }

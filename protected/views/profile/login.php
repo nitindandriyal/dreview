@@ -1,7 +1,7 @@
 <?php
 //Always place this code at the top of the Page
 ob_start();
-session_start();
+
 
 if (isset($_SESSION['id'])) {
 	// Redirection to login page twitter or facebook

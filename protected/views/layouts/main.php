@@ -37,13 +37,19 @@ if(null == $user  || array_filter($user))
 	<div id="blanket" style="display:none;"></div>
 		<div id="SignInPopUpdiv" class="SignInPopUpdiv" style="display:none;">    
 			<div class="innerRow">
-				<form action="/profile/logout">
+				<form action="/dreview/profile/logout">
 					<button class="btn btn-userprofile-cta" type="submit">Log Out</button>
 				</form>				
 			</div>
 			<div class="innerRow">
+				<form action="/dreview/profile/userProfile">
+					<button class="btn btn-userprofile-cta" type="submit">My Profile</button>
+				</form>				
+			</div>			
+			<div class="innerRow">
 	    		<button class="btn btn-userprofile-cta" onclick="popup('SignInPopUpdiv')">Close</button>
 	    	</div>
+	    	
 		</div>
 	
 	<div id="PageTop">
@@ -65,9 +71,9 @@ if(null == $user  || array_filter($user))
 				else
 				{
 			?>
-				<li><a href="/profile/login">Login</a>
+				<li><a href="/dreview/profile/login">Login</a>
 				</li>
-				<li><a href="/profile/signUp">New User?</a>
+				<li><a href="/dreview/profile/signUp">New User?</a>
 				</li>
 			<?php
 				}
