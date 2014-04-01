@@ -12,7 +12,7 @@ class User
 		fwrite($file, "\n Inside check user");
 		fclose($file );
 	
-	$fetchQuery = "SELECT username, email, oauth_provider, oauth_uid FROM `tbl_users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'";		
+		$fetchQuery = "SELECT username, email, oauth_provider, oauth_uid FROM `tbl_users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'";		
         $query = mysql_query($fetchQuery ) or die(mysql_error());
         $result = mysql_fetch_array($query);
         
