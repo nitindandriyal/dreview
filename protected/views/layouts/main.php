@@ -1,7 +1,7 @@
 <?php 
 $user = Yii::app()->user->id;
 
-if(null == $user  || array_filter($user))
+if(null == $user  || !array_filter($user))
 {
 	if(isset($_SESSION['email']))
 	{
@@ -42,7 +42,7 @@ if(null == $user  || array_filter($user))
 				</form>				
 			</div>
 			<div class="innerRow">
-				<form action="/dreview/profile/userProfile">
+				<form action="/dreview/users/profile">
 					<button class="btn" type="submit">My Profile</button>
 				</form>				
 			</div>			

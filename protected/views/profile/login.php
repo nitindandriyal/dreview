@@ -10,11 +10,18 @@ if (isset($_SESSION['id'])) {
 
 if (array_key_exists("login", $_GET)) {
 	$oauth_provider = $_GET['oauth_provider'];
-	if ($oauth_provider == 'twitter') {
+	if ($oauth_provider == 'twitter') 
+	{
 		header("Location: loginTwitter.php");
-	} else if ($oauth_provider == 'facebook') {
+	} 
+	else if ($oauth_provider == 'facebook') 
+	{
 		header("Location: loginFacebook.php");
 	}
+	else if ($oauth_provider == 'google')
+	{
+		header("Location: loginGoogle.php");
+	}	
 }
 
 $this->pageTitle=Yii::app()->name . ' - Login';
@@ -112,9 +119,12 @@ $this->breadcrumbs=array(
 	</div>
 	<br>
 	<?php echo CHtml::endForm(); ?>
-	<span class="loginImageSpan"><a href="loginFacebook"><img
-			src="../images/facebook.png" /> </a><span> <!--  span class="loginImageSpan"><img src="../images/google.png"/><span>
-		<span class="loginImageSpan"><img src="../images/twitter.png"/><span-->
+	<span class="loginImageSpan">
+		<a href="loginFacebook"><img src="../images/facebook.png" /> </a>
+		<a href="loginGoogle"><img src="../images/google.png"/></a>		
+	<span> 
+		
+		<!--span class="loginImageSpan"><img src="../images/twitter.png"/><span-->
 
 </div>
 <br />

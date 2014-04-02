@@ -42,4 +42,14 @@ class UserProfile extends CFormModel
 		return $result;
 	}
 		
+	public function getReviews($email)
+	{			
+		$query = mysql_query("SELECT id_review, id_doctor, id_user, purpose, rating, review, recommended, review_date, views, agree, disagree, status FROM tbl_doc_reviews WHERE id_user='$email'") or die(mysql_error());
+		
+		while($row = mysql_fetch_array($query) ){
+			$fullData[] = $row;
+		}
+	
+		return $fullData;
+	}	
 }
