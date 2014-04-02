@@ -17,7 +17,7 @@ class Tbl_state_mapController extends Controller
 		    $criteria = new CDbCriteria();
 		    $criteria->select = 'CITY';
 		    $str = $this->state[$stateCount];
-		    $criteria->condition = "STATE=:stateName";
+		    $criteria->condition = "STATE=:stateName AND METRO ='Y'";
 		    $criteria->params=array(':stateName'=>$str);
 		   	$model_new = TblStateMap::model()->findAll($criteria);
 		   	for($cityCount=0;$cityCount<count($model_new);$cityCount++)
