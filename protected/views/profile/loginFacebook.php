@@ -1,7 +1,7 @@
 <?php
 
 require 'protected/lib/facebook/facebook.php';
-require 'protected/config/functions.php';
+require 'protected/components/functions.php';
 
 
 $facebook = new Facebook(array(
@@ -31,7 +31,7 @@ if ($user)
 		$email = $user_profile['email'];	
 			
 		$user = new User();
-		$userdata = $user->checkUser($uid, 'facebook', $username,$email,$twitter_otoken,$twitter_otoken_secret);
+		$userdata = $user->checkFBUser($uid, 'facebook', $username,$email,$twitter_otoken,$twitter_otoken_secret);
 				
 		if(array_filter($userdata))
 		{

@@ -1,9 +1,6 @@
 <?php
 require_once (dirname(__FILE__).'/../lib/mail/email.php');
 
-require 'protected/lib/facebook/facebook.php';
-require 'protected/config/functions.php';
-
 session_start();
 
 class ProfileController extends Controller
@@ -34,7 +31,13 @@ class ProfileController extends Controller
 		$this->render('loginFacebook');	
 	}
 	
-	
+	public function actionLoginGoogle()
+	{
+		// renders the view file 'protected/views/site/index.php'
+		// using the default layout 'protected/views/layouts/main.php'
+		$this->render('loginGoogle');
+	}
+		
 	/**
 	 * This is the action to handle external exceptions.
 	 */
@@ -175,55 +178,6 @@ class ProfileController extends Controller
 	{
 		Yii::app()->user->logout();
 		$this->redirect("/dreview/home/index");
-	}	
-
-	public function actionUserProfile()
-	{
-		
-		$model = new UserProfile;
-		$user = Yii::app()->user->id;
-		
-		if(null == $user  || array_filter($user))
-		{
-			$email = $_SESSION['email'];
-		}
-		else
-		{
-			$email = $user['email'];
-		}		
-		$result = $model->getProfile($email);
-				
-		$this->render('userProfile', array('result'=>$result));
-	}
-	
-	public function actionAddImage()
-	{
-	
-		$target_Path = "C:/tools/XAMPP/htdocs/dreview/images/profiles/";
-		$target_Path = $target_Path.basename( $_FILES['userFile']['name'] );
-
-		if (isset($_FILES['userFile']) && $_FILES['userFile']['size'] > 0)
-		{		
-			$file = $_FILES['userFile']['name'];
-			//$fileUpload = move_uploaded_file( $_FILES['userFile']['tmp_name'], dirname(__FILE__)."/".$_FILES['userFile']['name']);
-			$fileUpload = move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path);
-			
-		}
-	
-		$model = new UserProfile;	
-		$user = Yii::app()->user->id;
-		
-		if(null == $user  || array_filter($user))
-		{
-			$email = $_SESSION['email'];
-		}
-		else
-		{
-			$email = $user['email'];
-		}		
-		$result = $model->addImage($email, $file);
-				
-		$this->forward('userProfile');
 	}	
 	
 }
