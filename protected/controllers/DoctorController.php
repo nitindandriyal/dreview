@@ -43,7 +43,7 @@ class DoctorController extends Controller
 	public function actionDocSearchByState($param1,$param2)
 	{
 		 $result = Yii::app()->db->createCommand()
-		->selectDistinct(array('FIRST_NAME','MIDDLE_NAME','LAST_NAME','GENDER','PRACTICE_ST_DT','USER_RATING','TOTAL_REVIEWS'))
+		->selectDistinct(array('FIRST_NAME','MIDDLE_NAME','LAST_NAME','GENDER','PRACTICE_ST_DT','USER_RATING','TOTAL_REVIEWS','QUALIFICATION','tbl_doctor.ID_DOCTOR'))
 		->from('tbl_doctor,tbl_doc_appointments,tbl_doc_qualification')
 		->where('STATE =:state',array(':state'=> $param1))
 		->andWhere('tbl_doc_qualification.SUPER_SPECIALITY=:speciality',array(':speciality'=>$param2))
