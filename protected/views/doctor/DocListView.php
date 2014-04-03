@@ -8,16 +8,19 @@
 ?>
 <div class="container">
 
-</div>
 
 <h2><?php echo $speciality ?> specialist in 
 	<?php echo $city ;?>
 </h2>
+</div>
+
 <p>
 
 
 	<?php $this->widget('zii.widgets.CListView', array(
         'dataProvider'=>$dataProvider,
         'itemView'=>'_view',
+        'template' => '{items}{pager}',
+        'cssFile'=>'../../../css/dr_style.css'
 )); ?>
 </p>
