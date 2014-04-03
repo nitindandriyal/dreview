@@ -6,17 +6,29 @@
  * Window - Preferences - PHPeclipse - PHP - Code Templates
  */
 ?>
-<div class="view">
+<div class="container">
+ <span class="hr"></span>
+<div class="row">
+        <div class="col-sm-6">
+        <div class="widget-item-image badge-image">
+        <a href="/find/Illinois/Chicago/Plastic-Surgeon/Peter-Johnson">
+                            <img src="../../images/dr_pic"/></a>
+                            </div>
+<div class="widget-item-content">
 
-	<b><?php echo CHtml::link($data['FIRST_NAME']." ".$data['LAST_NAME'],array('doctorReview/DetailedReview','param1'=>$data['ID_DOCTOR'])); ?>:</b>
+	<a><?php echo CHtml::link("Dr. ".$data['FIRST_NAME']." ".$data['LAST_NAME'],array('doctorReview/DetailedReview','param1'=>$data['ID_DOCTOR'])); ?>:</b>
 	<br />
-	<b><?php echo 'Practicing Since: ' ;echo $data['PRACTICE_ST_DT'];?>
-	<br />
-	<b><?php echo 'Rating:  ';echo $data['USER_RATING'];?>
-	<br />
-	<b><?php echo 'Qualification:  ';echo $data['QUALIFICATION'];?>
-	<br />
-
 	
+	<?php echo 'Rating:  ';echo $data['USER_RATING'];?>
+	<br />
+	<?php echo $data['QUALIFICATION'];?>
+	<br />
+	<br/>	
+</div>
+
 
 </div>
+
+</div>	
+</div>	
+
