@@ -33,7 +33,7 @@ class DoctorController extends Controller
 		$this->docQueryResult = $result;
 		$dataProvider=new CArrayDataProvider($result, array('keyField'=>'LAST_NAME',
     		'pagination'=>array(
-        	'pageSize'=>2,
+        	'pageSize'=>10,
     							),
 				));
 		$this->render('DocListView',array('dataProvider'=> $dataProvider,"city"=>$param1,"speciality"=>$param2));
@@ -54,7 +54,7 @@ class DoctorController extends Controller
 		$this->docQueryResult = $result;
 		$dataProvider=new CArrayDataProvider($result, array('keyField'=>'LAST_NAME',
     		'pagination'=>array(
-        	'pageSize'=>2,
+        	'pageSize'=>10,
     							),
 				));
 		$this->render('DocListView',array('dataProvider'=> $dataProvider,"city"=>$param1,"speciality"=>$param2));
