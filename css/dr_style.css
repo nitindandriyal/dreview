@@ -694,7 +694,10 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 	position:absolute;top:0;left:0;bottom:0;right:0;
 }
 .widget-item-content {
-	display:block;line-height:1.4em;margin-left:60px;
+	display:block;line-height:1.4em;margin-left:80px;
+}
+.widget-item-content-review-page {
+	display:block;line-height:1.4em;margin-left:5px;
 }
 .hr {
 	display:block;border-top:1px solid #e4ddd7;height:0;padding:0;margin:0 0 30px 0;font-size:0;
