@@ -23,6 +23,13 @@
 	<br />
 	<?php echo $data['QUALIFICATION'];?>
 	<br />
+	<?php for($i=0;$i<5;$i++){?>
+		<?php if($i<$data['USER_RATING']) {?>
+			<img src = "../../images/star.png" height="18" width="18"/>
+			<?php }else{ ?>
+			<img src = "../../images/star_off.png"height="18" width="18"/>				
+				<?php } ?>
+		<?php } ?>
 	<br/>	
 </div>
 
