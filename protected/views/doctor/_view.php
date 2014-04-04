@@ -19,8 +19,6 @@
 	<a><?php echo CHtml::link("Dr. ".$data['FIRST_NAME']." ".$data['LAST_NAME'],array('doctorReview/DetailedReview','param1'=>$data['ID_DOCTOR'])); ?>:</b>
 	<br />
 	
-	<?php echo 'Rating:  ';echo $data['USER_RATING'];?>
-	<br />
 	<?php echo $data['QUALIFICATION'];?>
 	<br />
 	<?php for($i=0;$i<5;$i++){?>
@@ -30,6 +28,7 @@
 			<img src = "../../images/star_off.png"height="18" width="18"/>				
 				<?php } ?>
 		<?php } ?>
+		<?php echo $data['TOTAL_REVIEWS'];echo " ";echo "reviews"?>
 	<br/>	
 </div>
 
