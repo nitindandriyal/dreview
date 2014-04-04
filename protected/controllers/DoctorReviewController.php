@@ -44,7 +44,7 @@ class DoctorReviewController extends Controller
 		$this->docQueryResult = $result;
 		$dataProvider=new CArrayDataProvider($result, array('keyField'=>'ID_REVIEW',
     		'pagination'=>array(
-        	'pageSize'=>2,
+        	'pageSize'=>10,
     							),
 				));
 		$this->render('detailedReviews',array('dataProvider'=> $dataProvider,'docDetail' =>$this->docdetail,'docAppointmentDetails'=>$this->docAppintmentDetail,'docQualification'=>$this->docQualification));
