@@ -8,7 +8,6 @@
 ?>
 <div class="container">
 
-</div>
 
 <?php foreach ($docDetail as $row){?>
 <h2><?php echo "Dr. " ;echo $row['FIRST_NAME'];echo " " ;echo $row['LAST_NAME'] ;?>  
@@ -55,6 +54,7 @@
 <?php echo "AREA: ";echo $row['AREA']; ?>
 
 <?php }?>
+</DIV>
 
 <p>
 
@@ -62,5 +62,7 @@
 	<?php $this->widget('zii.widgets.CListView', array(
         'dataProvider'=>$dataProvider,
         'itemView'=>'_view',
+          'template' => '{items}{pager}',
+        'cssFile'=>'../../../css/dr_style.css'
 )); ?>
 </p>

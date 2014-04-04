@@ -6,16 +6,31 @@
  * Window - Preferences - PHPeclipse - PHP - Code Templates
  */
 ?>
-<div class="view">
+<div class="container">
+ <span class="hr"></span>
+<div class="row">
+        <div class="col-sm-6">
+        <div class="widget-item-content-review-page">
+        
+	<?php for($i=0;$i<5;$i++){?>
+		<?php if($i<$data['RATING']) {?>
+			<img src = "../../images/star.png" height="18" width="18"/>
+			<?php }else{ ?>
+			<img src = "../../images/star_off.png"height="18" width="18"/>				
+				<?php } ?>
+		<?php } ?>
+		<br>
+	<b><?php echo 'Reviewed on: ' ;echo $data['REVIEW_DATE'];?>
+	<br />
+	<br />
+	<b><?php echo $data['REVIEW'];?>
+	<br />
+	<br \>
+	</div>
 
-	<b><?php echo 'Review Date: ' ;echo $data['REVIEW_DATE'];?>
-	<br />
-	<b><?php echo 'Review Rating: ' ;echo $data['RATING'];?>
-	<br />
-	<b><?php echo 'Review: ' ;echo $data['REVIEW'];?>
-	<br />
-	
-
-	
 
 </div>
+
+</div>	
+</div>
+
