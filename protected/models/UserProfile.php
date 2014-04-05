@@ -26,14 +26,9 @@ class UserProfile extends CFormModel
 	public function getProfile($email)
 	{
 			
-		$query = mysql_query("SELECT username, email, oauth_provider, status, last_login, mobile, city, image FROM tbl_users WHERE email='$email'") or die(mysql_error());
+		$query = mysql_query("SELECT username, email, oauth_provider, status, last_login, mobile, city, image, reviews, followers FROM tbl_users WHERE email='$email'") or die(mysql_error());
 		$result = mysql_fetch_array($query);
-		
-		if ($result['oauth_provider'] == null)
-		{
-			$result['oauth_provider'] = 'DReview';
-		}
-		
+
 		if($result['image'] == null)
 		{
 			$result['image'] = '163751742.jpg';

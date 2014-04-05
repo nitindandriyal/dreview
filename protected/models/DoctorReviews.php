@@ -1,5 +1,7 @@
 <?php
 
+require_once (dirname(__FILE__).'/../config/dbconfig.php');
+
 /**
  * This is the model class for table "tbl_doc_reviews".
  *
@@ -42,7 +44,7 @@ class DoctorReviews extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('PURPOSE, RATING', 'required'),			
-			array('REVIEW', 'length', 'max'=>100),
+			array('REVIEW', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			//array('ID_REVIEW, ID_DOCTOR, ID_USER, USER_TYPE, PURPOSE, RATING, RECOMMENDED, REVIEW, REVIEW_DATE, VIEWS, AGREE, DISAGREE, STATUS, REPORT_ABUSE, SPAM', 'safe', 'on'=>'search'),
@@ -143,7 +145,10 @@ class DoctorReviews extends CActiveRecord
 		$instance->REVIEW = $review;
 		$instance->ID_DOCTOR = $idDoc;
 		$instance->ID_USER = $idUser;
-		$instance->save();				
+		$instance->save();		
+	
+		$query = "UPDATE tbl_users SET reviews = reviews + 1 WHERE email='$idUser'";
+		$result = mysql_query($query) or die(mysql_error());		
 	}
 		
 }

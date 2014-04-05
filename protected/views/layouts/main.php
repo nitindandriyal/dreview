@@ -9,52 +9,47 @@ if(null == $user  || !array_filter($user))
 				'username' => $_SESSION['username']);
 	}
 }
-
-//echo $user["username"];
-//echo $user["email"];
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta charset="utf-8" />
-<meta name="language" content="en" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-<link href="/favicon.ico" rel="shortcut icon"/>
-<link href="/favicon.png" rel="icon" type="image/png"/>
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/dr_style.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/normalize.css" />
 	<title>DReview</title>
-	<script language="javaScript" type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js"></script>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="language" content="en" />
+	<link href="/favicon.ico" rel="shortcut icon"/>
+	<link href="/favicon.png" rel="icon" type="image/png"/>
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/dr_style.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/normalize.css" />		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-animate.min.js"></script>		
+		<script language="javaScript" type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js"></script>
 	
 </head>
 <body>
-	<div id="blanket" style="display:none;"></div>
-		<div id="SignInPopUpdiv" class="SignInPopUpdiv" style="display:none;">    
-			<div class="innerRow">
-				<form action="/dreview/profile/logout">
-					<button class="btn" type="submit">Log Out</button>
-				</form>				
+		<nav>
+			<div id="ProfileMenu" class="ProfileMenu" style="display:none;">
+				<a href="/dreview/users/profile">
+					<div class="innerRow">My Profile</div>
+				</a>
+				<a href="/dreview/doctor/writeReview">
+					<div class="innerRow">Write A Review</div>
+				</a>
+				<a href="/dreview/profile/logout">
+					<div class="innerRow">Log Out</div>
+				</a>
+				<a href="#" onclick="menuOpen('ProfileMenu')">
+					<div class="innerRow">Close</div>
+				</a>
 			</div>
-			<div class="innerRow">
-				<form action="/dreview/users/profile">
-					<button class="btn" type="submit">My Profile</button>
-				</form>				
-			</div>			
-			<div class="innerRow">
-	    		<button class="btn" onclick="popup('SignInPopUpdiv')">Close</button>
-	    	</div>
-	    	
-		</div>
-	
+		</nav>
 	<div id="PageTop">
 		<div class="logo">
-			<img src="../images/logo.jpg" />
+			<img src="../images/LOGO_100.png" />
 		</div>
 		<nav>
 		<div class="actions">
@@ -65,7 +60,7 @@ if(null == $user  || !array_filter($user))
 				if(null != $user && array_filter($user))
 				{
 			?>
-				<li><a href="#" onclick="popup('SignInPopUpdiv')"><?php echo $user["username"]?></a></li>
+				<li><a href="#" onclick="menuOpen('ProfileMenu')"><?php echo $user["username"]?></a></li>
 			<?php				
 				}
 				else
@@ -82,9 +77,11 @@ if(null == $user  || !array_filter($user))
 		</div>
 		</nav>
 	</div>
-		
+	
+	<div id="pageTopAfter"></div>
+	
 	<?php echo $content; ?>
-	<footer class="site-footer">
+	<footer id="footer">
 		<div class="row">
 			<ul class="footer-links">
 				<li class="foot-link_item">

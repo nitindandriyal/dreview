@@ -1,4 +1,7 @@
 <?php
+
+require (dirname(__FILE__).'/../models/StaticModel.php');
+
 class HomeController extends Controller
 {
 	/**
@@ -42,5 +45,29 @@ class HomeController extends Controller
 			else
 				$this->render('error', $error);
 		}
+	}
+	
+	public function actionAutoSuggestLocation()
+	{
+		$data = file_get_contents("php://input");
+		$objData = json_decode($data);
+		// renders the view file 'protected/views/site/index.php'
+		// using the default layout 'protected/views/layouts/main.php'
+		$locations = StaticModel::getLocations();
+			
+		$jsonData = json_encode($locations);
+		
+		print_r($jsonData);
+		//in_array($objData->data, $jsonData);
+		//$this->render('testfade',array($fullData));
+	}
+	
+	public function actionAutoSuggestSpeciality(){
+		$data = file_get_contents("php://input");
+		$objData = json_decode($data);		
+		$specialities = StaticModel::getSpecialities();
+		
+		$jsonData = json_encode($specialities);
+		print_r($jsonData);
 	}
 }

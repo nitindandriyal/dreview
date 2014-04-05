@@ -29,7 +29,7 @@ class UserIdentity extends CUserIdentity
 		//$record=User::model()->findByAttributes(array('username'=>$this->username));		
 		$email=$this->username;
 		
-		$query=mysql_query("SELECT email, username, password, status FROM tbl_users WHERE email='$email'") or die(mysql_error());
+		$query=mysql_query("SELECT email, username, password, status FROM tbl_users WHERE email='$email' and oauth_provider='DReview'") or die(mysql_error());
 		$users = mysql_fetch_array($query);		
 		
 		if($users["email"] != $this->username)
@@ -57,7 +57,7 @@ class UserIdentity extends CUserIdentity
 	public function checkEmailExisting($email)
 	{
 		
-		$query=mysql_query("SELECT 1 FROM tbl_users WHERE email='$email'") or die(mysql_error());
+		$query=mysql_query("SELECT 1 FROM tbl_users WHERE email='$email' and oauth_provider='DReview'") or die(mysql_error());
 		$emailCount = mysql_fetch_row($query);
 	
         if ($emailCount >= 1)

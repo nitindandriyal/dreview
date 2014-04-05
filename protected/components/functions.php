@@ -15,7 +15,7 @@ class User
         if (empty($result))
         {
             #user not present. Insert a new Record
-            $query = mysql_query("INSERT INTO `tbl_users` (oauth_provider, oauth_uid, username,email) VALUES ('$oauth_provider', $uid, '$username','$email')") or die(mysql_error());
+            $query = mysql_query("INSERT INTO `tbl_users` (oauth_provider, oauth_uid, username,email, status) VALUES ('$oauth_provider', $uid, '$username','$email','ACTIVE')") or die(mysql_error());
             $query = mysql_query($fetchQuery );
             $result = mysql_fetch_array($query );            
         }

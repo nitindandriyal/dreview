@@ -112,14 +112,23 @@ class DoctorController extends Controller
 		}
 		*/
 		$idDoc = Yii::app()->session['idDoc'];
-		$userEmail = Yii::app()->session['user'];		
+		$user = Yii::app()->user->id;
 		
+		if(null == $user  || !array_filter($user))
+		{
+			$email = $_SESSION['email'];
+		}
+		else
+		{
+			$email = $user['email'];
+		}	
+					
 		if(isset($_POST['DoctorReviews']))
 		{
 			$model->attributes=$_POST['DoctorReviews'];
 			if($model->validate())
 			{
-				if($model->saveReview($model->PURPOSE, $model->RATING, $model->REVIEW, $idDoc, $userEmail))
+				if($model->saveReview($model->PURPOSE, $model->RATING, $model->REVIEW, $idDoc, $email))
 				{
 					echo "review saved";
 				}

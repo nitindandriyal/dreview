@@ -45,7 +45,7 @@ class LoginForm extends CFormModel
 			
 			switch($returnCode->errorCode)
 			{
-				case UserIdentity::ERROR_NONE:					
+				case UserIdentity::ERROR_NONE:				
 					Yii::app()->user->login($this->_identity);
 					break;
 				case UserIdentity::ERROR_USERNAME_INVALID:
@@ -87,7 +87,7 @@ class LoginForm extends CFormModel
 	
 	public function userCheckAndActivate($email, $activationCode)
 	{		
-		$query=mysql_query("SELECT status, activation_code FROM tbl_users WHERE email='$email'") or die(mysql_error());
+		$query=mysql_query("SELECT status, activation_code FROM tbl_users WHERE email='$email' and oauth_provider='DReview'") or die(mysql_error());
 		$users = mysql_fetch_array($query);
 		
 		if (isset($users["status"]))
