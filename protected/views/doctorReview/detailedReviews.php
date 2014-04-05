@@ -8,32 +8,33 @@
 ?>
 <div class="container">
 
-
+ <span class="hr"></span>
+<div class="row">
+        <div class="col-sm-6">
+        <div class="widget-item-image_main badge-image">
+        <a href="/find/Illinois/Chicago/Plastic-Surgeon/Peter-Johnson">
+                            <img src="../../images/doc_pic_big"/></a>
+                            </div>
 <?php foreach ($docDetail as $row){?>
 <h2><?php echo "Dr. " ;echo $row['FIRST_NAME'];echo " " ;echo $row['LAST_NAME'] ;?>  
 </h2>
 <br>
-<?php echo "DOB: ";echo $row['DOB']; ?>
+<?php echo "Practising Since: ";echo $row['PRACTICE_ST_DT']; ?>
 <br>
-<?php echo "LANG_SPOKEN: ";echo $row['LANG_SPOKEN']; ?>
-<br>
-<?php echo "PRACTICE_ST_DT: ";echo $row['PRACTICE_ST_DT']; ?>
-<br>
-<?php echo "USER_RATING: ";echo $row['USER_RATING']; ?>
-<br>
-<?php echo "MEDICINE: ";echo $row['MEDICINE']; ?>
-<br>
-<?php echo "GENDER: ";echo $row['GENDER']; ?>
-<br>
-<?php echo "TOTAL_REVIEWS: ";echo $row['TOTAL_REVIEWS']; ?>
+	<?php for($i=0;$i<5;$i++){?>
+		<?php if($i<$row['USER_RATING']) {?>
+			<img src = "../../images/star.png" height="18" width="18"/>
+			<?php }else{ ?>
+			<img src = "../../images/star_off.png"height="18" width="18"/>				
+				<?php } ?>
+		<?php } ?>
+<?php echo " From   ";echo $row['TOTAL_REVIEWS'];echo" reviews" ?>
 <br>
 <?php }?>
 
 <?php foreach ($docQualification as $row){?>
-<br>
-<?php echo "QUALIFICATION: ";echo $row['QUALIFICATION']; ?>
-<br>
-<?php echo "INSTITUTION: ";echo $row['INSTITUTION']; ?>
+<?php echo $row['QUALIFICATION']; ?>
+<?php echo " (";echo $row['INSTITUTION']; echo ")";?>
 <br>
 <?php echo "SUPER_SPECIALITY: ";echo $row['SUPER_SPECIALITY']; ?>
 <br>
@@ -49,11 +50,14 @@
 <br>
 <?php echo "EMAIL: ";echo $row['EMAIL']; ?>
 <br>
-<?php echo "DISTRICT: ";echo $row['DISTRICT']; ?>
+<?php echo "CITY: ";echo $row['DISTRICT']; ?>
 <br>
 <?php echo "AREA: ";echo $row['AREA']; ?>
 
 <?php }?>
+</DIV>
+</DIV>
+</DIV>
 </DIV>
 
 <p>
