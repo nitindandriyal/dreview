@@ -15,7 +15,7 @@
 			<div>
 			    <span class="loginTblSpan">SignUp</span>
 			    <div style="margin-left:0px;display:inline-block;width: 40%" align="left">
-			    	<span class="loginTblSpan" id="CreateAccount">Already a member? <a href="/dreview/profile/login">Login</a></span>
+			    	<span class="loginTblSpan" id="CreateAccount">Already a member? <a href="/profile/login">Login</a></span>
 			    </div>
 			    <div style="margin-right:0px;display:inline-block;width: 57%" align="right">
 			    	<span class="loginTblSpan" id="CreateAccount">Create a new account</span>

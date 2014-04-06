@@ -109,7 +109,7 @@ function slideShowCtrl($scope, $timeout) {
 
 function searchCtrl($scope, $http) {
 
-	$scope.url = '/dreview/home/autoSuggestLocation';
+	$scope.url = '/home/autoSuggestLocation';
 	$http.post($scope.url, {
 		"data" : $scope.keywords
 	}).success(function(data, status) {
@@ -132,7 +132,7 @@ function searchCtrl($scope, $http) {
 		$scope.status = status;
 	});
 	
-	$scope.url = '/dreview/home/autoSuggestSpeciality';
+	$scope.url = '/home/autoSuggestSpeciality';
 	$http.post($scope.url, {
 		"data" : $scope.keywords
 	}).success(function(data, status) {

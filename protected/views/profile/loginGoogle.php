@@ -43,7 +43,7 @@ try
             	$_SESSION['username'] = $userdata['username'];
             	$_SESSION['email'] = $email;
             	$_SESSION['oauth_provider'] = $userdata['oauth_provider'];
-            	header("Location: /dreview/home/index");
+            	header("Location: /home/index");
             }            
             
         }

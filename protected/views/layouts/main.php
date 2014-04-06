@@ -33,13 +33,13 @@ if(null == $user  || !array_filter($user))
 <body>
 		<nav>
 			<div id="ProfileMenu" class="ProfileMenu" style="display:none;">
-				<a href="/dreview/users/profile">
+				<a href="/users/profile">
 					<div class="innerRow">My Profile</div>
 				</a>
-				<a href="/dreview/doctor/writeReview">
+				<a href="/doctor/writeReview">
 					<div class="innerRow">Write A Review</div>
 				</a>
-				<a href="/dreview/profile/logout">
+				<a href="/profile/logout">
 					<div class="innerRow">Log Out</div>
 				</a>
 				<a href="#" onclick="menuOpen('ProfileMenu')">
@@ -54,7 +54,7 @@ if(null == $user  || !array_filter($user))
 		<nav>
 		<div class="actions">
 			<ul>
-				<li><a href="/dreview/home/index">Home </a>
+				<li><a href="/home/index">Home </a>
 				</li>
 			<?php 
 				if(null != $user && array_filter($user))
@@ -66,9 +66,9 @@ if(null == $user  || !array_filter($user))
 				else
 				{
 			?>
-				<li><a href="/dreview/profile/login">Login</a>
+				<li><a href="/profile/login">Login</a>
 				</li>
-				<li><a href="/dreview/profile/signUp">New User?</a>
+				<li><a href="/profile/signUp">New User?</a>
 				</li>
 			<?php
 				}

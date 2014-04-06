@@ -101,7 +101,7 @@ class ProfileController extends Controller
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
 			{
-				Yii::app()->request->redirect('/dreview/home/index');
+				Yii::app()->request->redirect('/home/index');
 			}
 				
 		}
@@ -113,7 +113,7 @@ class ProfileController extends Controller
 	{
 		$model=new SignUpForm;
 
-		//Yii::app()->request->redirect('/dreview/home/index');
+		//Yii::app()->request->redirect('/home/index');
 			
 		if(isset($_POST['SignUpForm']))
 		{
@@ -128,7 +128,7 @@ class ProfileController extends Controller
 					// for public domain
 					// $activationLink = "http://".$_SERVER['HTTP_HOST']."/profile/activate" . '?email=' . urlencode($model->email) . '&activation='. $activationCode;
 					// for localhost
-					 $activationLink = "http://".$_SERVER['HTTP_HOST']."/dreview/profile/activate" . '?email=' . urlencode($model->email) . '&activation='. $activationCode;					
+					 $activationLink = "http://".$_SERVER['HTTP_HOST']."/profile/activate" . '?email=' . urlencode($model->email) . '&activation='. $activationCode;					
 					sendVerificationMail($activationLink,$model->email,$model->firstname, $model->password);
 	
 					$this->render('signUp',array('model'=>$model, 'activationSucess'=> true));
@@ -177,7 +177,7 @@ class ProfileController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
-		$this->redirect("/dreview/home/index");
+		$this->redirect("/home/index");
 	}	
 	
 }

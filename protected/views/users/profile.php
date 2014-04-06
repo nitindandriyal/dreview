@@ -26,7 +26,7 @@ $bgImage = "../images/users/".$result['image'];
 		<div class="profile-glassy">
 			<h3>My Reviews</h3><hr>
 			<span>Total reviews</span>
-			<p><a href="/dreview/users/reviews"><?php echo $result['reviews']?></a></p>
+			<p><a href="/users/reviews"><?php echo $result['reviews']?></a></p>
 			<span>Followers</span>
 			<p><?php echo $result['followers']?></p>			
 		</div>
