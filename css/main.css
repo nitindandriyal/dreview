@@ -206,22 +206,28 @@ div.search-form
 	position: absolute;
 	top: 110px;
 	border:1px solid; 
-    width:700px; 
-    height:100px;
+    width:710px; 
+    height:130px;
     margin-left:25%;
 	border: 1px solid #d4d4d4;
-	background-image: linear-gradient(#ffffff, #e5eecc 100px);
+	background-image: linear-gradient(#ffffff, #f2f2f2 100px);
 	background: rgba(255,255,255,0.6);
 }
 
-.searchTable
-{
-	margin-top:25px;
+#home-tagline .ui-tabs-active {
+	background-image: linear-gradient(#fbfbfb, #f6f6f6 100px);
+	background: #f4f4f4;
 }
 
-.searchTable tr td
+#home-tagline .ui-tabs-nav{
+	background: #f4f4f4;
+}
+
+.tabs
 {
-	padding-left:5px;
+	background-image: linear-gradient(#ffffff, #e5eecc 100px);
+	background: #e5eecc;
+	font-size: 12px;
 }
 
 input[type=text],input[type=password],input[type=date]

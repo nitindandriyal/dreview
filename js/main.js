@@ -90,7 +90,7 @@ function menuOpen(windowname) {
 
 
 angular.module('slideShowApp', []);
-var delay = 5000;
+var delay = 15000;
 
 function slideShowCtrl($scope, $timeout) {
 	$scope.timeInMs = 0;
@@ -115,10 +115,18 @@ function searchCtrl($scope, $http) {
 	}).success(function(data, status) {
 		$scope.status = status;
 		$scope.data = data;
-		$("#searchByLocation").autocomplete({
+		$("#searchByLocDoc").autocomplete({
 			source : $scope.data,
 			minLength : 3
 		});
+		$("#searchByLocHospital").autocomplete({
+			source : $scope.data,
+			minLength : 3
+		});
+		$("#searchByLocDiagCenter").autocomplete({
+			source : $scope.data,
+			minLength : 3
+		});		
 	}).error(function(data, status) {
 		$scope.data = data || "Request failed";
 		$scope.status = status;

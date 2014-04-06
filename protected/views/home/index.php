@@ -15,6 +15,11 @@ $(function() {
             'slow');
     });
 });
+
+$(function() {
+  $( "#home-tagline" ).tabs();
+});
+
 </script>
 <div class="top-container" ng-app="slideShowApp">
 	<div ng-controller="slideShowCtrl">
@@ -22,24 +27,38 @@ $(function() {
 		<div id="toggleImageDiv2" ng-hide="toggle"></div>
 	</div>
 	<div id="home-tagline" align="center" ng-controller="searchCtrl" ng-init="init()">
-		<form action="/search/results" >
-			<table class="searchTable">
-				<tr>
-					<td>
-						<div class="ui-widget">
-							<input id="searchBySpeciality" type="text" placeholder="Search by Speciality" maxlength="30">
-						</div>
-					</td>					
-					<td>
-						<div class="ui-widget">
-							<input id="searchByLocation" type="text" placeholder="Search by Location" maxlength="30">
-						</div>
-					</td>
-					<td><button class="btn" type="submit">Search</button>
-					</td>
-				</tr>
-			</table>
-		</form>
+		  <ul>
+		    <li class="tabs"><a href="#tabDoctor">Doctors</a></li>
+		    <li class="tabs"><a href="#tabHospital">Hospitals</a></li>
+		    <li class="tabs"><a href="#tabDiagCenter">Diagnostic Centers</a></li>
+		  </ul>
+		  <div id="tabDoctor">
+			<form action="/dreview/doctor/search" >				
+				<div class="ui-widget" style="display: inline-block;">
+					<input id="searchBySpeciality" type="text" placeholder="Search by Speciality" maxlength="30">
+					<input id="searchByLocDoc" type="text" placeholder="Search by Location" maxlength="30">
+					<button class="btn" type="submit">Search</button>
+				</div>						
+			</form>
+		  </div>
+		  <div id="tabHospital">
+			<form action="/dreview/doctor/search" >				
+				<div class="ui-widget" style="display: inline-block;">
+					<input id="searchBySpeciality" type="text" placeholder="Search by Speciality" maxlength="30">
+					<input id="searchByLocHospital" type="text" placeholder="Search by Location" maxlength="30">
+					<button class="btn" type="submit">Search</button>
+				</div>						
+			</form>
+		</div>	
+		  <div id="tabDiagCenter">
+			<form action="/dreview/doctor/search" >				
+				<div class="ui-widget" style="display: inline-block;">
+					<input id="searchBySpeciality" type="text" placeholder="Search by Tests" maxlength="30">
+					<input id="searchByLocDiagCenter" type="text" placeholder="Search by Location" maxlength="30">
+					<button class="btn" type="submit">Search</button>
+				</div>						
+			</form>
+		</div>			
 	</div>	
 	<div align="center">
 		<button type="button" id="tiredOfTypeBtn" >Tired of Typing? Use Our One Click Search</button>
