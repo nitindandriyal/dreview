@@ -45,7 +45,7 @@ class UsersController extends Controller
 	public function actionAddImage()
 	{
 	
-		$target_Path = "C:/tools/XAMPP/htdocs/dreview/images/profiles/";
+		$target_Path = "C:/tools/XAMPP/htdocs/dreview/images/users/";
 		$target_Path = $target_Path.basename( $_FILES['userFile']['name'] );
 
 		if (isset($_FILES['userFile']) && $_FILES['userFile']['size'] > 0)

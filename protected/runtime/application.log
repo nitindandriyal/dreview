@@ -2653,3 +2653,378 @@ Stack trace:
 REQUEST_URI=/dreview/images/profiles/163751742
 HTTP_REFERER=http://localhost/dreview/profile/userProfile?
 ---
+2014/04/06 01:46:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/06 01:47:56 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dreview.tbl_doc_qualification' doesn't exist. The SQL statement executed was: SELECT DISTINCT `FIRST_NAME`, `MIDDLE_NAME`, `LAST_NAME`, `GENDER`, `PRACTICE_ST_DT`, `USER_RATING`, `TOTAL_REVIEWS`, `QUALIFICATION`, `tbl_doctor`.`ID_DOCTOR`
+FROM `tbl_doctor`, `tbl_doc_appointments`, `tbl_doc_qualification`
+WHERE (((DISTRICT=:city) AND (tbl_doc_qualification.SUPER_SPECIALITY=:speciality)) AND (tbl_doc_appointments.ID_DOCTOR=tbl_doc_qualification.ID_DOCTOR)) AND (tbl_doctor.ID_DOCTOR=tbl_doc_appointments.ID_DOCTOR)
+ORDER BY `tbl_doctor`.`USER_RATING` DESC.
+in C:\tools\XAMPP\htdocs\dreview\protected\controllers\DoctorController.php (31)
+in C:\tools\XAMPP\htdocs\dreview\index.php (11)
+2014/04/06 01:47:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dreview.tbl_doc_qualification' doesn't exist. The SQL statement executed was: SELECT DISTINCT `FIRST_NAME`, `MIDDLE_NAME`, `LAST_NAME`, `GENDER`, `PRACTICE_ST_DT`, `USER_RATING`, `TOTAL_REVIEWS`, `QUALIFICATION`, `tbl_doctor`.`ID_DOCTOR`
+FROM `tbl_doctor`, `tbl_doc_appointments`, `tbl_doc_qualification`
+WHERE (((DISTRICT=:city) AND (tbl_doc_qualification.SUPER_SPECIALITY=:speciality)) AND (tbl_doc_appointments.ID_DOCTOR=tbl_doc_qualification.ID_DOCTOR)) AND (tbl_doctor.ID_DOCTOR=tbl_doc_appointments.ID_DOCTOR)
+ORDER BY `tbl_doctor`.`USER_RATING` DESC' in C:\tools\XAMPP\htdocs\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\tools\XAMPP\htdocs\dreview\protected\controllers\DoctorController.php(31): CDbCommand->queryAll()
+#2 [internal function]: DoctorController->actionDocSearchByCity('Ahmedabad', 'Cardiology')
+#3 C:\tools\XAMPP\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(DoctorController), Array)
+#4 C:\tools\XAMPP\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(DoctorController), Object(ReflectionMethod), Array)
+#5 C:\tools\XAMPP\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\tools\XAMPP\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\tools\XAMPP\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('DocSearchByCity')
+#9 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctor/DocSearc...')
+#10 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#12 {main}
+REQUEST_URI=/dreview/index.php/doctor/DocSearchByCity?param1=Ahmedabad&param2=Cardiology
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/06 01:53:23 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dreview.tbl_doc_qualification' doesn't exist. The SQL statement executed was: SELECT DISTINCT `FIRST_NAME`, `MIDDLE_NAME`, `LAST_NAME`, `GENDER`, `PRACTICE_ST_DT`, `USER_RATING`, `TOTAL_REVIEWS`, `QUALIFICATION`, `tbl_doctor`.`ID_DOCTOR`
+FROM `tbl_doctor`, `tbl_doc_appointments`, `tbl_doc_qualification`
+WHERE (((DISTRICT=:city) AND (tbl_doc_qualification.SUPER_SPECIALITY=:speciality)) AND (tbl_doc_appointments.ID_DOCTOR=tbl_doc_qualification.ID_DOCTOR)) AND (tbl_doctor.ID_DOCTOR=tbl_doc_appointments.ID_DOCTOR)
+ORDER BY `tbl_doctor`.`USER_RATING` DESC.
+in C:\tools\XAMPP\htdocs\dreview\protected\controllers\DoctorController.php (31)
+in C:\tools\XAMPP\htdocs\dreview\index.php (11)
+2014/04/06 01:53:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dreview.tbl_doc_qualification' doesn't exist. The SQL statement executed was: SELECT DISTINCT `FIRST_NAME`, `MIDDLE_NAME`, `LAST_NAME`, `GENDER`, `PRACTICE_ST_DT`, `USER_RATING`, `TOTAL_REVIEWS`, `QUALIFICATION`, `tbl_doctor`.`ID_DOCTOR`
+FROM `tbl_doctor`, `tbl_doc_appointments`, `tbl_doc_qualification`
+WHERE (((DISTRICT=:city) AND (tbl_doc_qualification.SUPER_SPECIALITY=:speciality)) AND (tbl_doc_appointments.ID_DOCTOR=tbl_doc_qualification.ID_DOCTOR)) AND (tbl_doctor.ID_DOCTOR=tbl_doc_appointments.ID_DOCTOR)
+ORDER BY `tbl_doctor`.`USER_RATING` DESC' in C:\tools\XAMPP\htdocs\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\tools\XAMPP\htdocs\dreview\protected\controllers\DoctorController.php(31): CDbCommand->queryAll()
+#2 [internal function]: DoctorController->actionDocSearchByCity('Ahmedabad', 'Cardiology')
+#3 C:\tools\XAMPP\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(DoctorController), Array)
+#4 C:\tools\XAMPP\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(DoctorController), Object(ReflectionMethod), Array)
+#5 C:\tools\XAMPP\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\tools\XAMPP\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\tools\XAMPP\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('DocSearchByCity')
+#9 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctor/DocSearc...')
+#10 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#12 {main}
+REQUEST_URI=/dreview/index.php/doctor/DocSearchByCity?param1=Ahmedabad&param2=Cardiology
+---
+2014/04/06 01:54:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Ahmedabad&param2=Cardiology
+---
+2014/04/06 02:29:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByCity?param1=Ahmedabad&param2=Cardiology
+---
+2014/04/06 02:29:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/06 02:29:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi+%2A&param2=Cardiology
+---
+2014/04/06 02:31:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/06 02:31:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:31:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/06 02:32:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/06 02:33:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/06 02:33:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:40:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/doctors/dr_pic".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/doctors/...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/doctors/dr_pic
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:40:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:41:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/06 02:41:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:41:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/doctors/dr_pic".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/doctors/...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/doctors/dr_pic
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:41:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:41:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/doctors/dr_pic".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/doctors/...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/doctors/dr_pic
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:46:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/images/doctors/1.jpg".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/images/d...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/images/doctors/1.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:46:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:46:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/images/doctors/1.jpg".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/images/d...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/images/doctors/1.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:46:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:46:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:46:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/doctors/1.jpg".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/doctors/...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/doctors/1.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:47:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:47:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/doctors/1.jpg".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/doctors/...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/doctors/1.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:47:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/tbl_state_map/index?param1=Cardiology
+---
+2014/04/06 02:47:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/doctors/1.jpg".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/doctors/...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/doctors/1.jpg
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:47:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/star.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/star.png')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/star.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:47:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/LOGO_100.png".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/LOGO_100...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/index.php/images/LOGO_100.png
+HTTP_REFERER=http://localhost/dreview/index.php/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:52:56 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dreview.tbl_doc_qualification' doesn't exist. The SQL statement executed was: SELECT `QUALIFICATION`, `INSTITUTION`, `SUPER_SPECIALITY`, `SUB_SPECIALITY`
+FROM `tbl_doc_qualification`
+WHERE tbl_doc_qualification.ID_DOCTOR=:docId.
+in C:\tools\XAMPP\htdocs\dreview\protected\controllers\DoctorReviewController.php (33)
+in C:\tools\XAMPP\htdocs\dreview\index.php (11)
+2014/04/06 02:52:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dreview.tbl_doc_qualification' doesn't exist. The SQL statement executed was: SELECT `QUALIFICATION`, `INSTITUTION`, `SUPER_SPECIALITY`, `SUB_SPECIALITY`
+FROM `tbl_doc_qualification`
+WHERE tbl_doc_qualification.ID_DOCTOR=:docId' in C:\tools\XAMPP\htdocs\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\tools\XAMPP\htdocs\dreview\protected\controllers\DoctorReviewController.php(33): CDbCommand->queryAll()
+#2 [internal function]: DoctorReviewController->actionDetailedReview('1')
+#3 C:\tools\XAMPP\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(DoctorReviewController), Array)
+#4 C:\tools\XAMPP\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(DoctorReviewController), Object(ReflectionMethod), Array)
+#5 C:\tools\XAMPP\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\tools\XAMPP\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\tools\XAMPP\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('DetailedReview')
+#9 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorReview/De...')
+#10 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#12 {main}
+REQUEST_URI=/dreview/index.php/doctorReview/DetailedReview?param1=1
+HTTP_REFERER=http://localhost/dreview/doctor/DocSearchByState?param1=Delhi&param2=Cardiology
+---
+2014/04/06 02:58:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/profiles/EnglandHouse.jpg".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/profiles...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/images/profiles/EnglandHouse.jpg
+HTTP_REFERER=http://localhost/dreview/users/profile
+---
+2014/04/06 03:00:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/profiles/EnglandHouse.jpg".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/profiles...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/images/profiles/EnglandHouse.jpg
+HTTP_REFERER=http://localhost/dreview/users/profile
+---
+2014/04/06 03:01:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/users/EnglandHouse.jpg".' in C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\tools\XAMPP\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/users/En...')
+#1 C:\tools\XAMPP\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\tools\XAMPP\htdocs\dreview\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/dreview/images/users/EnglandHouse.jpg
+HTTP_REFERER=http://localhost/dreview/users/profile
+---
