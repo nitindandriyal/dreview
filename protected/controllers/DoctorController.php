@@ -1,5 +1,7 @@
-
 <?php
+
+require (dirname(__FILE__).'/../components/DoctorSearch.php');
+
 class DoctorController extends Controller
 {
 	/**
@@ -59,6 +61,33 @@ class DoctorController extends Controller
 				));
 		$this->render('DocListView',array('dataProvider'=> $dataProvider,"city"=>$param1,"speciality"=>$param2));
 	}//end of func actionDocSearchBySt
+	
+	public function actionDocSearch ()
+	{
+		//$speciality = $_POST['searchBySpeciality'];
+		//$location = $_POST['searchByLocDoc'];
+		//print_r (" speciality:[".empty($speciality)."] Locality:[".empty($location)."]");
+		//print_r (" speciality:[".empty(trim($speciality))."] Locality:[".empty(trim($location))."]");
+		
+		//$speciality="Cardiology";
+		//$location="Delhi";
+		
+		//$doctorsList = DoctorSearch::getDoctors($speciality,$location);
+		//print_r(json_encode($doctorsList));
+		$this->render('docSearch');
+	}
+	
+	public function actionGetDocReviews ()
+	{
+		$docId = $_GET['docId'];
+		$doctorsReviews = DoctorSearch::getDoctorReviews($docId);
+		$file = fopen("test.txt","a+");
+		fwrite($file, "$docId");
+		fclose($file);
+		print_r(json_encode($doctorsReviews));
+		//$this->render('docSearch');
+	}	
+	
 	public function actions()
 	{
 		return array(

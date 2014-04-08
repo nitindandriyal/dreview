@@ -31,6 +31,8 @@ $(function() {
 		    <li class="tabs"><a href="#tabDoctor">Doctors</a></li>
 		    <li class="tabs"><a href="#tabHospital">Hospitals</a></li>
 		    <li class="tabs"><a href="#tabDiagCenter">Diagnostic Centers</a></li>
+		    <li class="tabs"><a href="#tabPharmacy">Pharmacy</a></li>
+		    <li class="tabs"><a href="#tabEmergency">Emergency</a></li>
 		  </ul>
 		  <div id="tabDoctor">
 			<form action="/doctor/DocSearch" method="post">				
@@ -50,7 +52,7 @@ $(function() {
 				</div>						
 			</form>
 		</div>	
-		  <div id="tabDiagCenter">
+		<div id="tabDiagCenter">
 			<form action="/doctor/search" method="post">				
 				<div class="ui-widget" style="display: inline-block;">
 					<input id="searchBySpeciality" type="text" placeholder="Search by Tests" maxlength="30">
@@ -58,7 +60,25 @@ $(function() {
 					<button class="btn" type="submit">Search</button>
 				</div>						
 			</form>
-		</div>			
+		</div>
+		<div id="tabPharmacy">
+			<form action="/doctor/search" method="post">				
+				<div class="ui-widget" style="display: inline-block;">
+					<input id="searchBySpeciality" type="text" placeholder="Search by Tests" maxlength="30">
+					<input id="searchByLocDiagCenter" type="text" placeholder="Search by Location" maxlength="30">
+					<button class="btn" type="submit">Search</button>
+				</div>						
+			</form>
+		</div>
+		<div id="tabEmergency">
+			<form action="/doctor/search" method="post">				
+				<div class="ui-widget" style="display: inline-block;">
+					<input id="searchBySpeciality" type="text" placeholder="Search by Tests" maxlength="30">
+					<input id="searchByLocDiagCenter" type="text" placeholder="Search by Location" maxlength="30">
+					<button class="btn" type="submit">Search</button>
+				</div>						
+			</form>
+		</div>	
 	</div>	
 	<div align="center">
 		<button type="button" id="tiredOfTypeBtn" >Tired of Typing? Use Our One Click Search</button>
