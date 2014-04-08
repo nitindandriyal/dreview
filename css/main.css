@@ -217,10 +217,22 @@ div.search-form
 #home-tagline .ui-tabs-active {
 	background-image: linear-gradient(#fbfbfb, #f6f6f6 100px);
 	background: #f4f4f4;
+	font-weight: bold;
+	
+}
+
+#home-tagline .ui-tabs-panel { 
+    background: #f5f3e5 url(http://code.jquery.com/ui/1.8.23/themes/south-street/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) repeat-x scroll 50% top; 
+    border-width: 0px 1px 1px 1px; 
 }
 
 #home-tagline .ui-tabs-nav{
-	background: #f4f4f4;
+	background: transparent;
+	padding-left: 0px;  
+    border-width: 0px 0px 1px 0px; 
+    -moz-border-radius: 0px; 
+    -webkit-border-radius: 0px; 
+    border-radius: 0px; 
 }
 
 .tabs
