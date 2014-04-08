@@ -85,7 +85,6 @@ class DoctorController extends Controller
 		fwrite($file, "$docId");
 		fclose($file);
 		print_r(json_encode($doctorsReviews));
-		//$this->render('docSearch');
 	}	
 	
 	public function actions()

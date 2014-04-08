@@ -15,7 +15,6 @@ function docSearchController($scope, $http) {
 
 $scope.ratingArray = [1,2,3,4,5];
 $scope.doctorSelectedEvent=function(doctors){
-	//alert(doctors.summary);
     $scope.selectedDoctor = doctors;
 }
 
