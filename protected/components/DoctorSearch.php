@@ -56,11 +56,13 @@ class DoctorSearch {
 		}
 		
 		$queryResults=mysql_query($query) or die(mysql_error());
-		$doctorDetails = mysql_fetch_array($queryResults);
 	
-		//return $doctorDetails;
-				
+		while($row = mysql_fetch_array($queryResults) )
+		{
+			$doctorDetails[] = $row;
+		}
 		
+		return $doctorDetails;		
 	}
 	
 	public static function getDoctorReviews($doctorId)

@@ -378,8 +378,8 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 {
 	width:100%;
 	height:50px;
-	border:1px solid;
 	margin-top:60px;	
+	background-image: linear-gradient(#b20000, #800000 100px);
 }
 
 .docSearchContainer
@@ -395,7 +395,6 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 	display: inline-block; 
 	float:left;
 	height:100%;
-	border:1px solid silver;
 }
 
 .docListContainer
@@ -422,15 +421,15 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 #docList
 {
 	font-size:small;
-	background-image: linear-gradient(#f2f2f2, #e3e3e3 100px);
+	background-image: linear-gradient(#fbfbfb, #ececec 100px);
 	border:1px silver;
 	width:100%;
-	height:85px;
+	height: 65px;
 }
 
 #docList:HOVER
 {
-	background-image: linear-gradient(#d2d2d2, #a2a2a2 100px);	
+	background-image: linear-gradient(#e1e1e1, #a2a2a2 100px);	
 }
 
 #docListHeader
@@ -462,19 +461,24 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 
 #docListHeader ul li:HOVER
 {
-	background-image: linear-gradient(#676767, #565656 100px);
+	background-image: linear-gradient(#898989, #787878 100px);
 }
 
 #docImage
 {
-	width: 50px;
+	width: 40px;
 	margin-left:10px;
+	margin-top:3px;
+	display:inline-block;
+	float:left;	
 }
 
 #docSummaryDiv
 {
 	display: inline-block;
 	margin-left:10px;
+	width: 50%;
+	float:left;
 }
 
 #docDetails
@@ -510,6 +514,14 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
     border-radius: 0px; 
 }
 
+#googleMap {
+    width: 500px;
+    height: 380px;
+    background-color: #CCC;    
+    border:1px solid;
+  }
+
+
 .span-XLarge
 {
 	font-weight: bold; 
@@ -524,7 +536,7 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 
 .spanMedium
 {
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .spanSmall

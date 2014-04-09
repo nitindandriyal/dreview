@@ -73,6 +73,7 @@ class DoctorController extends Controller
 		//$location="Delhi";
 		
 		//$doctorsList = DoctorSearch::getDoctors($speciality,$location);
+		//header('Content-Type: application/json');
 		//print_r(json_encode($doctorsList));
 		$this->render('docSearch');
 	}
@@ -84,6 +85,7 @@ class DoctorController extends Controller
 		$file = fopen("test.txt","a+");
 		fwrite($file, "$docId");
 		fclose($file);
+		header('Content-Type: application/json');
 		print_r(json_encode($doctorsReviews));
 	}	
 	
