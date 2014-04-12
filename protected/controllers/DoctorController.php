@@ -62,20 +62,53 @@ class DoctorController extends Controller
 		$this->render('DocListView',array('dataProvider'=> $dataProvider,"city"=>$param1,"speciality"=>$param2));
 	}//end of func actionDocSearchBySt
 	
-	public function actionDocSearch ()
+	public function actionDocSearch()
 	{
-		//$speciality = $_POST['searchBySpeciality'];
-		//$location = $_POST['searchByLocDoc'];
-		//print_r (" speciality:[".empty($speciality)."] Locality:[".empty($location)."]");
+		
+		$speciality = "";
+		$location = "";
+		
+		if(isset($_POST['searchBySpeciality'])){ 
+			$speciality = $_POST['searchBySpeciality'];
+		}
+		
+		if(isset($_POST['searchByLocDoc'])){
+			$location = $_POST['searchByLocDoc'];
+		}
+		
+		//print_r (" speciality:[".$speciality."] Locality:[".$location."]");
 		//print_r (" speciality:[".empty(trim($speciality))."] Locality:[".empty(trim($location))."]");
 		
 		//$speciality="Cardiology";
 		//$location="Delhi";
 		
-		//$doctorsList = DoctorSearch::getDoctors($speciality,$location);
-		//header('Content-Type: application/json');
-		//print_r(json_encode($doctorsList));
-		$this->render('docSearch');
+		$doctorsList = DoctorSearch::getDoctors($speciality,$location);
+		if(empty($doctorsList)){
+			$this->render('docSearch');
+		}
+		else{
+			//print_r(json_encode($resultSet));
+			//print_r(json_encode($doctorsList));
+			$this->render('docSearch', array('searchResults' => json_encode($doctorsList)));
+		}
+	}
+	
+	public function actionDocSearchService()
+	{
+		$speciality = $_GET['searchBySpeciality'];
+		$location = $_GET['searchByLocDoc'];
+		header('Content-Type: application/json');
+		//print_r (" speciality:[".$speciality."] Locality:[".$location."]");
+		//print_r (" speciality:[".empty(trim($speciality))."] Locality:[".empty(trim($location))."]");
+	
+		//$speciality="Cardiology";
+		//$location="Delhi";
+	
+		$doctorsList = DoctorSearch::getDoctors($speciality,$location);
+				
+		//print_r(json_encode($resultSet));
+		print_r(json_encode($doctorsList));
+		
 	}
 	
 	public function actionGetDocReviews ()

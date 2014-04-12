@@ -20,7 +20,7 @@ if(null == $user  || !array_filter($user))
 	<meta name="language" content="en" />
 	<link href="/favicon.ico" rel="shortcut icon"/>
 	<link href="/favicon.png" rel="icon" type="image/png"/>
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" />
 		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/dr_style.css" />

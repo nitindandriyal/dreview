@@ -2,10 +2,11 @@ body
 {
 	margin: 0;
 	padding: 0;
-	color: #555;
-	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #EF0000;
-	height:100%;
+	color: #555;	
+	height:100%;	
+	background: url(../images/light_wool.png) repeat;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
 }
 
 #page
@@ -345,6 +346,7 @@ input:-moz-placeholder { font-size: 18px; color: #A2A2A2; }
 	position: relative;
 	bottom:0;
 	width:100%;
+	margin-top:10px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -528,6 +530,10 @@ input:-moz-placeholder { font-size: 18px; color: #A2A2A2; }
    border-top-color: #05870a;
    background: #05870a;
 }
+
+.smaller{
+	height: 36px;
+}
     
  .profile-glassy
  {
@@ -614,3 +620,17 @@ input:-moz-placeholder { font-size: 18px; color: #A2A2A2; }
 	text-decoration: none;
 	color: #565656;
 }
+
+.smallinput[type=text],input[type=password],input[type=date]
+{
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	border: 1px solid #e4ddd7;
+	color:#A1A1A1;
+    vertical-align: middle;
+    height: 35px;
+    width:200px;
+    border-radius: 4px;
+    padding-left:5px;
+    line-height:32px;    
+}
+

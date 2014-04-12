@@ -71,7 +71,7 @@ $scope.doctorSelectedEvent=function(doctors){
     $selectedClicked = true;
 }
 
-$scope.$watch('selectedgender', function() {
+$scope.$watch('query.GENDER', function() {
     $selectedClicked = false;
     $( "#search-tabline" ).tabs({ active: 0 });
 });
@@ -89,7 +89,7 @@ $scope.initDoctorSelectedEvent = function(first, selectedClicked, doctors){
 }
 
 $scope.getReviews=function(doctors){
-	$scope.url = '/doctor/GetDocReviews?docId='+$scope.selectedDoctor.id;
+	$scope.url = '/doctor/GetDocReviews?docId='+$scope.selectedDoctor.ID_DOCTOR;
 	$http.get($scope.url).
 					    success(function(data) 
 					    {
@@ -97,179 +97,128 @@ $scope.getReviews=function(doctors){
 					    });
 }
 
-//$scope.doctorsData = [];
-$scope.doctorsData = [
-                      {
-	          			id: 1,
-	          			firstname: 'Mangala',
-	          			lastname: 'Devi',
-	          			gender: 'Female',
-	          			lang_spoken: 'Kannada, English',
-	          			user_rating: '5',
-	          			total_reviews: '10',
-	          			profile_image: '1.jpg',
-	        			appointments:	[ 
-        			        			{   			
-					     				office_type: 'Hospital',
-					             	    office_name: 'K.C.Raju Multi Speciality Hospital',
-					             	    pri_contact_no: '9986555555',
-					             	    state: 'Karnataka',
-					             	    area: 'Lingarajapura',
-					             	    street:'4th Cross,Hennur Main Road',
-				 					    landmark:'Below Lingarajapuram Flyover',
-				    					available: [
-							    					{available_from: '09:00',
-					    						     available_to:	'14:00',
-					    						     workdays: 'MON - SAT'
-							    					},
-							    					{available_from: '16:00',
-						    						 available_to:	'21:00',
-						    						 workdays: 'MON - SAT'
-								    			     }	
-								    			   ]  						    											    			
-					  					 }
- 					 				],
- 					 qualifications:[
- 				 					 {
- 	            						qualification:'MBBS',
- 	            						Institute:'IMA AKN Sinha Institute'
- 	        						  },
- 					        		  {
- 										qualification:'P.G.F.P',
- 										Institute:'IMA AKN Sinha Institute',
- 									 	super_speciality:'Cardiology'
- 									  }				  
- 	    							],
- 	    			summary: 'test'
-          			},
-                    {
-	          			id: 2,
-	          			firstname: 'Amit',
-	          			lastname: 'Rauthan',
-	          			gender: 'Male',
-	          			lang_spoken: 'Hindi, Garhwali',
-	          			user_rating: '2',
-	          			total_reviews: '3',
-	          			profile_image: '3.jpg',
-	        			appointments:	[ ],
-	 					qualifications:[
-	 				 					 {
-	 	            						qualification:'MBBS'	 	            					
-	 	        						  },
-	 					        		  {
-	 										qualification:'MD',
-	 										Institute:'Gujarat Cancer & Research Institute, Ahmedabad',
-	 									 	super_speciality:'Internal medicine'
-	 									  }				  
-	 	    							],
-	 	    			summary: 'Dr Amit Rauthan is a Consultant in the Department of Medical Oncology, Hemato-oncology and Blood and Marrow transplant. He did his MD in Internal medicine, followed by DM in Medical Oncology from Gujarat Cancer & Research Institute, Ahmedabad. He also has special interest in blood and marrow transplants (BMT). He has conducted many successful Allogeneic and Autologous transplants at Manipal hospital which has an affiliation with the University of Minnesota Physicians, USA.'
-          			}          			
-               	  ];
-	
-};  
+$scope.exceptEmptyComparator = function (actual, expected) {
+    if (!expected) {
+       return true;
+    }
+    return angular.equals(expected, actual);
+}
 
+$scope.doctorsData = <?php if(isset($searchResults)){ echo $searchResults; }?>;
 
+};
     		
 </script>
-<div ng-app="docSearchApp" ng-controller="docSearchController">
-<div class="docTopContainer">
-	<div style="margin-left: 5px">
-		<span style="font-weight: bold; color: #fff; font-size: 14px">Search Filters</span>
+
+<div class="docSearchContainer" ng-app="docSearchApp" ng-controller="docSearchController">
+	<div class="docTopContainer">
+		<?php if(isset($searchResults)){?>
+		<div style="width:40%;position: relative;display: inline-block;height: 100%;float:left;">
+			<div style="margin-left: 5px">
+				<span style="font-weight: bold; font-size: 12px">Gender</span><br>
+				<select style="font-weight: bold; font-size: 12px" ng-model="query.GENDER">
+						<option value="">All</option>
+						<option value="Female">Female</option>
+						<option value="Male">Male</option>
+				</select>
+			</div>
+		</div>
+		<?php } else {?>
+			<div style="width:45%;position: relative;display: inline-block;height: 100%;float:left;">
+				<div style="margin-left: 5px; margin: 28px; float: right;">
+					<span style="font-weight: bold; font-size: 18px">Sorry no doctors found, Please search Again</span><br>
+				</div>
+			</div>
+		<?php }?>
+		<div style="width:55%;position: relative;display: inline-block;height:50%;float:left;margin-top:20px" ng-controller="searchCtrl" ng-init="init()">
+			<form action="/doctor/DocSearch" method="post">	
+				<input id="searchBySpeciality" class="smallinput" name="searchBySpeciality" type="text" placeholder="Search by Speciality" maxlength="30">
+				<input id="searchByLocDoc" class="smallinput" name="searchByLocDoc" type="text" placeholder="Search by Location" maxlength="30">
+				<button class="btn smaller" type="submit" style="margin-top:-3px">Search</button>
+			</form>
+		</div>
+	</div>	
+
+	<?php if(isset($searchResults)){?>
+	<div class="docLeftContainer">		
+			<img alt="" src="../images/docnoface.png" style="margin-left:40%;margin-top:-20px">
 	</div>
-	<div style="margin-left: 5px">
-		<span style="font-weight: bold; color: #fff; font-size: 12px">Gender</span>
-		<select style="font-weight: bold; font-size: 12px" ng-model="selectedgender" ng-options="obj.gender for obj in doctorsData">
-				<option value="">All</option>
-		</select>
-	</div>
-</div>
-<div class="docSearchContainer">	
+		
 	<div class="docListContainer">
+		<div class="docListContainerContent">
 		<div id="docListHeader">
 			<span style="font-weight:bold;">&nbsp;Order By:</span>
 			<ul>
 				<li>Name</li>
 				<li>Location</li>
-				<li>Rating</li>
+				<!-- li>Rating</li-->
 			</ul>
 		</div>
 
-		<div id="docList" ng-repeat="doctors in doctorsData | filter:selectedgender" ng-click="doctorSelectedEvent(doctors);getReviews(doctors)"">
+		<div id="docList" ng-repeat="doctors in doctorsData | filter:query:exceptEmptyComparator" ng-click="doctorSelectedEvent(doctors);getReviews(doctors)"">
 			{{initDoctorSelectedEvent($first, $selectedClicked, doctors)}}
-			<img id="docImage" ng-src="../images/doctors/{{doctors.profile_image}}" />
+			<img id="docImage" ng-src="../images/doctors/{{doctors.PROFILE_IMAGE}}" />
 			<div id="docSummaryDiv">
-				<span style="font-weight: bold;">Dr. {{doctors.firstname}} {{doctors.lastname}}</span><br>				
-				<span ng-model="selectEdu" ng-repeat="docQualification in doctors.qualifications">{{docQualification.qualification}}{{$last ? '' : ', '}}</span><br>
-				<span ng-repeat="docAppointments in doctors.appointments">{{docAppointments.area}},{{docAppointments.state}}</span><br>
+				<span style="font-weight: bold;">Dr. {{doctors.FIRST_NAME}} {{doctors.LAST_NAME}}</span><br>				
+				<span>{{doctors.SPECIALITY}}</span><br>
+				<span>{{doctors.AREA}},{{doctors.STATE}}</span><br>
 			</div>
-			<div style="display:inline-block;float:right;margin-right:10px;margin-top:2px" align="right">
-				<img ng-repeat="n in ratingArray | limitTo:doctors.user_rating" src = "../images/star.png" height="16" width="16"/>						
-				<img ng-repeat="n in ratingArray | limitTo:5-doctors.user_rating" src = "../images/star_off.png" height="16" width="16"/><br>				
-				<span>{{doctors.total_reviews}} reviews</span>
+			<div style="display:inline-block;float:right;margin-right:15px;margin-top:2px" align="right">
+				<img ng-repeat="n in ratingArray | limitTo:doctors.USER_RATING" src = "../images/star.png" height="16" width="16"/>						
+				<img ng-repeat="n in ratingArray | limitTo:5-doctors.USER_RATING" src = "../images/star_off.png" height="16" width="16"/><br>				
+				<span>{{doctors.TOTAL_REVIEWS}} reviews</span>
 			</div>
 		</div>
-			
+		</div>
 	</div>
-	
-	
-	<div class="docDetailsContainer" style="border: 1px solid silver">
-		<div id="docDetails" style="width: 99%;">
-			<div id="docSummaryDiv" style="position:relative;">
-				<span class="span-XLarge">Dr. {{selectedDoctor.firstname}} {{selectedDoctor.lastname}}</span><br>				
-				<span class="spanMedium" ng-repeat="docQualification in selectedDoctor.qualifications">{{docQualification.qualification}}{{$last ? '' : ', '}}</span><br>
-				<span class="class="spanSmall" ng-repeat="docAppointments in selectedDoctor.appointments">{{docAppointments.area}},{{docAppointments.state}}</span><br>
+		
+	<div class="docDetailsContainer">
+		<div id="docDetails">
+			<div id="docDetailsHeader">
+				<span class="span-XLarge">Dr. {{selectedDoctor.FIRST_NAME}} {{selectedDoctor.LAST_NAME}}</span><br>				
+				<span class="spanMedium">{{selectedDoctor.SPECIALITY}}</span><br>
+				<span class="class="spanSmall">{{selectedDoctor.AREA}},{{selectedDoctor.STATE}}</span><br>
 				<img ng-repeat="n in [1,2,3,4,5]" src = "../images/star.png" height="18" width="18"/>
-				<span>{{selectedDoctor.total_reviews}} reviews</span>
+				<span>{{selectedDoctor.TOTAL_REVIEWS}} reviews</span>
 			</div>
 			<div style="position:relative; float: right;">
-				<img src="../images/doctors/{{selectedDoctor.profile_image}}" style="height:80; padding-right: 10px; padding-top: 5px">
+				<img id="docProfileImage" src="../images/doctors/{{selectedDoctor.PROFILE_IMAGE}}">
 			</div>
 		</div>
-		<div id="search-tabline" style="position: relative;clear: both;height:650px">
+		<div id="search-tabline">
 			  <ul id="tabs_framed">
 			    <li class="tabs"><a href="#tabAbout">About</a></li>
 			    <li class="tabs"><a href="#tabAppointments" onclick="initializeGoogleMap()">Appointments & Offices</a></li>
-			    <li class="tabs"><a href="#tabAchievements">Achievements</a></li>
 			    <li class="tabs"><a href="#tabReviews" ng-click="getReviews(selectedDoctor)">Reviews</a></li>
 			  </ul>
-			  <div id="tabAbout" style="background: white; height: 100%">			  	
+			  <div id="tabAbout" style="height:100%"><br> 	
 			  		<span class="spanMedium">Know your doctor</span><p>
-			  		<span class="spanSmall">{{selectedDoctor.summary}}</span><br><br><br>
-
-			  		<span class="spanMedium">Specialities</span>
-			  		<ul style="list-style: none">
-			  			<li ng-style="{'margin-bottom': 30+'px'}" ng-repeat="docQualification in selectedDoctor.qualifications"><span class="spanSmall">{{docQualification.super_speciality}}</span></li>
-			  		</ul>
-			  		<br>
-			  		<span class="spanMedium">Languages Spoken</span>
-			  		<ul style="list-style: none">
-			  			<li><span class="spanSmall">{{selectedDoctor.lang_spoken}}</span></li>
-			  		</ul>
-			  		<br>
-			  		<span class="spanMedium">Qualifications</span>
-			  		<ul style="list-style: none">
-			  			<li ng-style="{'margin-bottom': 30+'px'}" ng-repeat="docQualification in selectedDoctor.qualifications"><span class="spanSmall">{{docQualification.qualification}}<br>{{docQualification.Institute}}</span></li>
-			  		</ul>			  	
+			  		<div class="reviewGlassy">
+			  			<span class="spanSmall">{{selectedDoctor.SUMMARY}}</span><br>
+					</div>
+					<div class="reviewGlassy">
+						<span class="spanSmall">Specializes in {{selectedDoctor.SPECIALITY}}</span><br>
+				  		<span class="spanSmall">Can speak {{selectedDoctor.LANG_SPOKEN}}</span><br>
+				  		<span class="spanSmall">Is {{selectedDoctor.AGE}} years old</span><br>
+				  		<span class="spanSmall">Has been practising for {{selectedDoctor.EXPERIENCE}} years</span><br>
+			  		</div>			  				
 			  </div>
 			  
 			  
 			  <div id="tabAppointments">			  		
 					<span class="spanMedium">Office Locations</span>
 			  		<ul style="list-style: none">
-			  			<li ng-style="{'margin-bottom': 30+'px'}" ng-repeat="docAppointments in selectedDoctor.appointments"><span class="spanSmall">{{docAppointments.office_name}}<br>{{docAppointments.street}}<br>{{docAppointments.area}}<br>{{docAppointments.state}}<br>Landmark:{{docAppointments.landmark}}<br><a style="color:olive;" onclick="showGetDirections('getDirections')">Get directions</a></span></li>			  			
+			  			<li ng-style="{'margin-bottom': 30+'px'}"><span class="spanSmall">{{selectedDoctor.AREA}}<br>{{selectedDoctor.STATE}}<br><a style="color:olive;" onclick="showGetDirections('getDirections')">Get directions</a></span></li>			  			
 			  			<div id="getDirections" style="display: none;">
 							<form action="http://maps.google.com/maps" method="get" target="_blank">						   
-							   <input type="text" name="saddr"  placeholder="Enter your location"/>
+							   <input type="text" name="saddr" class="smallinput" placeholder="Enter your location"/>
 							   <input id="Address" type="hidden" name="daddr" value="K C Raju Multispeciality Clinic, 4 th cross,Lingarajapuram,Below Flyover,Hennur main road,, 4th Cross Rd, CMR Layout, Lingarajapuram, Bangalore, Karnataka 560084, India" />
-							   <input class="btn" type="submit" value="Get directions" />
+							   <input class="btn smaller" type="submit" value="Get directions" />
 							</form>
 						</div>			  			
 			  		</ul>
 			  		
 			  	<div id="googleMap"></div>
-			  </div>
-			  
-			  <div id="tabAchievements">
 			  </div>
 			  	
 			  <div id="tabReviews">
@@ -281,8 +230,9 @@ $scope.doctorsData = [
 			  </div>			
 		</div>
 	</div>
-	<div class="docMiscContainer">		
+	
+	<div class="docRightContainer">		
 			
-	</div>	
-</div>
+	</div>
+	<?php }?>	
 </div>

@@ -26,9 +26,12 @@ class DoctorSearch {
 		ORDER BY doc.USER_RATING;		 
 		 */
 		
-		$query = "	SELECT doc.*,doc_a.*,doc_q.*
-			        FROM tbl_doctor doc LEFT JOIN tbl_doc_appointments doc_a ON doc.ID_DOCTOR = doc_a.ID_DOCTOR
-        								LEFT JOIN tbl_doc_qualifications doc_q ON doc.ID_DOCTOR = doc_q.ID_DOCTOR";
+		$query = "SELECT distinct doc.*, doc_o.STATE, doc_o.DISTRICT, doc_o.AREA, 
+						DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), practice_st_dt)), \"%Y\")+0 as EXPERIENCE ,
+						DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), dob)), \"%Y\")+0 as AGE 
+					FROM tbl_doctor doc 
+					LEFT JOIN tbl_doc_appointments doc_a ON doc.ID_DOCTOR = doc_a.ID_DOCTOR
+					LEFT JOIN tbl_offices doc_o ON doc_a.id_office = doc_o.id_office";
 		$subQuery = "";
 		
 		$location = trim($location);
@@ -36,17 +39,17 @@ class DoctorSearch {
 		
 		if (!empty($location))
 		{
-			$subQuery = $subQuery. " doc_a.STATE = '$location'";
+			$subQuery = $subQuery. " doc_o.STATE = '$location'";
 			if (!empty($speciality) )
 			{
-				$subQuery = $subQuery. " and doc_q.SUPER_SPECIALITY = '$speciality'";
+				$subQuery = $subQuery. " and doc.SPECIALITY like '%$speciality%'";
 			}
 		}
 		else
 		{
 			if (!empty($speciality) )
 			{
-				$subQuery = $subQuery. " doc_q.SUPER_SPECIALITY = '$speciality'";
+				$subQuery = $subQuery. " doc.SPECIALITY like '%$speciality%'";
 			}	
 		}				
 		
@@ -56,8 +59,8 @@ class DoctorSearch {
 		}
 		
 		$queryResults=mysql_query($query) or die(mysql_error());
-	
-		while($row = mysql_fetch_array($queryResults) )
+		$doctorDetails = array();
+		while($row = mysql_fetch_array($queryResults, MYSQL_ASSOC) )
 		{
 			$doctorDetails[] = $row;
 		}
