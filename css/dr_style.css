@@ -360,6 +360,7 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 	background-image: linear-gradient(#ffffff, #e5eecc 100px);
 	margin-top: 10px;
 	clear: both;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .reviewGlassy:hover {
@@ -505,7 +506,7 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 {
 	display: inline-block;
 	margin-left:15px;
-	width: 50%;
+	width: 70%;
 	float:left;	
 }
 
@@ -519,7 +520,6 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 #docProfileImage
 {
 	height:150px;
-	padding-right: 10px;
 	padding-top: 5px;
 }
 
@@ -569,23 +569,27 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 
 .span-XLarge
 {
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: bold; 
 	font-size: 36px;
 }
 
 .spanLarge
 {
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: bold; 
 	font-size: 24px;
 }
 
 .spanMedium
 {
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	font-weight: bold;
 }
 
 .spanSmall
 {
-	font-size: 12px;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
 }

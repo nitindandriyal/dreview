@@ -65,7 +65,33 @@ class DoctorSearch {
 			$doctorDetails[] = $row;
 		}
 		
+		foreach ($doctorDetails as $key => $doctor){
+			if(empty($doctor["PROFILE_IMAGE"])){
+				if( strcmp($doctor["GENDER"], "Female") == 0 ){
+					$doctorDetails[$key]["PROFILE_IMAGE"] = 'female_default.jpg';
+				}
+				else{
+					$doctorDetails[$key]["PROFILE_IMAGE"] = 'male_default.jpg';
+				} 
+			}
+		}
 		return $doctorDetails;		
+	}
+	
+	public static function getDoctorQualifications($doctorIds)
+	{
+		$docIds = implode("','",$doctorIds);
+		$query = "SELECT *
+					FROM tbl_doc_qualifications
+					WHERE id_doctor in ('".$docIds."')";
+	
+		$queryResults=mysql_query($query) or die(mysql_error());
+		$doctorsQualifications = array();
+		while($row = mysql_fetch_array($queryResults, MYSQL_ASSOC) )
+		{
+			$doctorsQualifications[] = $row;
+		}
+		return $doctorsQualifications;
 	}
 	
 	public static function getDoctorReviews($doctorId)
@@ -76,7 +102,7 @@ class DoctorSearch {
 			        WHERE id_doctor='$doctorId'";
 
 		$queryResults=mysql_query($query) or die(mysql_error());
-		
+		$doctorReviews = array();
 		while($row = mysql_fetch_array($queryResults) )
 		{
 			$doctorReviews[] = $row;
@@ -84,6 +110,25 @@ class DoctorSearch {
 		return $doctorReviews;
 	
 	
-	}	
+	}
+
+	public static function getDoctorAppointments($doctorId)
+	{
+	
+		$query = "SELECT *, DATE_FORMAT(doc_a.AVAILABLE_FROM, '%H:%i') as _FROM, 
+							DATE_FORMAT(doc_a.AVAILABLE_TO, '%H:%i') as _TO
+				  FROM tbl_offices ofc,
+					   tbl_doc_appointments doc_a
+				  WHERE id_doctor='$doctorId'
+				  AND doc_a.ID_OFFICE = ofc.ID_OFFICE";
+	
+		$queryResults=mysql_query($query) or die(mysql_error());
+		$doctorAppointments = array();
+		while($row = mysql_fetch_array($queryResults) )
+		{
+			$doctorAppointments[] = $row;
+		}
+		return $doctorAppointments;	
+	}
 }
 ?>

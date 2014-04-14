@@ -88,39 +88,35 @@ class DoctorController extends Controller
 		}
 		else{
 			//print_r(json_encode($resultSet));
+			//header('Content-Type: application/json');
+			$docIds = array();
+			foreach($doctorsList as $doctor){
+				$docIds[] =  $doctor['ID_DOCTOR']; //array_column($doctorsList, 'ID_DOCTOR');
+			}
+			
 			//print_r(json_encode($doctorsList));
-			$this->render('docSearch', array('searchResults' => json_encode($doctorsList)));
+			$doctorsQualifications = DoctorSearch::getDoctorQualifications($docIds);
+			//print_r(json_encode($doctorsQualifications));
+			$this->render('docSearch', array('searchResults' => json_encode($doctorsList),
+											 'docQualifications' => json_encode($doctorsQualifications)));
 		}
 	}
 	
-	public function actionDocSearchService()
+	public function actionGetDocAppointments()
 	{
-		$speciality = $_GET['searchBySpeciality'];
-		$location = $_GET['searchByLocDoc'];
+		$docId = $_GET['docId'];
+		$doctorsAppointments = DoctorSearch::getDoctorAppointments($docId);
 		header('Content-Type: application/json');
-		//print_r (" speciality:[".$speciality."] Locality:[".$location."]");
-		//print_r (" speciality:[".empty(trim($speciality))."] Locality:[".empty(trim($location))."]");
-	
-		//$speciality="Cardiology";
-		//$location="Delhi";
-	
-		$doctorsList = DoctorSearch::getDoctors($speciality,$location);
-				
-		//print_r(json_encode($resultSet));
-		print_r(json_encode($doctorsList));
-		
+		print_r(json_encode($doctorsAppointments));
 	}
 	
 	public function actionGetDocReviews ()
 	{
 		$docId = $_GET['docId'];
 		$doctorsReviews = DoctorSearch::getDoctorReviews($docId);
-		$file = fopen("test.txt","a+");
-		fwrite($file, "$docId");
-		fclose($file);
 		header('Content-Type: application/json');
 		print_r(json_encode($doctorsReviews));
-	}	
+	}
 	
 	public function actions()
 	{
