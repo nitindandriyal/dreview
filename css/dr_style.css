@@ -584,12 +584,25 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 .spanMedium
 {
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: bold;
+	color: #565656;
 }
 
 .spanSmall
 {
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 12.5px;
+}
+
+.table{
+	margin:0px;padding:0px;
+	width:100%;
+	box-shadow: 2px 2px 2px #888888;
+	border:1px solid silver;
+}
+
+.table tr td {
+	margin:2px;padding:2px;
+	border:1px solid silver;
 }

@@ -1,11 +1,7 @@
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-<script
-	src="//code.jquery.com/jquery-1.9.1.js"></script>
-<script
-	src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 <script type="text/javascript">
 $(function() {
@@ -18,114 +14,133 @@ $(function() {
   });
 });
 
-var geocoder;
-var map;
-function initializeGoogleMap() {
-  geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(-34.397, 150.644);
-  var mapOptions = {
-    zoom: 10,
-    center: latlng
-  }
- 
-  map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
-  var listenerHandle = google.maps.event.addListener(map, 'idle', function() {
-		$mapCanvas.appendTo($("#googleMap"));
-		google.maps.event.removeListener(listenerHandle);
-  });
-
-  codeAddress();  
-}
-
-function codeAddress() {
-  var address = document.getElementById('Address').value;
-  geocoder.geocode( { 'address': address}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-}
-
-
-
-function showGetDirections(id) {
-    var e = document.getElementById(id);
-    
-    if(e.style.display == 'block')
-       e.style.display = 'none';
-    else
-       e.style.display = 'block';
-}
-
 angular.module('docSearchApp', []);
 
 function docSearchController($scope, $http) {
-//test.controller("docSearchController", function($scope){
-
-$scope.ratingArray = [1,2,3,4,5];
-$selectedClicked = false;
-$scope.doctorSelectedEvent=function(doctors){
-    $scope.selectedDoctor = doctors;
-    $selectedClicked = true;
-}
-
-$scope.$watch('query.GENDER', function() {
-    $selectedClicked = false;
-    $( "#search-tabline" ).tabs({ active: 0 });
-});
-
-$scope.initDoctorSelectedEvent = function(first, selectedClicked, doctors){
-	//alert(first + doctors);
-	if($selectedClicked)
-	{
-		return;
+	$scope.ratingArray = [1,2,3,4,5];
+	$selectedClicked = false;
+	$scope.doctorSelectedEvent=function(doctors){
+	    $scope.selectedDoctor = doctors;
+	    $selectedClicked = true;
 	}
-	if( first )
-	{
-    	$scope.selectedDoctor = doctors;
+	
+	$scope.$watch('query.GENDER', function() {
+	    $selectedClicked = false;
+	    $( "#search-tabline" ).tabs({ active: 0 });
+	});
+	
+	$scope.initDoctorSelectedEvent = function(first, selectedClicked, doctors){
+		//alert(first + doctors);
+		if($selectedClicked)
+		{
+			return;
+		}
+		if( first )
+		{
+	    	$scope.selectedDoctor = doctors;
+		}
 	}
-}
-
-$scope.getReviews=function(doctors){
-	$scope.url = '/doctor/GetDocReviews?docId='+$scope.selectedDoctor.ID_DOCTOR;
-	$http.get($scope.url).
-					    success(function(data) 
-					    {
-					        $scope.reviews = data;					        
-					    });
-}
-
-$scope.getAppointments=function(doctors){
-	$scope.url = '/doctor/GetDocAppointments?docId='+$scope.selectedDoctor.ID_DOCTOR;
-	$http.get($scope.url).
-					    success(function(data) 
-					    {
-					        $scope.appointments = data;					        
-					    });
-}
-
-$scope.exceptEmptyComparator = function (actual, expected) {
-    if (!expected) {
-       return true;
-    }
-    return angular.equals(expected, actual);
-}
-
-$scope.doctorsData = <?php if(isset($searchResults)){ echo $searchResults; }?>;
-
-$scope.docQualifications = <?php if(isset($docQualifications)){ echo $docQualifications; }?>;
+	
+	$scope.getReviews=function(doctors){
+		$scope.url = '/doctor/GetDocReviews?docId='+$scope.selectedDoctor.ID_DOCTOR;
+		$http.get($scope.url).
+						    success(function(data) 
+						    {
+						        $scope.reviews = data;					        
+						    });
+	}
+	
+	$scope.getAppointments=function(doctors){
+		$scope.url = '/doctor/GetDocAppointments?docId='+$scope.selectedDoctor.ID_DOCTOR;
+		$http.get($scope.url).
+						    success(function(data) 
+						    {
+						        $scope.appointments = data;
+						        $scope.initializeGoogleMap();					        
+						    });    
+	}
+	
+	$scope.exceptEmptyComparator = function (actual, expected) {
+	    if (!expected) {
+	       return true;
+	    }
+	    return angular.equals(expected, actual);
+	}
+	
+	$scope.getAppointmentChart=function(appointment){	
+		var workDays = appointment.WORK_DAYS;
+		appChart = new Array(7);
+		for ( var i = 0; i < workDays.length; i++ ){
+			appChart[i] = new Array(1);		
+			if(appointment._FROM != null && workDays.charAt(i) == 1){
+				appChart[i][0] = appointment._FROM +"-" + appointment._TO;			  
+			}
+			else{
+				appChart[i][0] = '-';
+			}
+		}
+		return appChart;
+	}
+	
+	var geocoder;
+	var map;
+	var markersArray = [];
+	var bounds;
+	var infowindow =  new google.maps.InfoWindow({content: '' });
+	
+	$scope.initializeGoogleMap = function() {
+	  var address = $scope.appointments[0].ADDRESS;
+	  geocoder = new google.maps.Geocoder();
+	  bounds = new google.maps.LatLngBounds ();
+	  
+	  var mapOptions = {
+	    zoom: 12,
+	  }
+	  
+	  map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+	  var listenerHandle = google.maps.event.addListener(map, 'idle', function() {
+			$mapCanvas.appendTo($("#googleMap"));
+			google.maps.event.removeListener(listenerHandle);
+			});
+	
+	  for(i = 0; i < $scope.appointments.length; i++){
+		   	geocoder.geocode( { 'address': $scope.appointments[i].ADDRESS}, function(results, status) {
+		    if (status == google.maps.GeocoderStatus.OK) 
+			{
+		      map.setCenter(results[0].geometry.location);
+		      var marker = new google.maps.Marker({
+		          map: map,
+		          position: results[0].geometry.location
+		      });
+	
+	          google.maps.event.addListener(marker, 'click', function() {
+	              infowindow.setContent(address[0]);
+	              infowindow.open(map, this);
+	          });	      
+		      
+	          bounds.extend(results[0].geometry.location);
+	          markersArray.push(marker);	 
+	             
+		    } 
+		    else{
+		      alert('Geocode was not successful for the following reason: ' + status);
+		    }
+	
+			if (i>1){	
+		    	map.fitBounds(bounds);
+			}	
+		  });		 
+	  }  
+	}
+	   
+	$scope.doctorsData = <?php if(isset($searchResults)){ echo $searchResults; }?>;
+	
+	$scope.docQualifications = <?php if(isset($docQualifications)){ echo $docQualifications; }?>;
 };
     		
 </script>
 
-<div class="docSearchContainer" ng-app="docSearchApp"
-	ng-controller="docSearchController">
+<div class="docSearchContainer" ng-app="docSearchApp" ng-controller="docSearchController">
 	<div class="docTopContainer">
 		<?php if(isset($searchResults)){?>
 		<div
@@ -186,7 +201,7 @@ $scope.docQualifications = <?php if(isset($docQualifications)){ echo $docQualifi
 				<div id="docSummaryDiv">
 					<span style="font-weight: bold;">Dr. {{doctors.FIRST_NAME}}
 						{{doctors.LAST_NAME}}</span><br> <span>{{doctors.SPECIALITY}}</span><br>
-					<span>{{doctors.AREA}},{{doctors.STATE}}</span><br>
+					<span>{{doctors.DISTRICT}},{{' '+doctors.STATE}}</span><br>
 				</div>
 				<div
 					style="display: inline-block; float: right; margin-right: 15px; margin-top: 2px"
@@ -207,23 +222,22 @@ $scope.docQualifications = <?php if(isset($docQualifications)){ echo $docQualifi
 				<span class="span-XLarge">Dr. {{selectedDoctor.FIRST_NAME}}
 					{{selectedDoctor.LAST_NAME}}</span><br> <span class="spanMedium">{{selectedDoctor.SPECIALITY}}</span><br>
 				<span class="spanMedium" ng-repeat="qualification in docQualifications | filter:selectedDoctor.ID_DOCTOR">{{qualification.QUALIFICATION+' '}}</span><br>
-				<span class="spanSmall">{{selectedDoctor.AREA}},{{selectedDoctor.STATE}}</span><br>
-				<img ng-repeat="n in [1,2,3,4,5]" src="../images/star.png"
-					height="18" width="18" /> <span>{{selectedDoctor.TOTAL_REVIEWS}}
-					reviews</span>
+				<span class="spanSmall">{{selectedDoctor.DISTRICT}},{{' '+selectedDoctor.STATE}}</span><br>
+				<img ng-repeat="n in ratingArray | limitTo:selectedDoctor.USER_RATING"
+						src="../images/star.png" height="16" width="16" /> <img
+						ng-repeat="n in ratingArray | limitTo:5-selectedDoctor.USER_RATING"
+						src="../images/star_off.png" height="16" width="16" /><br> <span>{{selectedDoctor.TOTAL_REVIEWS}}
+						reviews</span>
 			</div>
 			<div style="position: relative; float: right;width:150px;height:220px;" align="center">
 				<img id="docProfileImage" src="../images/doctors/{{selectedDoctor.PROFILE_IMAGE}}"><p>
-				<button class="btn smaller" type="submit">View Details</button>
+				<a ref="">More Details</a>
 			</div>
 		</div>
 		<div id="search-tabline">
 			<ul id="tabs_framed">
 				<li class="tabs"><a href="#tabAbout">About</a></li>
-				<li class="tabs"><a href="#tabAppointments"
-					onclick="initializeGoogleMap()"
-					ng-click="getAppointments(selectedDoctor)">Appointments & Offices</a>
-				</li>
+				<li class="tabs"><a href="#tabAppointments" ng-click="getAppointments(selectedDoctor)">Appointments & Offices</a></li>
 				<li class="tabs"><a href="#tabReviews" ng-click="getReviews(selectedDoctor)">Reviews</a></li>
 			</ul>
 			<div id="tabAbout" style="height: 100%">
@@ -234,18 +248,24 @@ $scope.docQualifications = <?php if(isset($docQualifications)){ echo $docQualifi
 					<span class="spanSmall">{{selectedDoctor.SUMMARY}}</span>
 					<br>
 					<hr>
-					<span class="spanSmall">Specializes in
-						{{selectedDoctor.SPECIALITY}}</span><br> <span class="spanSmall">Can
-						speak {{selectedDoctor.LANG_SPOKEN}}</span><br> <span
-						class="spanSmall">Is {{selectedDoctor.AGE}} years old</span><br> <span
-						class="spanSmall">Has been practising for
-						{{selectedDoctor.EXPERIENCE}} years</span><br>
+					<span class="spanMedium">Specialities</span><br>
+					<span class="spanSmall">{{selectedDoctor.SPECIALITY}}</span><br>
+					<span class="spanMedium">Languages Spoken</span><br> 
+					<span class="spanSmall">{{selectedDoctor.LANG_SPOKEN}}</span><br>
+					<span class="spanMedium">Age</span><br> 
+					<span class="spanSmall">{{selectedDoctor.AGE}} years</span><br>
+					<span class="spanMedium">Experience</span><br> 
+					<span class="spanSmall">Practising for {{selectedDoctor.EXPERIENCE}} years</span><br>
 				</div>
 				<br><br>
 				<span class="spanMedium">Education and Training</span>
 				<p>
+				
 				<div class="reviewGlassy">
-					
+					<div ng-repeat="qualification in docQualifications | filter:selectedDoctor.ID_DOCTOR">
+						<span class="spanMedium">{{qualification.QUALIFICATION}} ({{qualification.SUPER_SPECIALITY}})</span><br> 
+						<span class="spanSmall">{{qualification.INSTITUTION}}</span><br><br>	
+					</div>
 				</div>
 				<br><br>
 				<span class="spanMedium">Awards and Recognitions</span>
@@ -254,34 +274,38 @@ $scope.docQualifications = <?php if(isset($docQualifications)){ echo $docQualifi
 					
 				</div>
 			</div>
-
-
 			<div id="tabAppointments">
-				<div class="reviewGlassy" ng-repeat="appointment in appointments">
-					<span style="font-weight: bold">{{appointment._FROM}}</span><br> <span
-						style="font-weight: bold">{{appointment._TO}}</span><br> <span>{{appointment.WORK_DAYS}}</span><br>
-					<span class="spanSmall">{{appointment.OFFICE_NAME}}<br>
-						{{appointment.AREA}}<br> {{appointment.STATE}}<br> <a
-						style="color: olive;" onclick="showGetDirections('getDirections')">Get
-							directions</a>
-					</span>
-				</div>
 				<br> <span class="spanMedium">Office Locations</span>
-				<ul style="list-style: none">
-
-					<div id="getDirections" style="display: none;">
-						<form action="http://maps.google.com/maps" method="get"
-							target="_blank">
-							<input type="text" name="saddr" class="smallinput"
-								placeholder="Enter your location" /> <input id="Address"
-								type="hidden" name="daddr"
-								value="K C Raju Multispeciality Clinic, 4 th cross,Lingarajapuram,Below Flyover,Hennur main road,, 4th Cross Rd, CMR Layout, Lingarajapuram, Bangalore, Karnataka 560084, India" />
+				<div class="reviewGlassy" ng-repeat="appointment in appointments">
+					<span class="spanSmall">{{appointment.OFFICE_NAME}}, {{appointment.AREA}}, {{appointment.DISTRICT}}, {{appointment.STATE}}
+					</span><br><br>
+					<table class="table">
+						<tr>
+							<td>Mon</td>
+							<td>Tue</td>
+							<td>Wed</td>
+							<td>Thu</td>
+							<td>Fri</td>
+							<td>Sat</td>
+							<td>Sun</td>
+						</tr>
+						<tr>
+							<td ng-repeat="chart in getAppointmentChart(appointment)">{{chart[0]}}</td>
+						</tr>
+					</table>
+					<br>
+					<div id="getDirections">
+						<form action="http://maps.google.com/maps" method="get" target="_blank">
+							<input type="text" name="saddr" class="smallinput" placeholder="Enter your location" /> 
+							<input type="text" id="Address" name="daddr" class="smallinput" ng-model="appointment.ADDRESS"/>
 							<input class="btn smaller" type="submit" value="Get directions" />
 						</form>
 					</div>
-				</ul>
-
-				<div id="googleMap"></div>
+					
+				</div>
+				<br><br><br>
+							
+				<div id="googleMap"></div>			
 			</div>
 
 			<div id="tabReviews">

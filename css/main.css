@@ -7,6 +7,7 @@ body
 	background: url(../images/light_wool.png) repeat;
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 14px;
+	min-width: 1240px;
 }
 
 #page
@@ -202,6 +203,33 @@ div.search-form
 	text-align:center;
 	text-shadow:black;
 	border: 1px solid #d4d4d4;	
+}
+
+#selectLocationList
+{
+	display: none;
+}
+
+#selectLocationList li
+{
+	list-style: none;	
+}
+
+#selectLocationList li a
+{
+	color:#A1A1A1;
+}
+
+#selectLocationList li a:HOVER
+{
+	text-decoration: none;
+	font-weight: bolder;
+	background-color: #800000;
+}
+
+#clickSearchSelectLoc:HOVER
+{
+	
 }
 
 #home-tagline {
@@ -624,6 +652,7 @@ input:-moz-placeholder { font-size: 18px; color: #A2A2A2; }
 .smallinput[type=text],input[type=password],input[type=date]
 {
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size:medium;
 	border: 1px solid #e4ddd7;
 	color:#A1A1A1;
     vertical-align: middle;
@@ -634,3 +663,29 @@ input:-moz-placeholder { font-size: 18px; color: #A2A2A2; }
     line-height:32px;    
 }
 
+.rankSubMenu {
+    position:relative;
+    list-style-type:none;
+    margin:0;
+    display:none;
+}
+
+.subMenuContainer:hover #rankSubMenu {
+    display:block;
+}
+
+.ranksSubmenuItem {
+    position:relative;
+    list-style-type:none;
+    padding:10px 0;
+}
+
+.ranksSubmenuItem a {
+    display:block;
+    height:100%;
+    text-decoration:none;
+}
+
+.ranksSubmenuItem:hover a {
+    text-decoration:underline;
+}

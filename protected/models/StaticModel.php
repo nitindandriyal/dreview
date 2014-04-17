@@ -64,6 +64,44 @@ class StaticModel {
 
     	return $fullData;
     }
+    
+    public static function getStateMap()
+    {
+    	
+
+    	$stateMap= array(
+    						array ('state' => 'Karnataka',
+    					    		'cities'  => array (
+    					    							array( 'city' => 'Bangalore',
+    												     		'areas' => array (
+    										     									array( 'area' => 'Marathalli'),
+    										     								    array( 'area' => 'Indiranagar')
+    										     								  )
+    										   				  ),			    													    								          					
+    					    							)
+    								),
+		    			array ('state' => 'Maharashtra',
+		    					'cities'  => array (
+					    							array( 'city' => 'Mumbai',
+					    									'areas' => array (
+					    														array( 'area' => 'Bandra'),
+					    														array( 'area' => 'Andheri')
+					    													  )
+		    											  )				  
+					    							)
+		    				  )    			
+    						);
+    	 		
+    	
+    	/*
+    	$stateMap= array(
+		    			array ('state' => 'Karnataka'),
+		    			array ('state' => 'Maharashtra')
+    					);
+    	*/
+    	
+    	return $stateMap;
+    }    
 
 }
 

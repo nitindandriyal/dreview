@@ -26,12 +26,12 @@ class DoctorSearch {
 		ORDER BY doc.USER_RATING;		 
 		 */
 		
-		$query = "SELECT distinct doc.*, doc_o.STATE, doc_o.DISTRICT, doc_o.AREA, 
+		$query = "SELECT distinct doc.*, doc_o.STATE, doc_o.DISTRICT, 
 						DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), practice_st_dt)), \"%Y\")+0 as EXPERIENCE ,
 						DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), dob)), \"%Y\")+0 as AGE 
 					FROM tbl_doctor doc 
-					LEFT JOIN tbl_doc_appointments doc_a ON doc.ID_DOCTOR = doc_a.ID_DOCTOR
-					LEFT JOIN tbl_offices doc_o ON doc_a.id_office = doc_o.id_office";
+					JOIN tbl_doc_appointments doc_a ON doc.ID_DOCTOR = doc_a.ID_DOCTOR
+					JOIN tbl_offices doc_o ON doc_a.id_office = doc_o.id_office";
 		$subQuery = "";
 		
 		$location = trim($location);
@@ -115,7 +115,8 @@ class DoctorSearch {
 	public static function getDoctorAppointments($doctorId)
 	{
 	
-		$query = "SELECT *, DATE_FORMAT(doc_a.AVAILABLE_FROM, '%H:%i') as _FROM, 
+		$query = "SELECT *, CONCAT(ofc.office_name,',',ofc.area,',',ofc.district,',',ofc.state) as ADDRESS,
+							DATE_FORMAT(doc_a.AVAILABLE_FROM, '%H:%i') as _FROM, 
 							DATE_FORMAT(doc_a.AVAILABLE_TO, '%H:%i') as _TO
 				  FROM tbl_offices ofc,
 					   tbl_doc_appointments doc_a

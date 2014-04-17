@@ -70,4 +70,12 @@ class HomeController extends Controller
 		$jsonData = json_encode($specialities);
 		print_r($jsonData);
 	}
+	
+	public function actionStateMap()
+	{
+		header('Content-Type: application/json');
+		$stateMap = StaticModel::getStateMap();	
+		$jsonData = json_encode($stateMap);
+		print_r($jsonData);
+	}	
 }

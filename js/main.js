@@ -148,3 +148,41 @@ function searchCtrl($scope, $http) {
 		$scope.status = status;
 	});
 }
+
+function onClickSearchController($scope, $http) {
+	
+	$scope.getLocations=function(){
+		$scope.url = '/home/StateMap';			
+		$http.get($scope.url).
+						    success(function(data) 
+						    {
+						        $scope.locations = data;							     
+						    });
+	}
+	
+	$scope.setLocation=function(state,city,area){
+		
+		if (angular.isUndefined(area))
+		{
+			if (angular.isUndefined(city))
+				$scope.selectedlocation = state;
+			else
+				$scope.selectedlocation = state+' > '+city;
+		}
+		else
+		{
+			$scope.selectedlocation = state+' > '+city+' > '+area;
+		}			    
+	    
+	}
+	
+	$scope.toggleDivDisplay = function(id){
+	    var e = document.getElementById(id);
+	    
+	    if(e.style.display == 'block')
+	       e.style.display = 'none';
+	    else
+	       e.style.display = 'block';
+	}		
+			
+}
