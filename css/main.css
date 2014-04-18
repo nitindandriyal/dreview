@@ -208,11 +208,28 @@ div.search-form
 #selectLocationList
 {
 	display: none;
+	width:94%;
+	height:130px;
+	background-image: linear-gradient(#d2d2d2, #e8e8e8 100px);
+	-webkit-box-shadow: 2px 2px 2px #aaa;
+	-moz-box-shadow: 2px 2px 2px #aaa;
+	box-shadow: 2px 2px 2px #aaa;
 }
 
 #selectLocationList li
 {
-	list-style: none;	
+	list-style: disc;	
+}
+
+#locationList
+{
+	float:left;
+	list-style-type: none;
+	display:inline-block;
+	width: 24%;
+	position:relative;	
+	left: -30px;
+	top:5px;
 }
 
 #selectLocationList li a

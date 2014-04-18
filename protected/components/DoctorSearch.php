@@ -39,7 +39,7 @@ class DoctorSearch {
 		
 		if (!empty($location))
 		{
-			$subQuery = $subQuery. " doc_o.STATE = '$location'";
+			$subQuery = $subQuery. "( doc_o.STATE = '$location' or doc_o.DISTRICT = '$location' )";
 			if (!empty($speciality) )
 			{
 				$subQuery = $subQuery. " and doc.SPECIALITY like '%$speciality%'";

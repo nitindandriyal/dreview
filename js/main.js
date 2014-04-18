@@ -165,16 +165,29 @@ function onClickSearchController($scope, $http) {
 		if (angular.isUndefined(area))
 		{
 			if (angular.isUndefined(city))
+			{	
 				$scope.selectedlocation = state;
+				$scope.searchLocation = state;
+			}				
 			else
+			{
 				$scope.selectedlocation = state+' > '+city;
+				$scope.searchLocation = city;
+			}	
 		}
 		else
 		{
 			$scope.selectedlocation = state+' > '+city+' > '+area;
+			$scope.searchLocation = area;
 		}			    
 	    
 	}
+	
+	$scope.submitSearch=function(_speciality, _location) {
+		$('#tabDoctorForm input[name="searchBySpeciality"]').val( _speciality );
+		$('#tabDoctorForm input[name="searchByLocDoc"]').val( _location );
+	    $("#tabDoctorForm").submit();
+	}	
 	
 	$scope.toggleDivDisplay = function(id){
 	    var e = document.getElementById(id);

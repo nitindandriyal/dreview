@@ -36,7 +36,7 @@ $(function() {
 			    <li class="tabs"><a href="#tabEmergency">Emergency</a></li>
 			  </ul>
 			  <div id="tabDoctor">
-				<form action="/doctor/DocSearch" method="post">				
+				<form id="tabDoctorForm" action="/doctor/DocSearch" method="post">				
 					<div class="ui-widget" style="display: inline-block;">
 						<input id="searchBySpeciality" name="searchBySpeciality" type="text" placeholder="Search by Speciality" maxlength="30">
 						<input id="searchByLocDoc" name="searchByLocDoc" type="text" placeholder="Search by Location" maxlength="30">
@@ -93,8 +93,8 @@ $(function() {
 			<button type="button" id="clickSearchSelectLoc" ng-click="getLocations();toggleDivDisplay('selectLocationList')">Select Location</button>
 			<label>{{selectedlocation}}</label>
 			<div id="selectLocationList">
-				<ul id="locationList"> 
-					<li ng-repeat="getStates in locations"><a ng-click="setLocation(getStates.state);toggleDivDisplay('selectLocationList')"><b>{{getStates.state}}</b></a>
+				<ul> 
+					<li id="locationList" ng-repeat="getStates in locations"><a ng-click="setLocation(getStates.state);toggleDivDisplay('selectLocationList')"><b>{{getStates.state}}</b></a>
 						<ul>
 							<li ng-repeat="getCities in getStates.cities"><a ng-click="setLocation(getStates.state,getCities.city);toggleDivDisplay('selectLocationList')">{{getCities.city}}<a>
 								<ul>
@@ -111,58 +111,78 @@ $(function() {
 		
 					<div class="col-sm-3">
 						<ul class='list-unstyled'>
-							<li><?php echo CHtml::link('Allergy & Immunology',array('tbl_state_map/index','param1'=>'Allergy & Immunology')); ?></li>
-							<li><?php echo CHtml::link('Cardiology',array('tbl_state_map/index','param1'=>'Cardiology')); ?></li>
-							<li><?php echo CHtml::link('Chiropractic',array('tbl_state_map/index','param1'=>'Chiropractic')); ?></li>
-							<li><?php echo CHtml::link('Clinical Psychology',array('tbl_state_map/index','param1'=>'Clinical Psychology')); ?></li>
-							<li><?php echo CHtml::link('Dentistry',array('tbl_state_map/index','param1'=>'Dentistry')); ?></li>
-							<li><?php echo CHtml::link('Dermatology',array('tbl_state_map/index','param1'=>'Dermatology')); ?></li>
-							<li><?php echo CHtml::link('Ear, Nose and Throat',array('tbl_state_map/index','param1'=>'Ear, Nose and Throat')); ?></li>
-							<li><?php echo CHtml::link('Endocrinology, Diabetes & Metabolism',array('tbl_state_map/index','param1'=>'Endocrinology, Diabetes & Metabolism')); ?></li>
+							<li><a ng-click="submitSearch('Allergy & Immunology', searchLocation)">Allergy & Immunology</a></li>
+							<li><a ng-click="submitSearch('Cardiology', searchLocation)">Cardiology</a></li>
+							<li><a ng-click="submitSearch('Chiropractic', searchLocation)">Chiropractic</a></li>
+							<li><a ng-click="submitSearch('Clinical Psychology', searchLocation)">Clinical Psychology</a></li>
+							<li><a ng-click="submitSearch('Dentistry', searchLocation)">Dentistry</a></li>
+							<li><a ng-click="submitSearch('Dermatology', searchLocation)">Dermatology</a></li>
+							<li><a ng-click="submitSearch('Ear, Nose and Throat', searchLocation)">Ear, Nose and Throat</a></li>
+							<li><a ng-click="submitSearch('Endocrinology, Diabetes & Metabolism', searchLocation)">Endocrinology, Diabetes & Metabolism</a></li>
 						</ul>
 					</div>
 		
 					<div class="col-sm-3">
 						<ul class='list-unstyled'>
-							<li><?php echo CHtml::link('Family Medicine',array('tbl_state_map/index','param1'=>'Family Medicine')); ?></li>
-							<li><?php echo CHtml::link('Gastroenterology',array('tbl_state_map/index','param1'=>'Gastroenterology')); ?></li>
-							<li><?php echo CHtml::link('General Surgery',array('tbl_state_map/index','param1'=>'General Surgery')); ?></li>
-							<li><?php echo CHtml::link('Geriatric Medicine',array('tbl_state_map/index','param1'=>'Geriatric Medicine')); ?></li>
-							<li><?php echo CHtml::link('Hematology',array('tbl_state_map/index','param1'=>'Hematology')); ?></li>
-							<li><?php echo CHtml::link('Internal Medicine',array('tbl_state_map/index','param1'=>'Internal Medicine')); ?></li>
-							<li><?php echo CHtml::link('Nephrology',array('tbl_state_map/index','param1'=>'Nephrology')); ?></li>
-							<li><?php echo CHtml::link('Neurology',array('tbl_state_map/index','param1'=>'Neurology')); ?>
+							<li><a ng-click="submitSearch('Family Medicine', searchLocation)">Family Medicine</a></li>
+							<li><a ng-click="submitSearch('Gastroenterology', searchLocation)">Gastroenterology</a></li>
+							<li><a ng-click="submitSearch('General Surgery', searchLocation)">General Surgery</a></li>
+							<li><a ng-click="submitSearch('Geriatric Medicine', searchLocation)">Geriatric Medicine</a></li>
+							<li><a ng-click="submitSearch('Hematology', searchLocation)">Hematology</a></li>
+							<li><a ng-click="submitSearch('Internal Medicine', searchLocation)">Internal Medicine</a></li>
+							<li><a ng-click="submitSearch('Nephrology', searchLocation)">Nephrology</a></li>
+							<li><a ng-click="submitSearch('Neurology', searchLocation)">Neurology</a>
 							</li>
 						</ul>
 					</div>
 		
 					<div class="col-sm-3">
 						<ul class='list-unstyled'>
-							<li><?php echo CHtml::link('Neurosurgery',array('tbl_state_map/index','param1'=>'Neurosurgery')); ?></li>
-		                    <li><?php echo CHtml::link('Obstetrics & Gynecology',array('tbl_state_map/index','param1'=>'Obstetrics & Gynecology')); ?></li>
-							<li><?php echo CHtml::link('Ophthalmology',array('tbl_state_map/index','param1'=>'Ophthalmology')); ?></li>
-		                 	<li><?php echo CHtml::link('Orthopedic Surgery',array('tbl_state_map/index','param1'=>'Orthopedic Surgery')); ?></li>
-							<li><?php echo CHtml::link('Pain Medicine',array('tbl_state_map/index','param1'=>'Pain Medicine')); ?></li>		
-							<li><?php echo CHtml::link('Pediatrics',array('tbl_state_map/index','param1'=>'Pediatrics')); ?></li>
-							<li><?php echo CHtml::link('Plastic Surgery',array('tbl_state_map/index','param1'=>'Plastic Surgery')); ?>
+							<li><a ng-click="submitSearch('Neurosurgery', searchLocation)">Neurosurgery</a></li>
+		                    <li><a ng-click="submitSearch('Obstetrics & Gynecology', searchLocation)">Obstetrics & Gynecology</a></li>
+							<li><a ng-click="submitSearch('Ophthalmology', searchLocation)">Ophthalmology</a></li>
+		                 	<li><a ng-click="submitSearch('Orthopedic Surgery', searchLocation)">Orthopedic Surgery</a></li>
+							<li><a ng-click="submitSearch('Pain Medicine', searchLocation)">Pain Medicine</a></li>		
+							<li><a ng-click="submitSearch('Pediatrics', searchLocation)">Pediatrics</a></li>
+							<li><a ng-click="submitSearch('Plastic Surgery', searchLocation)">Plastic Surgery</a>
 							</li>
 						</ul>
 					</div>
 					
 					<div class="col-sm-3">
 						<ul class='list-unstyled'>
-							<li><?php echo CHtml::link('Psychiatry',array('tbl_state_map/index','param1'=>'Psychiatry')); ?></li>						
-							<li><?php echo CHtml::link('Psychology',array('tbl_state_map/index','param1'=>'Psychology')); ?></li>
-							<li><?php echo CHtml::link('Pulmonology',array('tbl_state_map/index','param1'=>'Pulmonology')); ?></li>							
-							<li><?php echo CHtml::link('Rheumatology',array('tbl_state_map/index','param1'=>'Rheumatology')); ?></li>
-							<li><?php echo CHtml::link('Social Work',array('tbl_state_map/index','param1'=>'Social Work')); ?></li>
-							<li><?php echo CHtml::link('Sports Medicine',array('tbl_state_map/index','param1'=>'Sports Medicine')); ?></li>
-							<li><?php echo CHtml::link('Urology',array('tbl_state_map/index','param1'=>'Urology')); ?></li>
+							<li><a ng-click="submitSearch('Psychiatry', searchLocation)">Psychiatry</a></li>						
+							<li><a ng-click="submitSearch('Psychology', searchLocation)">Psychology</a></li>
+							<li><a ng-click="submitSearch('Pulmonology', searchLocation)">Pulmonology</a></li>							
+							<li><a ng-click="submitSearch('Rheumatology', searchLocation)">Rheumatology</a></li>
+							<li><a ng-click="submitSearch('Social Work', searchLocation)">Social Work</a></li>
+							<li><a ng-click="submitSearch('Sports Medicine', searchLocation)">Sports Medicine</a></li>
+							<li><a ng-click="submitSearch('Urology', searchLocation)">Urology</a></li>
 						</ul>
 					</div>
 					
 				</div>
 			</div>
+			
+		<div class="container" ng-init="getLocations()">
+			<br>
+			<h3>Search By Location</h3>
+			<div class="widget-item-list row">
+				<div class="col-sm-3" ng-repeat="getStates in locations">
+					<ul> 
+						<li id="locationList"><a ng-click="submitSearch('', getStates.state)"><b>{{getStates.state}}</b></a>
+							<ul style="list-style-type: disc;">
+								<li ng-repeat="getCities in getStates.cities"><a ng-click="submitSearch('', getCities.city)">{{getCities.city}}<a>
+									<ul style="list-style-type: disc;">
+										<li ng-repeat="getAreas in getCities.areas"><a ng-click="submitSearch('', getAreas.area)">{{getAreas.area}}<a></li>
+									</ul>
+								</li>
+							</ul>					
+						</li>					
+					</ul>
+				</div>
+			</div>		
+		</div>			
 	</div>
 </div>
 
