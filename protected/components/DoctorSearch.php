@@ -97,13 +97,16 @@ class DoctorSearch {
 	public static function getDoctorReviews($doctorId)
 	{
 	
-		$query = "	SELECT *
-			        FROM tbl_doc_reviews
-			        WHERE id_doctor='$doctorId'";
+		$query = "	SELECT usr.USERNAME, doc_r.REVIEW, DATE_FORMAT(doc_r.REVIEW_DATE, '%D %M %Y') AS REVIEW_DATE, doc_r.RATING
+					FROM tbl_doc_reviews doc_r, tbl_users usr
+					WHERE doc_r.ID_USER = usr.EMAIL
+					AND doc_r.REVIEW IS NOT NULL 
+					AND trim(doc_r.REVIEW) <> ''
+			        and id_doctor='$doctorId'";
 
 		$queryResults=mysql_query($query) or die(mysql_error());
 		$doctorReviews = array();
-		while($row = mysql_fetch_array($queryResults) )
+		while($row = mysql_fetch_array($queryResults, MYSQL_ASSOC) )
 		{
 			$doctorReviews[] = $row;
 		}

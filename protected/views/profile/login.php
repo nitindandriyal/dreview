@@ -45,10 +45,8 @@ $this->breadcrumbs=array(
 	    	</form>
 		</div>
 
-<div align="center">
-	<img src="../images/login.png" style="width: 20%; height: 20%;" />
-</div>
-<div class="SignIn SignIn-Login" align="center">
+
+<div class="SignIn" align="center">
 
 	<?php echo CHtml::beginForm(); ?>
 
@@ -106,14 +104,12 @@ $this->breadcrumbs=array(
 		<?php echo CHtml::submitButton('Login', array('class' => 'btn')); ?>
 	</div>
 	<br>
-	<div style="display: block; width: 80%">
-		<div style="margin-left: 0px; display: inline-block; width: 40%"
-			align="left">
+	<div style="display: block; width: 80%;">
+		<div style="margin-left: 0px; display: inline-block; width: 45%;" align="left">
 			<?php echo CHtml::activeCheckBox($model, 'keepLoggedIn'); ?>
 			<?php echo CHtml::label('Keep me logged in',''); ?>
 		</div>
-		<div style="margin-left: 0px; display: inline-block; width: 57%"
-			align="left">
+		<div style="margin-left: 0px; display: inline-block; width: 54%;" align="left">
 			<a href="#" onclick="popup('forgotPwdPopUpDiv')"><?php echo CHtml::label('Forgot your password?',''); ?></a>
 		</div>
 	</div>

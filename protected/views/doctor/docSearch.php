@@ -87,6 +87,7 @@ function docSearchController($scope, $http) {
 	var markersArray = [];
 	var bounds;
 	var infowindow =  new google.maps.InfoWindow({content: '' });
+	$scope.locationCharArray = new Array("A", "B", "C", "D", "E");
 	
 	$scope.initializeGoogleMap = function() {
 	  var address = $scope.appointments[0].ADDRESS;
@@ -102,14 +103,17 @@ function docSearchController($scope, $http) {
 			$mapCanvas.appendTo($("#googleMap"));
 			google.maps.event.removeListener(listenerHandle);
 			});
-	
+	  
+	  var counter = 0;
 	  for(i = 0; i < $scope.appointments.length; i++){
 		   	geocoder.geocode( { 'address': $scope.appointments[i].ADDRESS}, function(results, status) {
 		    if (status == google.maps.GeocoderStatus.OK) 
-			{
+			{				
 		      map.setCenter(results[0].geometry.location);
 		      var marker = new google.maps.Marker({
 		          map: map,
+		          title: $scope.appointments[counter].ADDRESS,
+		          icon: "http://www.google.com/mapfiles/marker"+$scope.locationCharArray[counter++]+".png",
 		          position: results[0].geometry.location
 		      });
 	
@@ -120,7 +124,7 @@ function docSearchController($scope, $http) {
 		      
 	          bounds.extend(results[0].geometry.location);
 	          markersArray.push(marker);	 
-	             
+	          
 		    } 
 		    else{
 		      alert('Geocode was not successful for the following reason: ' + status);
@@ -216,22 +220,30 @@ function docSearchController($scope, $http) {
 		</div>
 	</div>
 
-	<div class="docDetailsContainer">
+	<div class="docDetailsContainer" style="height:1321px">
 		<div id="docDetails">
 			<div id="docDetailsHeader">
-				<span class="span-XLarge">Dr. {{selectedDoctor.FIRST_NAME}}
-					{{selectedDoctor.LAST_NAME}}</span><br> <span class="spanMedium">{{selectedDoctor.SPECIALITY}}</span><br>
+				<span class="span-XLarge">Dr. {{selectedDoctor.FIRST_NAME}} {{selectedDoctor.LAST_NAME}}</span><br> 
+				<span class="spanMedium">{{selectedDoctor.SPECIALITY}}</span><br>
 				<span class="spanMedium" ng-repeat="qualification in docQualifications | filter:selectedDoctor.ID_DOCTOR">{{qualification.QUALIFICATION+' '}}</span><br>
 				<span class="spanSmall">{{selectedDoctor.DISTRICT}},{{' '+selectedDoctor.STATE}}</span><br>
-				<img ng-repeat="n in ratingArray | limitTo:selectedDoctor.USER_RATING"
-						src="../images/star.png" height="16" width="16" /> <img
-						ng-repeat="n in ratingArray | limitTo:5-selectedDoctor.USER_RATING"
-						src="../images/star_off.png" height="16" width="16" /><br> <span>{{selectedDoctor.TOTAL_REVIEWS}}
-						reviews</span>
+				<img ng-repeat="n in ratingArray | limitTo:selectedDoctor.USER_RATING" src="../images/star.png" height="16" width="16" /> 
+				<img ng-repeat="n in ratingArray | limitTo:5-selectedDoctor.USER_RATING" src="../images/star_off.png" height="16" width="16" />
+				<br> 
+				<span class="spanSmall">{{selectedDoctor.TOTAL_REVIEWS}} reviews</span><p>
+					<!-- <a href="/doctor/writeReview" class="tooltip">
+					<img src="../images/writeReview.png"/>					
+					<span><img class="callout" src="../images/callout_black.gif" />Write Review</span>
+					 -->
 			</div>
-			<div style="position: relative; float: right;width:150px;height:220px;" align="center">
-				<img id="docProfileImage" src="../images/doctors/{{selectedDoctor.PROFILE_IMAGE}}"><p>
-				<a ref="">More Details</a>
+			<div style="position: relative; float: right;width:40%;height:180px;">
+				<div style="display: inline-block; height: 100%;margin-top:25px">
+					<a href="/doctor/writeReview"><button id="docActions"><img alt="" src="../images/hnd_md_review.png" class="buttonImageWithText">Write Review</button></a><br>
+					<button id="docActions"><img alt="" src="../images/hnd_md_recommend.png" class="buttonImageWithText"/>Recommend</button><br>
+					<button id="docActions"><img alt="" src="../images/hnd_md_star.png"/ class="buttonImageWithText">Rate Doctor</button><br>
+					<button id="docActions"><img alt="" src="../images/hnd_md_details.png" class="buttonImageWithText"/>Full Details</button><br>
+				</div>
+				<img id="docProfileImage" src="../images/doctors/{{selectedDoctor.PROFILE_IMAGE}}">
 			</div>
 		</div>
 		<div id="search-tabline">
@@ -277,6 +289,7 @@ function docSearchController($scope, $http) {
 			<div id="tabAppointments">
 				<br> <span class="spanMedium">Office Locations</span>
 				<div class="reviewGlassy" ng-repeat="appointment in appointments">
+					<img alt="" ng-src="http://www.google.com/mapfiles/marker{{locationCharArray[$index]}}.png">
 					<span class="spanSmall">{{appointment.OFFICE_NAME}}, {{appointment.AREA}}, {{appointment.DISTRICT}}, {{appointment.STATE}}
 					</span><br><br>
 					<table class="table">
@@ -308,15 +321,23 @@ function docSearchController($scope, $http) {
 				<div id="googleMap"></div>			
 			</div>
 
-			<div id="tabReviews">
+			<div id="tabReviews" style="height:97%; overflow-y:auto">
 				<br>
-				<span class="spanMedium">Recent Reviews for Dr. {{selectedDoctor.FIRST_NAME}}</span>
+				<span class="spanLarge">Recent Reviews for Dr. {{selectedDoctor.FIRST_NAME}}</span>
 				<p>			
-				<div class="reviewGlassy" ng-repeat="review in reviews">
-					<span style="font-weight: bold">{{review.ID_USER}}</span><br> <span
-						style="font-weight: bold">{{review.PURPOSE}}</span><br> <span>{{review.REVIEW}}</span><br>
+				<div ng-repeat="review in reviews" style="width: 97%;height:auto;">
+						<img src="../images/user.png" style="margin-bottom: -15px;"/>
+						<span class="spanMedium">{{review.USERNAME}}</span>						
+						<span class="spanSmall" style="color:#858585">{{review.REVIEW_DATE}}</span><br><br>
+						<div class="bubbleReview">
+							<div style="margin-top:-20px;">
+							<img ng-repeat="n in ratingArray | limitTo:review.RATING" src="../images/star.png" height="16" width="16" /> 
+							<img ng-repeat="n in ratingArray | limitTo:5-review.RATING" src="../images/star_off.png" height="16" width="16" /><br>												
+							<span class="spanSmall">{{review.REVIEW}}</span>
+							</div>
+						</div>
+						<br><br>
 				</div>
-				
 			</div>
 		</div>
 	</div>

@@ -289,7 +289,7 @@ div.search-form
 	font-size: 12px;
 }
 
-input[type=text],input[type=password],input[type=date]
+input[type=text],input[type=password]
 {
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	border: 1px solid #e4ddd7;

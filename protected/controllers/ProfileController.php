@@ -26,9 +26,22 @@ class ProfileController extends Controller
 	
 	public function actionLoginFacebook()
 	{
+		$loginMethod = "FACEBOOK";
+		$_identity=new UserIdentity($email, $loginMethod);
+		$_identity->facebookLogin();
+		
+		if($_identity->errorCode===UserIdentity::ERROR_NONE)
+		{
+			$duration = 3600*24*30; // 30 days
+			Yii::app()->user->login($_identity, $duration);
+            Yii::app()->request->redirect('/home/index');
+		}
+                //header("Location: /home/index");
+		// display the login form
+		//$this->render('/home/index');
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('loginFacebook');	
+		//$this->render('loginFacebook');	
 	}
 	
 	public function actionLoginGoogle()
