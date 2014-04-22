@@ -116,6 +116,32 @@ class SiteController extends Controller
 	
 	public function actionTest()
 	{
-		$this->render('test');
+		$model=new SignUpForm;
+		
+		if(isset($_POST['SignUpForm']))
+		{
+			$model->attributes=$_POST['SignUpForm'];
+			print_r($model);
+			print_r($model->gender);
+		}
+				
+		$this->render('test',array('model'=>$model));
+	}
+
+	public function actionPrintTest()
+	{
+		$gender=$_POST['mySelect'];
+		print_r($gender);
+	}
+	
+	public function actionPrintTest1()
+	{
+		$model=new SignUpForm;
+		
+		if(isset($_POST['testForm']))
+		{
+		$model->attributes=$_POST['testForm'];
+		print_r($model.'here');
+		}
 	}	
 }

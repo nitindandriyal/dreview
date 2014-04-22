@@ -24,10 +24,30 @@ class ProfileController extends Controller
 		);
 	}
 	
+	public function filters()
+	{
+		return array( 'accessControl' );
+	}
+
+	public function accessRules()
+	{
+		return array(
+						array('allow',
+								'actions'=>array('logout'),
+								'users'=>array('@')
+						),
+						array('deny',
+						'deniedCallback' => function() {Yii::app()->controller->redirect('/home/index');},
+						'users'=>array('@')
+						),
+						
+		);
+	}
+	
 	public function actionLoginFacebook()
 	{
 		$loginMethod = "FACEBOOK";
-		$_identity=new UserIdentity($email, $loginMethod);
+		$_identity=new UserIdentity('', $loginMethod);
 		$_identity->facebookLogin();
 		
 		if($_identity->errorCode===UserIdentity::ERROR_NONE)
@@ -46,9 +66,18 @@ class ProfileController extends Controller
 	
 	public function actionLoginGoogle()
 	{
+		$loginMethod = "GOOGLE";
+		$_identity=new UserIdentity('', $loginMethod);
+		$_identity->googleLogin();
+		
+		if($_identity->errorCode===UserIdentity::ERROR_NONE)
+		{
+			Yii::app()->user->login($_identity);
+			Yii::app()->request->redirect('/home/index');
+		}		
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('loginGoogle');
+		//$this->render('loginGoogle');
 	}
 		
 	/**

@@ -12,6 +12,7 @@ class SignUpForm extends CFormModel
 	public $password;
 	public $confirmPassword;
 	public $email;
+	public $gender;
 
 	private $_identity;
 

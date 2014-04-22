@@ -1,33 +1,27 @@
-<link rel="stylesheet" type="text/css" href="development-bundle/themes/base/jquery.ui.all.css" />
-<script type="text/javascript" src="development-bundle/jquery-1.4.2.js"></script>
-<script type="text/javascript" src="development-bundle/ui/jquery.ui.widget.js"></script>
-<script type="text/javascript" src="development-bundle/ui/jquery.ui.tabs.js"></script>
 
-<script type="text/javascript">
-	$(function(){
-	    var tabOpts = {
-	        disabled:[1]
-	    };
-	    $("#myTabs").tabs(tabOpts);
-	    $("#enable").click(function() {
-	        $("#myTabs").tabs("enable", 1);
-	    });
-	    $("#disable").click(function() {
-	        $("#myTabs").tabs("disable", 1);
-	    });
-	});
-	</script>
 
-	<div id="myTabs">
-	    <ul>
-	    <li class="tabs"><a href="#a">Tab 1</a></li>
-	    <li class="tabs"><a href="#b">Tab 2</a></li>
-    </ul>
-	    <div id="a">This is the content panel linked to the first tab,
-	    it is shown by default.</div>
-	    <div id="b">This content is linked to the second tab and will
-	    be shown when its tab is clicked.</div>
+	<div id="myTabs" style="width:100%" align="center">
+	<form action="printTest" method="post">
+	<?php 
+	echo $_SERVER["HTTP_HOST"];
+	$options = array ('M' => 'Male', 'F' => 'Female');
+	echo CHtml::dropDownList('mySelect', 'M', $options, array('empty'=>'Select gender'));
+	echo CHtml::submitButton('Login', array('class' => 'btn'));
+	?>
+	</form>
+	
+	<div>
+	<?php echo CHtml::beginForm(); ?>
+	
+	<?php 	
+	$type_list=array ('M' => 'Male', 'F' => 'Female');
+	
+	echo CHtml::activeTextField($model,'email', array('placeholder' => 'Enter Registered Email'));
+	echo CHtml::activeDropDownList($model,'gender',$type_list); 
+	echo CHtml::submitButton('Submit', array('class' => 'btn'));
+	?>
 	</div>
-	<button id="enable">Enable!</button>
-	<button id="disable">Disable!</button>
+	
+	<?php echo CHtml::endForm(); ?>
+	</div>
 		

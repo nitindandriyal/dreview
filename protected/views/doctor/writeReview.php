@@ -13,7 +13,8 @@ $userName='Vasudha Yadav';
 Yii::app()->session['idDoc']=$idDoc;
 
 ?>
-	
+<div style="height: 60px">
+</div>	
 <div class="reviewDiv">
 
 <?php $form=$this->beginWidget('CActiveForm', array(

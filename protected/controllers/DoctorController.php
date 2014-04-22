@@ -162,25 +162,8 @@ class DoctorController extends Controller
 	{
 		$model=new DoctorReviews;
 
-		// uncomment the following code to enable ajax-based validation
-		/*
-		 if(isset($_POST['ajax']) && $_POST['ajax']==='doctor-reviews-writeReview-form')
-		 {
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
-		}
-		*/
 		$idDoc = Yii::app()->session['idDoc'];
-		$user = Yii::app()->user->id;
-		
-		if(null == $user  || !array_filter($user))
-		{
-			$email = $_SESSION['email'];
-		}
-		else
-		{
-			$email = $user['email'];
-		}	
+		$user = Yii::app()->user->id;	
 					
 		if(isset($_POST['DoctorReviews']))
 		{

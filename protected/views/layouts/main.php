@@ -1,14 +1,5 @@
 <?php 
 $user = Yii::app()->user->id;
-
-if(null == $user  || !array_filter($user))
-{
-	if(isset($_SESSION['email']))
-	{
-		$user = array('email' => $_SESSION['email'], 
-				'username' => $_SESSION['username']);
-	}
-}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">

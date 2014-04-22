@@ -2,6 +2,7 @@
 
 require_once (dirname(__FILE__).'/../config/dbconfig.php');
 require (dirname(__FILE__).'/../lib/facebook/facebook.php');
+require (dirname(__FILE__).'/../lib/google/openid.php');
 
 /**
  * UserIdentity represents the data needed to identity a user.
@@ -177,6 +178,62 @@ class UserIdentity extends CUserIdentity
 		}
 	}
 		
+	public function googleLogin()
+	{
+		try
+		{
+			# Change 'localhost' to your domain name.
+			$openid = new LightOpenID($_SERVER["HTTP_HOST"]);
+			//user is notlogged in
+			if(!$openid->mode)
+			{
+				$openid->identity = 'https://www.google.com/accounts/o8/id?approval_prompt=auto';
+				//Get additional google account information about the user , name , email , country
+				$openid->required = array('contact/email' , 'namePerson/first' , 'namePerson/last' , 'pref/language' , 'contact/country/home');
+				header('Location: ' . $openid->authUrl());
+			}
+			elseif($openid->mode == 'cancel')
+			{
+				header("Location: /profile/login");
+			}
+			//Echo login information by default
+			else
+			{
+				if($openid->validate())
+				{
+					//User logged in
+					$d = $openid->getAttributes();
+		
+					//print_r($openid->getAttributes());
+		
+					$username = $d['namePerson/first'].' '.$d['namePerson/last'];
+					$email = $d['contact/email'];
+					$language_code = $d['pref/language'];
+					$country_code = $d['contact/country/home'];
+		
+					//now signup/login the user.
+					$userdata = $this->checkGoogleUser('google',$username, $email);
+		
+					if(array_filter($userdata))
+					{
+						$this->errorCode=self::ERROR_NONE;	
+						$this->_id = $userdata;						
+					}
+		
+				}
+				else
+				{
+					echo "User is not logged in";
+				}
+			}
+		
+		}
+		catch(ErrorException $e)
+		{
+			echo $e->getMessage();
+		}	
+	}
+	
 	public function getId()
 	{
 		return $this->_id;
